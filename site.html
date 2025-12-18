@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EcoPower Solutions - Maryland Home Energy & Safety Audits. Professional home energy audits with rebate assistance and 0% CEA financing options.">
+    <title>EcoPower Solutions | Maryland Home Energy & Safety Audits</title>
+</head>
+<body>
+
+<style>
+    section[id] {
+        scroll-margin-top: 90px; /* Adjust this value to match your sticky header height */
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+        --ecp-blue: #1A4D8F; --ecp-blue-dark: #153d73; --ecp-blue-light: #2a6bc4; --ecp-blue-lighter: #e8f0fa;
+        --ecp-grey-light: #f3f4f6; --ecp-grey: #4b5563; --ecp-grey-dark: #374151;
+        --ecp-danger: #b91c1c; --ecp-danger-soft: #fee2e2; --ecp-accent: #10b981; --ecp-white: #ffffff;
+        --ecp-shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.18); --ecp-radius-lg: 18px; --ecp-radius-md: 14px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #111827; background-color: #ffffff; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    .page-wrapper { min-height: 100vh; background-color: #ffffff; }
+    .section { padding: 80px 0; }
+    .section-grey { background-color: var(--ecp-grey-light); }
+    .section-blue-gradient { background: linear-gradient(135deg, var(--ecp-blue-lighter) 0%, var(--ecp-white) 100%); }
+    .kicker { display: inline-block; padding: 6px 16px; border-radius: 999px; background-color: rgba(26, 77, 143, 0.06); color: var(--ecp-blue); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+    .section-header { text-align: center; margin-bottom: 40px; padding: 0 16px; }
+    .section-title { font-size: clamp(1.8rem, 2.4vw, 2.2rem); font-weight: 700; margin-bottom: 10px; color: #0f172a; }
+    .section-subtitle { max-width: 640px; margin: 0 auto; font-size: 0.98rem; color: var(--ecp-grey); }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+    .top-nav { position: sticky; top: 0; z-index: 40; width: 100%; background: rgba(15, 23, 42, 0.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(148, 163, 184, 0.4); }
+    .top-nav-inner { max-width: 1120px; margin: 0 auto; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .nav-left { display: flex; align-items: center; gap: 12px; }
+    .nav-logo { display: flex; align-items: center; gap: 8px; }
+    .nav-logo img { height: 34px; width: auto; }
+    .nav-links { display: none; align-items: center; gap: 18px; font-size: 0.9rem; }
+    .nav-links a { color: #e5e7eb; opacity: 0.9; position: relative; }
+    .nav-links a::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--ecp-accent); transition: width 0.2s ease; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-right { display: flex; align-items: center; gap: 14px; color: #e5e7eb; font-size: 0.85rem; }
+    .nav-contact { display: none; flex-direction: column; align-items: flex-end; gap: 2px; }
+    .nav-contact a { color: #f9fafb; font-weight: 500; }
+    .nav-contact span { opacity: 0.8; }
+    .nav-mobile-btn { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 999px; border: 1px solid rgba(148, 163, 184, 0.7); background: transparent; color: #e5e7eb; cursor: pointer; }
+    .nav-mobile-btn svg { width: 18px; height: 18px; }
+    @media (min-width: 1024px) { .nav-links { display: flex; } .nav-contact { display: flex; } .nav-mobile-btn { display: none; } }
+    .top-nav.scrolled { background: rgba(15, 23, 42, 0.98); }
+
+    .announcement-bar { background-color: var(--ecp-danger-soft); border-bottom: 1px solid #fecaca; }
+    .announcement-inner { max-width: 1120px; margin: 0 auto; padding: 8px 20px; display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #7f1d1d; }
+    .announcement-icon { width: 18px; height: 18px; border-radius: 999px; border: 2px solid var(--ecp-danger); display: flex; align-items: center; justify-content: center; font-size: 0.65rem; flex-shrink: 0; }
+    .announcement-text strong { font-weight: 700; }
+
+    .hero { position: relative; min-height: calc(100vh - 104px); display: flex; align-items: center; overflow: hidden; padding: 60px 0; background-color: #0f2847; background-image: url('https://freedomconstructiongrp.com/wp-content/uploads/2024/07/tour-of-baltimores-inner-harbor-skyline.webp'); background-size: cover; background-position: center center; }
+    .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(26, 77, 143, 0.85) 0%, rgba(15, 40, 71, 0.92) 100%); }
+    .hero-container { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    @media (min-width: 1024px) { .hero-container { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); align-items: center; } }
+
+    .hero-logo { height: 56px; width: auto; margin-bottom: 16px; }
+    .hero-kicker { display: inline-block; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(148, 163, 184, 0.7); background: rgba(15, 23, 42, 0.7); color: #e5e7eb; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+    .hero-title { font-size: clamp(2.1rem, 3.4vw, 2.8rem); font-weight: 700; color: #f9fafb; margin-bottom: 14px; }
+    .hero-description { font-size: 0.98rem; color: #e5e7eb; max-width: 36rem; margin-bottom: 20px; }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; }
+    .hero-contact-line { font-size: 0.9rem; color: #e5e7eb; }
+    .hero-contact-line a { color: #bbf7d0; text-decoration: underline; text-underline-offset: 3px; }
+
+    .hero-card { background: rgba(15, 23, 42, 0.9); border-radius: var(--ecp-radius-lg); padding: 22px 20px 20px; border: 1px solid rgba(148, 163, 184, 0.8); box-shadow: var(--ecp-shadow-soft); color: #e5e7eb; }
+    .hero-card-pill { display: inline-block; padding: 3px 10px; border-radius: 999px; background: rgba(16, 185, 129, 0.15); color: #6ee7b7; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .hero-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+    .hero-card-list { list-style: none; display: grid; gap: 8px; font-size: 0.9rem; margin-bottom: 10px; }
+    .hero-card-item { display: flex; align-items: flex-start; gap: 8px; }
+    .hero-card-check { width: 18px; height: 18px; border-radius: 999px; border: 2px solid #6ee7b7; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .hero-card-note { font-size: 0.78rem; color: #9ca3af; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; border-radius: 999px; font-size: 0.9rem; font-weight: 600; border: none; cursor: pointer; transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease; text-decoration: none; }
+    .btn-primary { background: var(--ecp-accent); color: #022c22; box-shadow: 0 14px 30px rgba(5, 150, 105, 0.35); }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 18px 40px rgba(5, 150, 105, 0.45); background: #059669; }
+    .btn-white { background: rgba(15, 23, 42, 0.05); color: #e5e7eb; border: 1px solid rgba(148, 163, 184, 0.7); }
+    .btn-white:hover { background: rgba(15, 23, 42, 0.2); }
+
+    .grid { display: grid; gap: 20px; }
+    @media (min-width: 768px) { .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (min-width: 992px) { .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+    .info-card { background: #ffffff; border-radius: var(--ecp-radius-lg); padding: 22px 18px; border: 1px solid #e5e7eb; box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08); }
+    .info-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .info-card p { font-size: 0.93rem; color: var(--ecp-grey); }
+    .info-card-list { list-style: none; margin-top: 10px; display: grid; gap: 6px; font-size: 0.9rem; color: var(--ecp-grey-dark); }
+    .info-card-list li { display: flex; align-items: flex-start; gap: 6px; }
+    .info-card-dot { width: 8px; height: 8px; border-radius: 999px; margin-top: 6px; background: var(--ecp-blue-light); flex-shrink: 0; }
+
+    .what-we-do-text p { font-size: 0.95rem; color: var(--ecp-grey-dark); margin-bottom: 10px; }
+
+    .highlight-box { background-color: #ffffff; border-radius: var(--ecp-radius-lg); padding: 18px 18px; border: 1px solid #e5e7eb; box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08); }
+    .highlight-title { font-weight: 600; margin-bottom: 8px; }
+    .checklist { list-style: none; display: grid; gap: 8px; font-size: 0.9rem; }
+    .checklist li { display: flex; align-items: flex-start; gap: 6px; }
+    .check-icon { width: 18px; height: 18px; border-radius: 999px; border: 2px solid var(--ecp-blue); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+
+    .danger-grid { display: grid; gap: 18px; }
+    @media (min-width: 768px) { .danger-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    .danger-card { background: #ffffff; border-radius: var(--ecp-radius-md); padding: 18px 16px; border: 1px solid #e5e7eb; box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06); }
+    .danger-card h3 { font-size: 1rem; margin-bottom: 6px; }
+    .danger-card p { font-size: 0.9rem; color: var(--ecp-grey); }
+    .danger-tag { display: inline-block; margin-top: 8px; padding: 3px 9px; border-radius: 999px; font-size: 0.78rem; background-color: var(--ecp-danger-soft); color: var(--ecp-danger); }
+
+    .credentials-wrapper { display: grid; gap: 24px; }
+    @media (min-width: 960px) { .credentials-wrapper { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); } }
+
+    .slider-wrapper { background: #020617; border-radius: var(--ecp-radius-lg); border: 1px solid #1f2937; padding: 20px 18px 22px; color: #e5e7eb; box-shadow: var(--ecp-shadow-soft); }
+    .slider-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .slider-header h3 { font-size: 1.05rem; }
+    .slider-subtext { font-size: 0.78rem; color: #9ca3af; }
+    .slider-container { overflow: hidden; position: relative; }
+    .slider-track { display: flex; transition: transform 0.45s ease; }
+    .slider-card { min-width: 100%; padding: 12px 6px 6px; }
+    .slider-card-inner { background: #ffffff; border-radius: 16px; padding: 16px 16px 14px; border: 1px solid #e5e7eb; box-shadow: 0 14px 30px rgba(15, 23, 42, 0.10); color: var(--ecp-grey-dark); }
+    .slider-card-badge { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.09em; background: rgba(15, 23, 42, 0.05); border: 1px solid #e5e7eb; margin-bottom: 10px; color: var(--ecp-grey-dark); }
+    .slider-card-logo { height: 42px; width: auto; margin-bottom: 10px; }
+    .slider-card-inner h4 { font-size: 1rem; margin-bottom: 6px; }
+    .slider-card-inner p { font-size: 0.88rem; color: var(--ecp-grey); }
+    .slider-controls { margin-top: 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .slider-dots { display: flex; gap: 4px; }
+    .slider-dot { width: 7px; height: 7px; border-radius: 999px; background: #1f2937; cursor: pointer; }
+    .slider-dot.active { width: 18px; background: #38bdf8; }
+    .slider-btn { border-radius: 999px; border: 1px solid rgba(148, 163, 184, 0.8); background: rgba(15, 23, 42, 0.8); width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; color: #e5e7eb; }
+    .slider-btn:hover { background: rgba(37, 99, 235, 0.85); }
+
+    .credentials-secondary { display: grid; gap: 14px; }
+    .cred-mini-card { background: #ffffff; border-radius: var(--ecp-radius-md); padding: 13px 14px; border: 1px solid #e5e7eb; display: grid; grid-template-columns: auto 1fr; gap: 10px 12px; align-items: center; }
+    .cred-mini-logo { height: 30px; width: auto; }
+    .cred-mini-card h5 { font-size: 0.95rem; margin-bottom: 2px; }
+    .cred-mini-card p { font-size: 0.85rem; color: var(--ecp-grey); grid-column: 1 / -1; }
+    .cred-mini-card.empower-card { background: var(--ecp-blue); border-color: #0b2b56; color: #f9fafb; }
+    .cred-mini-card.empower-card h5 { color: #f9fafb; }
+    .cred-mini-card.empower-card p { color: #e5e7eb; }
+
+    .rebates-grid { display: grid; gap: 22px; }
+    @media (min-width: 960px) { .rebates-grid { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr); } }
+    .rebates-main { background: #ffffff; border-radius: var(--ecp-radius-lg); padding: 20px 18px; border: 1px solid #e5e7eb; box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08); }
+    .rebates-main h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .rebates-main p { font-size: 0.93rem; color: var(--ecp-grey-dark); margin-bottom: 8px; }
+    .rebates-list { list-style: none; display: grid; gap: 6px; font-size: 0.9rem; margin-top: 4px; }
+    .rebates-list li { display: flex; align-items: flex-start; gap: 6px; }
+    .rebate-check { width: 18px; height: 18px; border-radius: 999px; border: 2px solid var(--ecp-blue); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+
+    .rebates-aside { background: #020617; border-radius: var(--ecp-radius-lg); border: 1px solid #1f2937; padding: 18px 16px; color: #e5e7eb; box-shadow: var(--ecp-shadow-soft); font-size: 0.9rem; }
+    .rebates-aside h3 { font-size: 1rem; margin-bottom: 8px; }
+    .rebates-aside p { margin-bottom: 6px; color: #cbd5f5; }
+    .rebate-note { font-size: 0.78rem; color: #9ca3af; margin-top: 6px; }
+
+    .process-steps { display: grid; gap: 16px; }
+    @media (min-width: 960px) { .process-steps { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+    .process-step { position: relative; background: #ffffff; border-radius: var(--ecp-radius-md); padding: 18px 14px 14px; border: 1px solid #e5e7eb; box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08); font-size: 0.9rem; }
+    .process-step-number { position: absolute; top: -12px; left: 14px; width: 24px; height: 24px; border-radius: 999px; background: var(--ecp-blue); color: #f9fafb; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; box-shadow: 0 12px 30px rgba(37, 99, 235, 0.5); }
+    .process-step h3 { font-size: 0.98rem; margin-bottom: 6px; }
+    .process-step p { color: var(--ecp-grey); }
+
+    .benefits-grid { display: grid; gap: 16px; }
+    @media (min-width: 960px) { .benefits-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    .benefit-item { display: flex; align-items: flex-start; gap: 8px; font-size: 0.9rem; }
+    .benefit-icon { width: 22px; height: 22px; border-radius: 999px; background: rgba(16, 185, 129, 0.14); color: #047857; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .benefit-item strong { display: block; margin-bottom: 2px; }
+
+    .cta-banner { max-width: 960px; margin: 0 auto; padding: 26px 20px 24px; border-radius: var(--ecp-radius-lg); background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), transparent 55%), linear-gradient(135deg, var(--ecp-blue), var(--ecp-blue-dark)); color: #f9fafb; box-shadow: var(--ecp-shadow-soft); text-align: center; }
+    .cta-banner h2 { font-size: 1.5rem; margin-bottom: 6px; }
+    .cta-banner p { font-size: 0.95rem; margin-bottom: 14px; color: #e5e7eb; }
+    .cta-buttons { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 8px; }
+    .cta-buttons a { min-width: 150px; }
+    .cta-contact-line { font-size: 0.85rem; color: #e5e7eb; }
+
+    .contact-form-wrapper { max-width: 640px; margin: 40px auto 0; background: #ffffff; border-radius: var(--ecp-radius-lg); padding: 28px 24px; border: 1px solid #e5e7eb; box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08); }
+    .contact-form-wrapper h3 { font-size: 1.2rem; margin-bottom: 16px; text-align: center; color: #0f172a; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 0.9rem; font-weight: 500; margin-bottom: 6px; color: var(--ecp-grey-dark); }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px 14px; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 0.95rem; font-family: inherit; background: #ffffff; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--ecp-blue); box-shadow: 0 0 0 3px rgba(26, 77, 143, 0.1); }
+    .form-group textarea { min-height: 100px; resize: vertical; }
+    .form-row { display: grid; gap: 16px; }
+    @media (min-width: 480px) { .form-row { grid-template-columns: 1fr 1fr; } }
+    .form-submit { text-align: center; margin-top: 20px; }
+    .form-submit .btn { min-width: 200px; }
+    .form-note { font-size: 0.8rem; color: var(--ecp-grey); text-align: center; margin-top: 12px; }
+
+    .footer { border-top: 1px solid #e5e7eb; padding: 18px 0 20px; font-size: 0.85rem; color: var(--ecp-grey); background: #ffffff; }
+    .footer-inner { max-width: 1120px; margin: 0 auto; padding: 0 20px; display: flex; flex-direction: column; gap: 8px; }
+    @media (min-width: 768px) { .footer-inner { flex-direction: row; align-items: center; justify-content: space-between; } }
+    .footer-left { display: flex; align-items: center; gap: 10px; }
+    .footer-logo { height: 26px; width: auto; }
+    .footer-right { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-right span { opacity: 0.9; }
+
+    /* VISIBLE BY DEFAULT - Only animate when JS adds .js-ready */
+    .animate-on-scroll { opacity: 1; transform: translateY(0); }
+    html.js-ready .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    html.js-ready .animate-on-scroll.in-view { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { html.js-ready .animate-on-scroll { opacity: 1; transform: none; transition: none; } }
+
+    @media (max-width: 767px) {
+        .hero { min-height: auto; padding: 60px 0 50px; }
+        .announcement-inner { flex-direction: column; align-items: flex-start; }
+        .hero-card { margin-top: -10px; }
+    }
+</style>
+
+<div class="page-wrapper">
+    <nav class="top-nav" id="topNav">
+        <div class="top-nav-inner">
+            <div class="nav-left">
+                <a href="#top" class="nav-logo">
+                    <img src="https://freedomconstructiongrp.com/wp-content/uploads/2025/12/05b4bc47-22cd-40f0-ba71-e023e819496dcrop.png" alt="EcoPower Solutions Logo">
+                </a>
+                <div class="nav-links">
+                    <a href="#audit">Audit</a>
+                    <a href="#scope">What We Check</a>
+                    <a href="#credentials">Credentials</a>
+                    <a href="#rebates">Rebates & Programs</a>
+                    <a href="#process">Process</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="nav-contact">
+                    <a href="tel:4432128401">443 212 8401</a>
+                    <span><a href="mailto:hkhan@freedomconstructiongrp.com">hkhan@freedomconstructiongrp.com</a></span>
+                </div>
+                <button class="nav-mobile-btn" aria-label="Toggle navigation">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M4 6h16M4 12h16M4 18h16" stroke-width="2" stroke-linecap="round"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="announcement-bar">
+        <div class="announcement-inner">
+            <div class="announcement-icon">!</div>
+            <div class="announcement-text">
+                <strong>Important:</strong> MEA grant funding is currently fully subscribed through 2026, but
+                <strong>Clean Energy Advantage (CEA) loans with 0% interest for up to 24 months</strong> are still available for qualifying projects.
+                Contact us to see what options are open for your home.
+            </div>
+        </div>
+    </div>
+
+    <section class="hero" id="top">
+        <div class="hero-overlay"></div>
+        <div class="hero-container">
+            <div class="hero-content animate-on-scroll">
+                <img src="https://freedomconstructiongrp.com/wp-content/uploads/2025/12/EcoPower-Solutions-R1-03-1.jpg" alt="EcoPower Solutions" class="hero-logo">
+                <span class="hero-kicker">Maryland Home Energy & Safety Audits</span>
+                <h1 class="hero-title">Make Your Maryland Home Safer & More Efficient</h1>
+                <p class="hero-description">
+                    We inspect your home, find safety and energy issues, and help you use rebates and programs to fix them — often with little to no out-of-pocket cost when incentives and 0% CEA financing are available.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Schedule Your Home Energy Audit</a>
+                    <a href="#process" class="btn btn-white">See How It Works</a>
+                </div>
+                <p class="hero-contact-line">
+                    Questions? Call <a href="tel:4432128401">443 212 8401</a>
+                    or email <a href="mailto:hkhan@freedomconstructiongrp.com">hkhan@freedomconstructiongrp.com</a>
+                </p>
+            </div>
+            <div class="hero-card animate-on-scroll">
+                <span class="hero-card-pill">Rebates May Be Available</span>
+                <h3>What happens during an EcoPower audit?</h3>
+                <ul class="hero-card-list">
+                    <li class="hero-card-item">
+                        <span class="hero-card-check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                            </svg>
+                        </span>
+                        Use tools like gas sniffers, CO monitors, blower doors, and thermal cameras.
+                    </li>
+                    <li class="hero-card-item">
+                        <span class="hero-card-check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                            </svg>
+                        </span>
+                        Identify safety risks, leaks, insulation gaps, and areas of energy waste.
+                    </li>
+                    <li class="hero-card-item">
+                        <span class="hero-card-check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                            </svg>
+                        </span>
+                        Turn results into a clear plan with rebates and 0% CEA loan options where available.
+                    </li>
+                </ul>
+                <p class="hero-card-note">
+                    Eligibility, rebate amounts, and financing terms depend on your home, work scope, and current program rules.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-grey" id="audit">
+        <div class="container">
+            <div class="section-header">
+                <span class="kicker animate-on-scroll">What We Do</span>
+                <h2 class="section-title animate-on-scroll">A Whole-Home Health Check for Maryland Residents</h2>
+                <p class="section-subtitle animate-on-scroll">
+                    EcoPower Solutions performs in-depth home energy and safety audits that look at how your home is built, how it breathes, and how your systems are really performing.
+                </p>
+            </div>
+            <div class="grid grid-2">
+                <div class="what-we-do-text animate-on-scroll">
+                    <p>
+                        A certified EcoPower auditor visits your home with professional tools to understand how air, heat, and moisture move through your space. We look at your building shell, mechanical systems, and visible wiring and plumbing to identify safety concerns and energy opportunities.
+                    </p>
+                    <p>
+                        After the audit, we explain what we found in plain language and prioritize which issues matter most for your comfort, safety, and budget.
+                    </p>
+                </div>
+                <div class="highlight-box animate-on-scroll">
+                    <div class="highlight-title">Your audit typically includes:</div>
+                    <ul class="checklist">
+                        <li>
+                            <span class="check-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                                </svg>
+                            </span>
+                            Gas, combustion, and carbon monoxide safety checks
+                        </li>
+                        <li>
+                            <span class="check-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                                </svg>
+                            </span>
+                            Blower door testing and leak diagnostics (where applicable)
+                        </li>
+                        <li>
+                            <span class="check-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                                </svg>
+                            </span>
+                            Review of HVAC, water heater, and major appliances
+                        </li>
+                        <li>
+                            <span class="check-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                                </svg>
+                            </span>
+                            Insulation, attic, and ventilation assessment
+                        </li>
+                        <li>
+                            <span class="check-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                                </svg>
+                            </span>
+                            Modeled savings and rebate recommendations
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="scope">
+        <div class="container">
+            <div class="section-header">
+                <span class="kicker animate-on-scroll">What We Check</span>
+                <h2 class="section-title animate-on-scroll">Key Areas We Look At During Your Audit</h2>
+                <p class="section-subtitle animate-on-scroll">
+                    We combine diagnostic testing with building science to uncover issues you can't always see — but definitely feel on your bills and in your home.
+                </p>
+            </div>
+            <div class="grid grid-3">
+                <div class="info-card animate-on-scroll">
+                    <h3>Safety & Combustion</h3>
+                    <p>Gas sniffers, ambient CO checks, and combustion testing for furnaces, boilers, and water heaters.</p>
+                    <ul class="info-card-list">
+                        <li><span class="info-card-dot"></span>CO monitoring and venting checks</li>
+                        <li><span class="info-card-dot"></span>Appliance backdraft and exhaust verification</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Leaks & Drafts</h3>
+                    <p>Air, water, and gas leaks in attics, basements, crawlspaces, and around doors and windows.</p>
+                    <ul class="info-card-list">
+                        <li><span class="info-card-dot"></span>Blower door testing (where applicable)</li>
+                        <li><span class="info-card-dot"></span>Moisture and leak risk areas</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Insulation & Attic</h3>
+                    <p>Insulation levels, attic conditions, and ventilation that affect comfort and mold risk.</p>
+                    <ul class="info-card-list">
+                        <li><span class="info-card-dot"></span>Attic and knee wall insulation</li>
+                        <li><span class="info-card-dot"></span>Air sealing opportunities</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>HVAC & Ventilation</h3>
+                    <p>Heaters, AC units, thermostats, bath fans, and exhaust systems that move air through your home.</p>
+                    <ul class="info-card-list">
+                        <li><span class="info-card-dot"></span>Equipment condition and basic performance</li>
+                        <li><span class="info-card-dot"></span>Exhaust and ventilation checks</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Electrical & Piping</h3>
+                    <p>Visible wiring, panels, and piping issues that may indicate safety or moisture problems.</p>
+                    <ul class="info-card-list">
+                        <li><span class="info-card-dot"></span>Noting visible electrical red flags</li>
+                        <li><span class="info-card-dot"></span>Checking for rust, corrosion, and leaks</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Appliances & Programs</h3>
+                    <p>Major appliances and equipment that may qualify for swap programs or efficiency incentives.</p>
+                    <ul class="info-card-list">
+                        <li><span class="info-card-dot"></span>Appliance efficiency and age review</li>
+                        <li><span class="info-card-dot"></span>Identifying potential rebate-covered upgrades</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="section-subtitle animate-on-scroll" style="margin-top: 24px; font-size: 0.9rem;">
+                <strong>Note:</strong> EcoPower audits are assessment-only. We do not perform on-the-spot repairs during the audit visit. Our job is to test, document, and guide your next steps.
+            </p>
+        </div>
+    </section>
+
+    <section class="section section-grey" id="dangers">
+        <div class="container">
+            <div class="section-header">
+                <span class="kicker animate-on-scroll">Hidden Risks</span>
+                <h2 class="section-title animate-on-scroll">Problems We Aim to Catch Early</h2>
+                <p class="section-subtitle animate-on-scroll">
+                    Our audits are designed to find issues before they turn into costly emergencies or safety hazards.
+                </p>
+            </div>
+            <div class="danger-grid">
+                <div class="danger-card animate-on-scroll">
+                    <h3>CO & Combustion Hazards</h3>
+                    <p>Poor venting, cracked heat exchangers, backdrafting, and other issues that can put your household at risk.</p>
+                    <span class="danger-tag">Ignored: emergency calls, health risks, property damage</span>
+                </div>
+                <div class="danger-card animate-on-scroll">
+                    <h3>Moisture & Water Issues</h3>
+                    <p>Leaks, condensation, and humidity problems that can lead to mold, rot, and structural damage over time.</p>
+                    <span class="danger-tag">Ignored: mold cleanup, drywall & flooring replacement</span>
+                </div>
+                <div class="danger-card animate-on-scroll">
+                    <h3>Drafts & Energy Waste</h3>
+                    <p>Gaps, air leaks, and insulation failures that make your systems work harder and cost you more every month.</p>
+                    <span class="danger-tag">Ignored: higher bills, shorter equipment life</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-blue-gradient" id="credentials">
+        <div class="container">
+            <div class="section-header">
+                <span class="kicker animate-on-scroll">Certifications & Credentials</span>
+                <h2 class="section-title animate-on-scroll">Qualified, Licensed & Recognized</h2>
+                <p class="section-subtitle animate-on-scroll">
+                    Our team holds industry certifications, Maryland licenses, and safety training that meet both state and federal requirements.
+                </p>
+            </div>
+            <div class="credentials-wrapper">
+                <div class="slider-wrapper animate-on-scroll">
+                    <div class="slider-header">
+                        <h3>Core Credentials</h3>
+                        <span class="slider-subtext">Swipe or use arrows</span>
+                    </div>
+                    <div class="slider-container">
+                        <div class="slider-track" id="sliderTrack">
+                            <div class="slider-card">
+        <!-- Core Credentials Slider Images Start (lines 477-517) -->
+                                <div class="slider-card-inner">
+                                    <span class="slider-card-badge">Top Credential</span>
+                                    <img src="https://freedomconstructiongrp.com/wp-content/uploads/2025/10/624dd9181530b17493768f4a.png" alt="BPI Certified" class="slider-card-logo">
+                                    <h4>BPI Certified Professional</h4>
+                                    <p>Building Performance Institute certification for whole-home energy auditing.</p>
+                                </div>
+                            </div>
+                            <div class="slider-card">
+                                <div class="slider-card-inner">
+                                    <span class="slider-card-badge">Maryland Licensed</span>
+                                    <img src="https://freedomconstructiongrp.com/wp-content/uploads/2025/10/mhic-logo-maryland-home-improvement-commission-logo-1.png" alt="MHIC Licensed" class="slider-card-logo">
+                                    <h4>MHIC Licensed Contractor</h4>
+                                    <p>Maryland Home Improvement Commission licensed for residential work.</p>
+                                </div>
+                            </div>
+                            <div class="slider-card">
+                                <div class="slider-card-inner">
+                                    <span class="slider-card-badge">Lead-Safe</span>
+                                    <img src="https://freedomconstructiongrp.com/wp-content/uploads/2025/10/Lead-Classes-Logo-300x93-1.png" alt="EPA Lead-Safe Certified" class="slider-card-logo">
+                                    <h4>EPA Lead-Safe Certified</h4>
+                                    <p>Renovation, Repair and Painting (RRP) certified for pre-1978 homes.</p>
+                                </div>
+                            </div>
+                            <div class="slider-card">
+                                <div class="slider-card-inner">
+                                    <span class="slider-card-badge">Safety</span>
+                                    <img src="https://freedomconstructiongrp.com/wp-content/uploads/2025/10/osha-logo-png_seeklogo-329441.png" alt="OSHA Certified" class="slider-card-logo">
+                                    <h4>OSHA Safety Trained</h4>
+                                    <p>Occupational Safety and Health Administration certified for worksite safety.</p>
+                                </div>
+                            </div>
+                            <div class="slider-card">
+                                <div class="slider-card-inner">
+                                    <span class="slider-card-badge">Maryland</span>
+                                    <img src="https://freedomconstructiongrp.com/wp-content/uploads/2024/06/Maryland-MBE-Certification-Logo-1536x698-1.png" alt="MBE Certified" class="slider-card-logo">
+                                    <h4>MBE Certified</h4>
+                                    <p>Maryland Minority Business Enterprise certified contractor.</p>
+                                </div>
+                            </div>
+                            <div class="slider-card">
+                                <div class="slider-card-inner">
+                                    <span class="slider-card-badge">Federal</span>
+                                    <img src="https://freedomconstructiongrp.com/wp-content/uploads/2024/06/dbe-logo.png" alt="DBE Certified" class="slider-card-logo">
+                                    <h4>DBE Certified</h4>
+                                    <p>Disadvantaged Business Enterprise certified for federal and state contracts.</p>
+                                </div>
+        <!-- Core Credentials Slider Images End (lines 477-517) -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="slider-btn" id="sliderPrev" aria-label="Previous">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15 18 9 12 15 6" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                            </svg>
+                        </button>
+                        <div class="slider-dots" id="sliderDots"></div>
+                        <button class="slider-btn" id="sliderNext" aria-label="Next">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="credentials-secondary animate-on-scroll">
+                    <div class="cred-mini-card">
+                        <img src="https://freedomconstructiongrp.com/wp-content/uploads/2025/10/679b9a0473b931dd64dd58b5_everblue_logo_2024.png" alt="Everblue Training" class="cred-mini-logo">
+                        <h5>Everblue Training</h5>
+                        <p>Advanced energy audit training</p>
+                    </div>
+                    <div class="cred-mini-card">
+                        <img src="https://freedomconstructiongrp.com/wp-content/uploads/2025/10/esco-institute.png" alt="ESCO Institute" class="cred-mini-logo">
+                        <h5>ESCO Institute</h5>
+                        <p>HVAC & energy certification</p>
+                    </div>
+                    <div class="cred-mini-card">
+                        <img src="https://freedomconstructiongrp.com/wp-content/uploads/2025/10/BetterCertify_Horizontal_color-768x131-1.webp" alt="BetterCertify" class="cred-mini-logo">
+                        <h5>BetterCertify</h5>
+                        <p>Environmental compliance</p>
+                    </div>
+                    <div class="cred-mini-card">
+                        <img src="https://freedomconstructiongrp.com/wp-content/uploads/2024/06/1-1.png" alt="PRPM" class="cred-mini-logo">
+                        <h5>PRPM Certified</h5>
+                        <p>Property maintenance standards</p>
+                    </div>
+                    <div class="cred-mini-card empower-card">
+                        <img src="https://freedomconstructiongrp.com/wp-content/uploads/2025/12/empowerlogo.webp" alt="EmPOWER Maryland" class="cred-mini-logo">
+                        <h5>EmPOWER Maryland Programs</h5>
+                        <p>Statewide energy efficiency and rebate programs supporting Maryland homeowners.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="rebates">
+        <div class="container">
+            <div class="section-header">
+                <span class="kicker animate-on-scroll">Rebates & Programs</span>
+                <h2 class="section-title animate-on-scroll">Turn Audit Results Into Funded Upgrades</h2>
+                <p class="section-subtitle animate-on-scroll">
+                    After your audit, we help connect the findings to available BGE/EmPOWER rebates and 0% CEA financing options, where eligible.
+                </p>
+            </div>
+            <div class="rebates-grid">
+                <div class="rebates-main animate-on-scroll">
+                    <h3>From audit to approved work</h3>
+                    <p>
+                        After your EcoPower audit, results go into the appropriate utility and program platforms. Based on modeled savings, work scope, and program rules, Maryland homeowners may qualify for BGE/EmPOWER rebates for improvements like:
+                    </p>
+                    <ul class="rebates-list">
+                        <li>
+                            <span class="rebate-check">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                                </svg>
+                            </span>
+                            Insulation and air sealing
+                        </li>
+                        <li>
+                            <span class="rebate-check">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                                </svg>
+                            </span>
+                            HVAC replacement or improvements
+                        </li>
+                        <li>
+                            <span class="rebate-check">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                                </svg>
+                            </span>
+                            Bath fan and ventilation upgrades
+                        </li>
+                        <li>
+                            <span class="rebate-check">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                                </svg>
+                            </span>
+                            Qualified appliance swaps
+                        </li>
+                    </ul>
+                </div>
+                <div class="rebates-aside animate-on-scroll">
+                    <h3>0% CEA loans and help with the rest</h3>
+                    <p>
+                        For qualifying BGE customers, Clean Energy Advantage (CEA) loans currently offer
+                        <strong>0% interest for up to 24 months</strong> on eligible energy upgrades, with low interest thereafter (subject to approval and program rules).
+                    </p>
+                    <p>
+                        With MEA grants currently maxed out through 2026, CEA loans and utility rebates are the main tools homeowners can use right now to move projects forward.
+                    </p>
+                    <p>
+                        EcoPower can help you understand how CEA loans and rebates might apply to your recommended work and what your out-of-pocket contribution may look like.
+                    </p>
+                    <p class="rebate-note">
+                        Program terms, availability, and eligibility can change over time. Final decisions are made by the lender and program administrators, not EcoPower Solutions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-grey" id="process">
+        <div class="container">
+            <div class="section-header">
+                <span class="kicker animate-on-scroll">How It Works</span>
+                <h2 class="section-title animate-on-scroll">A Simple Five-Step Path</h2>
+                <p class="section-subtitle animate-on-scroll">
+                    We keep the process straightforward so you can focus on making the best decisions for your home and family.
+                </p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step animate-on-scroll">
+                    <div class="process-step-number">1</div>
+                    <h3>Schedule Your Audit</h3>
+                    <p>Reach out by phone or email and we'll confirm a time that works for your household.</p>
+                </div>
+                <div class="process-step animate-on-scroll">
+                    <div class="process-step-number">2</div>
+                    <h3>In-Home Assessment</h3>
+                    <p>We arrive with testing equipment, inspect your home, and document our findings.</p>
+                </div>
+                <div class="process-step animate-on-scroll">
+                    <div class="process-step-number">3</div>
+                    <h3>Findings & Options</h3>
+                    <p>We review what we found, what it means, and which fixes deliver the most benefit.</p>
+                </div>
+                <div class="process-step animate-on-scroll">
+                    <div class="process-step-number">4</div>
+                    <h3>Rebates & Programs</h3>
+                    <p>We match your recommended work to BGE/EmPOWER rebates, CEA financing, and any other programs you may qualify for.</p>
+                </div>
+                <div class="process-step animate-on-scroll">
+                    <div class="process-step-number">5</div>
+                    <h3>You Choose Next Steps</h3>
+                    <p>You decide how to proceed. We can perform eligible work and support you through funding and follow-up.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="benefits">
+        <div class="container">
+            <div class="section-header">
+                <span class="kicker animate-on-scroll">Why Choose EcoPower</span>
+                <h2 class="section-title animate-on-scroll">Why Maryland Homeowners Call Us</h2>
+                <p class="section-subtitle animate-on-scroll">
+                    Our focus is on safety, savings, and clear guidance — not high-pressure sales.
+                </p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item animate-on-scroll">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>Safety comes first</strong>
+                        We prioritize combustion safety, CO risks, wiring red flags, and structural concerns.
+                    </div>
+                </div>
+                <div class="benefit-item animate-on-scroll">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>Lower energy use</strong>
+                        We target drafts, leaks, and insulation issues that drive up your energy bills.
+                    </div>
+                </div>
+                <div class="benefit-item animate-on-scroll">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>Help with rebates & loans</strong>
+                        We actively help connect your project to BGE/EmPOWER incentives and 0% CEA financing.
+                    </div>
+                </div>
+                <div class="benefit-item animate-on-scroll">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>Local & certified</strong>
+                        Maryland-based, with the licenses, certifications, and program partnerships to back it up.
+                    </div>
+                </div>
+                <div class="benefit-item animate-on-scroll">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>No-pressure guidance</strong>
+                        Our role is to assess and advise — you stay in control of every decision.
+                    </div>
+                </div>
+                <div class="benefit-item animate-on-scroll">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>Support beyond the audit</strong>
+                        From scheduling work to navigating rebates and financing, we're here to help you follow through.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-blue-gradient" id="contact">
+        <div class="container">
+            <div class="cta-banner animate-on-scroll">
+                <h2>Ready to Schedule Your Home Energy Audit?</h2>
+                <p>Get a clear picture of your home's safety and efficiency — and see what rebates and 0% CEA loan options may be available for your project.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:hkhan@freedomconstructiongrp.com" class="btn btn-white">Email to Schedule</a>
+                    <a href="tel:4432128401" class="btn btn-primary">Call 443 212 8401</a>
+                </div>
+                <p class="cta-contact-line">
+                    Prefer another time or method? Reach out and we'll follow up with options that work for you.
+                </p>
+            </div>
+            <div class="contact-form-wrapper animate-on-scroll">
+                <h3>Or Send Us a Message</h3>
+                <form id="contactForm" action="YOUR_FORM_ACTION_URL" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required placeholder="John">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required placeholder="Smith">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(443) 212-8401">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Property Address</label>
+                        <input type="text" id="address" name="address" placeholder="123 Main St, Baltimore, MD 21201">
+                    </div>
+                    <div class="form-group">
+                        <label for="homeType">Home Type</label>
+                        <select id="homeType" name="homeType">
+                            <option value="">Select your home type...</option>
+                            <option value="single-family">Single Family Home</option>
+                            <option value="townhouse">Townhouse</option>
+                            <option value="condo">Condo</option>
+                            <option value="multi-family">Multi-Family</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">How Can We Help? *</label>
+                        <textarea id="message" name="message" required placeholder="Tell us about your home and what you're hoping to learn from an energy audit..."></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">Request Your Audit</button>
+                    </div>
+                    <p class="form-note">We'll respond within 1-2 business days to schedule your audit.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <img src="https://freedomconstructiongrp.com/wp-content/uploads/2025/12/05b4bc47-22cd-40f0-ba71-e023e819496dcrop.png" alt="EcoPower Solutions" class="footer-logo">
+                <span>© <span id="footerYear">2024</span> EcoPower Solutions. All rights reserved.</span>
+            </div>
+            <div class="footer-right">
+                <span>Maryland home energy & safety audits.</span>
+                <span>Assessment-first guidance. Rebates and CEA financing where eligible.</span>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script>
+(function() {
+    'use strict';
+
+    // mark that JS is enabled for animations
+    document.documentElement.classList.add('js-ready');
+
+    function initScrollReveal() {
+        var elements = document.querySelectorAll('.animate-on-scroll');
+
+        // Respect reduced motion preference
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            elements.forEach(function(el) {
+                el.classList.add('in-view');
+            });
+            return;
+        }
+
+        // Fallback if IntersectionObserver isn't supported
+        if (!('IntersectionObserver' in window)) {
+            elements.forEach(function(el) {
+                el.classList.add('in-view');
+            });
+            return;
+        }
+
+        // Normal scroll-reveal behavior
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        elements.forEach(function(el) {
+            observer.observe(el);
+        });
+    }
+
+
+    function initNavbarScroll() {
+        var nav = document.getElementById('topNav');
+        if (!nav) return;
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    }
+
+    function initCredentialsSlider() {
+        var track = document.getElementById('sliderTrack'),
+            prevBtn = document.getElementById('sliderPrev'),
+            nextBtn = document.getElementById('sliderNext'),
+            dotsContainer = document.getElementById('sliderDots');
+
+        if (!track || !prevBtn || !nextBtn || !dotsContainer) return;
+
+        var slides = track.querySelectorAll('.slider-card'),
+            totalSlides = slides.length,
+            currentSlide = 0,
+            autoplayInterval;
+
+        // Create dots
+        for (var i = 0; i < totalSlides; i++) {
+            var dot = document.createElement('div');
+            dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('data-index', i);
+            dotsContainer.appendChild(dot);
+        }
+
+        var dots = dotsContainer.querySelectorAll('.slider-dot');
+
+        function updateSlider() {
+            track.style.transform = 'translateX(' + (-currentSlide * 100) + '%)';
+            dots.forEach(function(dot, index) {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        function startAutoplay() {
+            autoplayInterval = setInterval(nextSlide, 7000);
+        }
+
+        function stopAutoplay() {
+            clearInterval(autoplayInterval);
+        }
+
+        nextBtn.addEventListener('click', function() {
+            stopAutoplay();
+            nextSlide();
+            startAutoplay();
+        });
+
+        prevBtn.addEventListener('click', function() {
+            stopAutoplay();
+            prevSlide();
+            startAutoplay();
+        });
+
+        dots.forEach(function(dot) {
+            dot.addEventListener('click', function() {
+                stopAutoplay();
+                currentSlide = parseInt(this.getAttribute('data-index'), 10);
+                updateSlider();
+                startAutoplay();
+            });
+        });
+
+        var sliderWrapper = document.querySelector('.slider-wrapper');
+        if (sliderWrapper) {
+            sliderWrapper.addEventListener('mouseenter', stopAutoplay);
+            sliderWrapper.addEventListener('mouseleave', startAutoplay);
+        }
+
+        updateSlider();
+        startAutoplay();
+    }
+
+    function setFooterYear() {
+        var yearSpan = document.getElementById('footerYear');
+        if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        initScrollReveal();
+        // initSmoothScrolling(); // Removed for WordPress compatibility
+        initNavbarScroll();
+        initCredentialsSlider();
+        setFooterYear();
+    });
+})();
+</script>
+
+
+</body>
+</html>
