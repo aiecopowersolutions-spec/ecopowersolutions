@@ -784,7 +784,12 @@
             </div>
             <div class="contact-form-wrapper animate-on-scroll">
                 <h3>Or Send Us a Message</h3>
-                <form id="contactForm" action="/submit-contact" method="POST">
+                <form id="contactForm" action="https://formsubmit.co/hkhan@freedomconstructiongrp.com" method="POST">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_subject" value="New EcoPower Solutions Contact Form Submission">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    
                     <div class="form-row">
                         <div class="form-group">
                             <label for="firstName">First Name *</label>
@@ -987,51 +992,12 @@
         if (yearSpan) yearSpan.textContent = new Date().getFullYear();
     }
 
-    function initContactForm() {
-        var form = document.getElementById('contactForm');
-        if (!form) return;
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            var submitBtn = form.querySelector('button[type="submit"]');
-            var originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-
-            var formData = new FormData(form);
-
-            fetch('/submit-contact', {
-                method: 'POST',
-                body: formData
-            })
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(data) {
-                if (data.success) {
-                    form.innerHTML = '<div style="text-align: center; padding: 40px 20px;"><h3 style="color: #059669; margin-bottom: 10px;">✓ Thank You!</h3><p>' + data.message + '</p></div>';
-                } else {
-                    alert(data.message);
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                }
-            })
-            .catch(function(error) {
-                alert('There was an error submitting your form. Please try calling us directly at 443-212-8401.');
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            });
-        });
-    }
-
     document.addEventListener('DOMContentLoaded', function() {
         initScrollReveal();
         // initSmoothScrolling(); // Removed for WordPress compatibility
         initNavbarScroll();
         initCredentialsSlider();
         setFooterYear();
-        initContactForm();
     });
 })();
 </script>
