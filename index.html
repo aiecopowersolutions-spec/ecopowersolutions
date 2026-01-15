@@ -73,12 +73,19 @@
                         .nav-dropdown a:hover { background: #e8f0fa; }
                         .nav-item-dropdown { position: relative; }
                         .nav-item-dropdown .dropdown-arrow {
-                            display: inline-block;
+                            display: inline;
                             margin-left: 6px;
                             vertical-align: middle;
-                            width: 14px;
-                            height: 14px;
+                            width: 1em;
+                            height: 1em;
+                            min-width: 16px;
+                            min-height: 16px;
+                            max-width: 18px;
+                            max-height: 18px;
                             transition: transform 0.2s;
+                            stroke: #e5e7eb;
+                            fill: none;
+                            pointer-events: none;
                         }
                         .nav-item-dropdown.open .dropdown-arrow {
                             transform: rotate(180deg);
@@ -223,6 +230,9 @@
         width: auto;
         margin-bottom: 18px;
         max-width: 180px;
+    }
+    .nav-item-dropdown .dropdown-arrow path {
+        stroke: #e5e7eb;
     }
     .slider-card-inner h4 { font-size: 1rem; margin-bottom: 6px; }
     .slider-card-inner p { font-size: 0.88rem; color: var(--ecp-grey); }
