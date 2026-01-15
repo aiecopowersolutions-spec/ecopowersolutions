@@ -46,6 +46,59 @@
             /* Mobile dropdown styles */
             @media (max-width: 1023px) {
                 .nav-links {
+                        /* Dropdown menu styles */
+                        .nav-dropdown {
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+                            min-width: 210px;
+                            background: #fff;
+                            color: #1A4D8F;
+                            border-radius: 0 0 12px 12px;
+                            box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+                            padding: 8px 0;
+                            display: none;
+                            z-index: 1001;
+                        }
+                        .nav-dropdown a {
+                            display: block;
+                            padding: 12px 24px;
+                            color: #1A4D8F;
+                            font-size: 1rem;
+                            border-bottom: 1px solid #e5e7eb;
+                            background: none;
+                            transition: background 0.15s;
+                        }
+                        .nav-dropdown a:last-child { border-bottom: none; }
+                        .nav-dropdown a:hover { background: #e8f0fa; }
+                        .nav-item-dropdown { position: relative; }
+                        .nav-item-dropdown .dropdown-arrow {
+                            display: inline-block;
+                            margin-left: 6px;
+                            vertical-align: middle;
+                            width: 14px;
+                            height: 14px;
+                            transition: transform 0.2s;
+                        }
+                        .nav-item-dropdown.open .dropdown-arrow {
+                            transform: rotate(180deg);
+                        }
+                        .nav-item-dropdown.open .nav-dropdown {
+                            display: block;
+                        }
+                        @media (max-width: 1023px) {
+                            .nav-dropdown {
+                                position: static;
+                                min-width: 0;
+                                box-shadow: none;
+                                border-radius: 0 0 12px 12px;
+                                background: #f9fafb;
+                            }
+                            .nav-dropdown a {
+                                color: #1A4D8F;
+                                padding: 14px 36px;
+                            }
+                        }
                     position: absolute;
                     top: 60px;
                     left: 0;
@@ -295,7 +348,16 @@
                     <a href="#audit">Audit</a>
                     <a href="#scope">What We Check</a>
                     <a href="#credentials">Credentials</a>
-                    <a href="#rebates">Rebates & Programs</a>
+                    <div class="nav-item-dropdown">
+                        <a href="#rebates" class="dropdown-toggle">Rebates & Programs
+                            <svg class="dropdown-arrow" viewBox="0 0 20 20" fill="none"><path d="M6 8l4 4 4-4" stroke="#1A4D8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <div class="nav-dropdown">
+                            <a href="#hvac-tune-up">HVAC Tune-Up</a>
+                            <a href="#retrofit-upgrades">Retrofit Upgrades</a>
+                            <a href="#weatherization">Weatherization</a>
+                        </div>
+                    </div>
                     <a href="#process">Process</a>
                     <a href="#contact">Contact</a>
                 </div>
@@ -1034,6 +1096,24 @@
 (function() {
     'use strict';
 
+    // Dropdown menu logic for nav
+    function initNavDropdown() {
+        var dropdown = document.querySelector('.nav-item-dropdown');
+        if (!dropdown) return;
+        var toggle = dropdown.querySelector('.dropdown-toggle');
+        var menu = dropdown.querySelector('.nav-dropdown');
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            dropdown.classList.toggle('open');
+        });
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+            }
+        });
+    }
+
     // Mobile nav menu toggle
     function initMobileNav() {
         var navBtn = document.querySelector('.nav-mobile-btn');
@@ -1192,6 +1272,7 @@
         initCredentialsSlider();
         setFooterYear();
         initMobileNav();
+        initNavDropdown();
     });
 })();
 </script>
