@@ -76,10 +76,16 @@
                             display: inline-block;
                             margin-left: 6px;
                             vertical-align: middle;
-                            width: 20px;
-                            height: 20px;
+                            width: 16px;
+                            height: 16px;
                             transition: transform 0.2s;
                             color: #e5e7eb;
+                        }
+                        @media (max-width: 1023px) {
+                            .nav-item-dropdown .dropdown-arrow {
+                                width: 20px;
+                                height: 20px;
+                            }
                         }
                         .nav-item-dropdown.open .dropdown-arrow {
                             transform: rotate(180deg);
