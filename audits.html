@@ -141,13 +141,12 @@
     </style>
 </head>
 <body>
-    <!-- Top Navigation Bar (copied from index.html for consistency) -->
-    <div id="navbar-placeholder"></div>
-    <script>
-      fetch('navbar.html')
-        .then(res => res.text())
-        .then(html => { document.getElementById('navbar-placeholder').innerHTML = html; });
-    </script>
+        <div id="navbar-placeholder"></div>
+        <script>
+            fetch('navbar.html')
+                .then(res => res.text())
+                .then(html => { document.getElementById('navbar-placeholder').innerHTML = html; });
+        </script>
     <!-- Hero Section -->
     <div class="hero" id="top">
         <div class="hero-overlay"></div>
