@@ -212,9 +212,15 @@
     @media (prefers-reduced-motion: reduce) { html.js-ready .animate-on-scroll { opacity: 1; transform: none; transition: none; } }
 
     @media (max-width: 767px) {
-        .hero { min-height: auto; padding: 60px 0 50px; }
+        .hero { min-height: auto; padding: 60px 0 50px; width: 100vw; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%); }
+        .hero-container { width: 100vw; max-width: 100vw; margin: 0; padding: 0 10px; }
+        .hero-content { width: 100vw; max-width: 100vw; margin: 0; }
         .announcement-inner { flex-direction: column; align-items: flex-start; }
         .hero-card { margin-top: -10px; }
+        /* Remove max-width and center alignment for hero section on mobile */
+        .section-header, .section-title, .section-subtitle, .container { max-width: 100vw !important; margin-left: 0 !important; margin-right: 0 !important; }
+        /* Optionally, reduce logo size for mobile */
+        .hero-logo { height: 120px !important; }
     }
 </style>
 
