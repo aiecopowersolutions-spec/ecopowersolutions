@@ -3,7 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audits</title>
+    <title>Energy Audits | EcoPower Solutions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EcoPower Solutions - Maryland Home Energy & Safety Audits. Professional home energy audits with rebate assistance and 0% CEA financing options.">
+    <style>
+        /* --- Copied from index.html for theme consistency --- */
+        .desktop-only { display: none !important; }
+        .mobile-only { display: block !important; }
+        @media (min-width: 1024px) {
+            .desktop-only { display: block !important; }
+            .mobile-only { display: none !important; }
+        }
+        html, body { overflow-x: hidden; }
+        img { max-width: 100%; height: auto; }
+        section[id] { scroll-margin-top: 90px; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { padding-top: 62px !important; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #111827; background-color: #ffffff; }
+        :root {
+            --ecp-blue: #1A4D8F; --ecp-blue-dark: #153d73; --ecp-blue-light: #2a6bc4; --ecp-blue-lighter: #e8f0fa;
+            --ecp-grey-light: #f3f4f6; --ecp-grey: #4b5563; --ecp-grey-dark: #374151;
+            --ecp-danger: #b91c1c; --ecp-danger-soft: #fee2e2; --ecp-accent: #10b981; --ecp-white: #ffffff;
+            --ecp-shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.18); --ecp-radius-lg: 18px; --ecp-radius-md: 14px;
+        }
+        html { scroll-behavior: smooth; }
+        img { display: block; }
+        a { color: inherit; text-decoration: none; }
+        ul { list-style: none; }
+        .page-wrapper { min-height: 100vh; background-color: #ffffff; }
+        .section { padding: 80px 0; }
+        .section-grey { background-color: var(--ecp-grey-light); }
+        .section-blue-gradient { background: linear-gradient(135deg, var(--ecp-blue-lighter) 0%, var(--ecp-white) 100%); }
+        .kicker { display: inline-block; padding: 6px 16px; border-radius: 999px; background-color: rgba(26, 77, 143, 0.06); color: var(--ecp-blue); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+        .section-header { text-align: center; margin-bottom: 40px; padding: 0 16px; }
+        .section-title { font-size: clamp(1.8rem, 2.4vw, 2.2rem); font-weight: 700; margin-bottom: 10px; color: #0f172a; }
+        .section-subtitle { max-width: 640px; margin: 0 auto; font-size: 0.98rem; color: var(--ecp-grey); }
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+        .grid { display: grid; gap: 20px; }
+        @media (min-width: 768px) { .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (min-width: 992px) { .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+        .info-card { background: #ffffff; border-radius: var(--ecp-radius-lg); padding: 22px 18px; border: 1px solid #e5e7eb; box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08); }
+        .info-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+        .info-card p { font-size: 0.93rem; color: var(--ecp-grey); }
+        .info-card-list { list-style: none; margin-top: 10px; display: grid; gap: 6px; font-size: 0.9rem; color: var(--ecp-grey-dark); }
+        .info-card-list li { display: flex; align-items: flex-start; gap: 6px; }
+        .info-card-dot { width: 8px; height: 8px; border-radius: 999px; margin-top: 6px; background: var(--ecp-blue-light); flex-shrink: 0; }
+        .danger-grid { display: grid; gap: 18px; }
+        @media (min-width: 768px) { .danger-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+        .danger-card { background: #ffffff; border-radius: var(--ecp-radius-md); padding: 18px 16px; border: 1px solid #e5e7eb; box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06); }
+        .danger-card h3 { font-size: 1rem; margin-bottom: 6px; }
+        .danger-card p { font-size: 0.9rem; color: var(--ecp-grey); }
+        .danger-tag { display: inline-block; margin-top: 8px; padding: 3px 9px; border-radius: 999px; font-size: 0.78rem; background-color: var(--ecp-danger-soft); color: var(--ecp-danger); }
+        .process-steps { display: grid; gap: 16px; }
+        @media (min-width: 960px) { .process-steps { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+        .process-step { position: relative; background: #ffffff; border-radius: var(--ecp-radius-md); padding: 18px 14px 14px; border: 1px solid #e5e7eb; box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08); font-size: 0.9rem; }
+        .process-step-number { position: absolute; top: -12px; left: 14px; width: 24px; height: 24px; border-radius: 999px; background: var(--ecp-blue); color: #f9fafb; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; box-shadow: 0 12px 30px rgba(37, 99, 235, 0.5); }
+        .process-step h3 { font-size: 0.98rem; margin-bottom: 6px; }
+        .process-step p { color: var(--ecp-grey); }
+        /* Announcement bar styles */
+        .announcement-bar { background-color: var(--ecp-danger-soft); border-bottom: 1px solid #fecaca; position: relative; z-index: 1001; }
+        .announcement-inner { max-width: 1120px; margin: 0 auto; padding: 8px 20px; display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #7f1d1d; }
+        .announcement-icon { width: 18px; height: 18px; border-radius: 999px; border: 2px solid var(--ecp-danger); display: flex; align-items: center; justify-content: center; font-size: 0.65rem; flex-shrink: 0; }
+        .announcement-text strong { font-weight: 700; }
+        @media (max-width: 600px) {
+            .container { padding: 0 8px; }
+        }
+        /* Hero section styles */
+        .hero { position: relative; min-height: 420px; display: flex; align-items: center; overflow: hidden; padding: 60px 0; background-color: #0f2847; background-image: url('https://freedomconstructiongrp.com/wp-content/uploads/2024/07/tour-of-baltimores-inner-harbor-skyline.webp'); background-size: cover; background-position: center center; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(26, 77, 143, 0.85) 0%, rgba(15, 40, 71, 0.92) 100%); }
+        .hero-container { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        @media (min-width: 1024px) { .hero-container { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); align-items: center; } }
+        .hero-title { font-size: clamp(2.1rem, 3.4vw, 2.8rem); font-weight: 700; color: #f9fafb; margin-bottom: 14px; }
+        .hero-kicker { display: inline-block; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(148, 163, 184, 0.7); background: rgba(15, 23, 42, 0.7); color: #e5e7eb; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="EcoPower Solutions - Maryland Home Energy & Safety Audits. Professional home energy audits with rebate assistance and 0% CEA financing options.">
     <style>
@@ -85,17 +156,27 @@
                 </div>
             </div>
             <div class="nav-right">
-                <div class="nav-contact">
+                <div class="nav-contact" style="align-items: flex-end; text-align: right;">
                     <a href="tel:4433628625">443 362 8625</a>
-                    <a href="mailto:systems@ecopowersol.com">systems@ecopowersol.com</a>
+                    <span><a href="mailto:systems@ecopowersol.com">systems@ecopowersol.com</a></span>
                     <span>MHIC #129718</span>
                     <span>1724 Woodlawn Dr, Ste 12B</span>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Hero Section -->
+    <div class="hero" id="top">
+        <div class="hero-overlay"></div>
+        <div class="hero-container">
+            <div class="hero-content animate-on-scroll">
+                <span class="hero-kicker">Maryland Home Energy & Safety Audits</span>
+                <h1 class="hero-title">Energy Audits</h1>
+            </div>
+        </div>
+    </div>
     <!-- Announcement Bar (red banner) -->
-    <div class="announcement-bar" style="margin-top:62px;">
+    <div class="announcement-bar">
         <div class="announcement-inner">
             <span class="announcement-icon">&#9888;</span>
             <span class="announcement-text"><strong>Important:</strong> EcoPower audits are assessment-only. We do not perform on-the-spot repairs during the audit visit. Our job is to test, document, and guide your next steps.</span>
