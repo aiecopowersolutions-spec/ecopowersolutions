@@ -996,6 +996,22 @@
 (function() {
     'use strict';
 
+    // Mobile nav menu toggle
+    function initMobileNav() {
+        var navBtn = document.querySelector('.nav-mobile-btn');
+        var navLinks = document.querySelector('.nav-links');
+        if (!navBtn || !navLinks) return;
+        navBtn.addEventListener('click', function() {
+            var isOpen = navLinks.style.display === 'flex';
+            navLinks.style.display = isOpen ? 'none' : 'flex';
+        });
+        // Optionally close menu when a link is clicked (for single-page UX)
+        navLinks.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                if (window.innerWidth < 1024) navLinks.style.display = 'none';
+            });
+        });
+    }
     // mark that JS is enabled for animations
     document.documentElement.classList.add('js-ready');
 
@@ -1138,6 +1154,7 @@
         initNavbarScroll();
         initCredentialsSlider();
         setFooterYear();
+        initMobileNav();
     });
 })();
 </script>
