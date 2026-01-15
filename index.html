@@ -73,19 +73,13 @@
                         .nav-dropdown a:hover { background: #e8f0fa; }
                         .nav-item-dropdown { position: relative; }
                         .nav-item-dropdown .dropdown-arrow {
-                            display: inline;
+                            display: inline-block;
                             margin-left: 6px;
                             vertical-align: middle;
-                            width: 1em;
-                            height: 1em;
-                            min-width: 16px;
-                            min-height: 16px;
-                            max-width: 18px;
-                            max-height: 18px;
+                            width: 20px;
+                            height: 20px;
                             transition: transform 0.2s;
-                            stroke: #e5e7eb;
-                            fill: none;
-                            pointer-events: none;
+                            color: #e5e7eb;
                         }
                         .nav-item-dropdown.open .dropdown-arrow {
                             transform: rotate(180deg);
@@ -231,9 +225,7 @@
         margin-bottom: 18px;
         max-width: 180px;
     }
-    .nav-item-dropdown .dropdown-arrow path {
-        stroke: #e5e7eb;
-    }
+    /* Remove path color override, use currentColor */
     .slider-card-inner h4 { font-size: 1rem; margin-bottom: 6px; }
     .slider-card-inner p { font-size: 0.88rem; color: var(--ecp-grey); }
     .slider-controls { margin-top: 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
@@ -360,7 +352,7 @@
                     <a href="#credentials">Credentials</a>
                     <div class="nav-item-dropdown">
                         <a href="#rebates" class="dropdown-toggle">Rebates & Programs
-                            <svg class="dropdown-arrow" viewBox="0 0 20 20" fill="none"><path d="M6 8l4 4 4-4" stroke="#1A4D8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <svg class="dropdown-arrow" viewBox="0 0 20 20" fill="none"><path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </a>
                         <div class="nav-dropdown">
                             <a href="#hvac-tune-up">HVAC Tune-Up</a>
