@@ -36,7 +36,8 @@
     .section-subtitle { max-width: 640px; margin: 0 auto; font-size: 0.98rem; color: var(--ecp-grey); }
     .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
 
-    .top-nav { position: sticky; top: 0; z-index: 40; width: 100%; background: rgba(15, 23, 42, 0.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(148, 163, 184, 0.4); }
+    .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; width: 100%; background: rgba(15, 23, 42, 0.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(148, 163, 184, 0.4); box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+    body { padding-top: 62px; }
     .top-nav-inner { max-width: 1120px; margin: 0 auto; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .nav-left { display: flex; align-items: center; gap: 12px; }
     .nav-logo { display: flex; align-items: center; gap: 8px; }
