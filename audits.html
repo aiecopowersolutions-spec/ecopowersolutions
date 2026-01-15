@@ -142,29 +142,12 @@
 </head>
 <body>
     <!-- Top Navigation Bar (copied from index.html for consistency) -->
-    <div class="top-nav">
-        <div class="top-nav-inner">
-            <div class="nav-left">
-                <a href="index.html" class="nav-logo">
-                    <img src="images/ecologoborderpartial.png" alt="EcoPower Solutions Logo">
-                </a>
-                <div class="nav-links">
-                    <a href="audits.html">Audits</a>
-                    <a href="#rebates-programs">Rebates and Programs</a>
-                    <a href="#our-team">Our Team</a>
-                    <a href="#contact-us">Contact Us</a>
-                </div>
-            </div>
-            <div class="nav-right">
-                <div class="nav-contact" style="align-items: flex-end; text-align: right;">
-                    <a href="tel:4433628625">443 362 8625</a>
-                    <span><a href="mailto:systems@ecopowersol.com">systems@ecopowersol.com</a></span>
-                    <span>MHIC #129718</span>
-                    <span>1724 Woodlawn Dr, Ste 12B</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="navbar-placeholder"></div>
+    <script>
+      fetch('navbar.html')
+        .then(res => res.text())
+        .then(html => { document.getElementById('navbar-placeholder').innerHTML = html; });
+    </script>
     <!-- Hero Section -->
     <div class="hero" id="top">
         <div class="hero-overlay"></div>
