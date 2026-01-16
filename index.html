@@ -366,8 +366,26 @@
   pointer-events: auto;
 }
 .tab-container {
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 101;
+  width: 90vw;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: none;
+}
+.tab-container.active {
+  display: block;
+}
+@media (max-width: 600px) {
+  .tab-container {
+    width: 98vw;
+    max-width: 98vw;
+    padding: 0;
+  }
 }
 </style>
 
@@ -414,7 +432,7 @@
 
     <!-- Tabbed Content System -->
     <div id="tabOverlay" class="tab-overlay" style="display:none;"></div>
-    <div class="tab-container" style="max-width: 900px; margin: 60px auto 0;">
+    <div id="tabContainer" class="tab-container">
         <div id="audits" class="tab-content" style="display: none; min-height: 400px; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 48px 32px;">
             <h2 style="font-size:2rem; color:#222; margin-bottom:24px;">Audits</h2>
         </div>
@@ -1134,11 +1152,12 @@
 </div>
 
 <script>
-// Enhanced tab switching logic
+// Enhanced tab switching logic for fixed modal tabs
 document.addEventListener('DOMContentLoaded', function() {
     var tabLinks = document.querySelectorAll('.tab-link');
     var tabContents = document.querySelectorAll('.tab-content');
     var tabOverlay = document.getElementById('tabOverlay');
+    var tabContainer = document.getElementById('tabContainer');
     var activeTab = null;
     tabLinks.forEach(function(link) {
         link.addEventListener('click', function(e) {
@@ -1149,6 +1168,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 tabLinks.forEach(function(l) { l.classList.remove('active'); });
                 tabContents.forEach(function(c) { c.style.display = 'none'; });
                 tabOverlay.style.display = 'none';
+                tabContainer.classList.remove('active');
                 activeTab = null;
                 return;
             }
@@ -1159,10 +1179,20 @@ document.addEventListener('DOMContentLoaded', function() {
             var showTab = document.getElementById(tab);
             if (showTab) showTab.style.display = 'block';
             tabOverlay.style.display = 'block';
+            tabContainer.classList.add('active');
             activeTab = tab;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
+    // Close tab when clicking outside (on overlay)
+    if (tabOverlay) {
+        tabOverlay.addEventListener('click', function() {
+            tabLinks.forEach(function(l) { l.classList.remove('active'); });
+            tabContents.forEach(function(c) { c.style.display = 'none'; });
+            tabOverlay.style.display = 'none';
+            tabContainer.classList.remove('active');
+            activeTab = null;
+        });
+    }
     // Set footer year
     var yearSpan = document.getElementById('footerYear');
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
@@ -1173,6 +1203,7 @@ document.addEventListener('DOMContentLoaded', function() {
             tabLinks.forEach(function(l) { l.classList.remove('active'); });
             tabContents.forEach(function(c) { c.style.display = 'none'; });
             tabOverlay.style.display = 'none';
+            tabContainer.classList.remove('active');
             activeTab = null;
         });
     }
