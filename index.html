@@ -363,11 +363,10 @@
                     <img src="images/ecologoborderpartial.png" alt="EcoPower Solutions Logo">
                 </a>
                 <div class="nav-links">
-                    
-                    <a href="#audits">Audits</a>
-                    <a href="#rebates-programs">Rebates and Programs</a>
-                    <a href="#our-team">Our Team</a>
-                    <a href="#contact-us">Contact Us</a>
+                    <a href="#" class="tab-link" data-tab="audits">Audits</a>
+                    <a href="#" class="tab-link" data-tab="rebates">Rebates and Programs</a>
+                    <a href="#" class="tab-link" data-tab="team">Our Team</a>
+                    <a href="#" class="tab-link" data-tab="contact">Contact Us</a>
                 </div>
             </div>
             <div class="nav-right">
@@ -397,6 +396,22 @@
         </div>
     </div>
 
+    <!-- Tabbed Content System -->
+    <div class="tab-container" style="max-width: 900px; margin: 60px auto 0;">
+        <div id="audits" class="tab-content" style="display: none; min-height: 400px; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 48px 32px;">
+            <h2 style="font-size:2rem; color:#222; margin-bottom:24px;">Audits</h2>
+        </div>
+        <div id="rebates" class="tab-content" style="display: none; min-height: 400px; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 48px 32px;">
+            <h2 style="font-size:2rem; color:#222; margin-bottom:24px;">Rebates and Programs</h2>
+        </div>
+        <div id="team" class="tab-content" style="display: none; min-height: 400px; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 48px 32px;">
+            <h2 style="font-size:2rem; color:#222; margin-bottom:24px;">Our Team</h2>
+        </div>
+        <div id="contact" class="tab-content" style="display: none; min-height: 400px; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 48px 32px;">
+            <h2 style="font-size:2rem; color:#222; margin-bottom:24px;">Contact Us</h2>
+        </div>
+    </div>
+    <!-- End Tabbed Content System -->
     <div class="hero" id="top">
         <div class="hero-overlay"></div>
         <div class="hero-container">
@@ -1101,188 +1116,33 @@
 </div>
 
 <script>
-(function() {
-    'use strict';
-
-    // Dropdown menu logic for nav
-    function initNavDropdown() {
-        var dropdown = document.querySelector('.nav-item-dropdown');
-        if (!dropdown) return;
-        var toggle = dropdown.querySelector('.dropdown-toggle');
-        var menu = dropdown.querySelector('.nav-dropdown');
-        toggle.addEventListener('click', function(e) {
+// Minimal tab switching logic
+document.addEventListener('DOMContentLoaded', function() {
+    var tabLinks = document.querySelectorAll('.tab-link');
+    var tabContents = document.querySelectorAll('.tab-content');
+    tabLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
             e.preventDefault();
-            dropdown.classList.toggle('open');
+            var tab = this.getAttribute('data-tab');
+            tabLinks.forEach(function(l) { l.classList.remove('active'); });
+            tabContents.forEach(function(c) { c.style.display = 'none'; });
+            this.classList.add('active');
+            var activeTab = document.getElementById(tab);
+            if (activeTab) activeTab.style.display = 'block';
         });
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!dropdown.contains(e.target)) {
-                dropdown.classList.remove('open');
-            }
-        });
-    }
-
-    // Mobile nav menu toggle
-    function initMobileNav() {
-        var navBtn = document.querySelector('.nav-mobile-btn');
-        var navLinks = document.querySelector('.nav-links');
-        if (!navBtn || !navLinks) return;
-        navBtn.addEventListener('click', function() {
-            navLinks.classList.toggle('open');
-        });
-        // Optionally close menu when a link is clicked (for single-page UX)
-        navLinks.querySelectorAll('a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                if (window.innerWidth < 1024) navLinks.classList.remove('open');
-            });
-        });
-    }
-    // mark that JS is enabled for animations
-    document.documentElement.classList.add('js-ready');
-
-    function initScrollReveal() {
-        var elements = document.querySelectorAll('.animate-on-scroll');
-
-        // Respect reduced motion preference
-        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            elements.forEach(function(el) {
-                el.classList.add('in-view');
-            });
-            return;
-        }
-
-        // Fallback if IntersectionObserver isn't supported
-        if (!('IntersectionObserver' in window)) {
-            elements.forEach(function(el) {
-                el.classList.add('in-view');
-            });
-            return;
-        }
-
-        // Normal scroll-reveal behavior
-        var observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('in-view');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.15
-        });
-
-        elements.forEach(function(el) {
-            observer.observe(el);
-        });
-    }
-
-
-    function initNavbarScroll() {
-        var nav = document.getElementById('topNav');
-        if (!nav) return;
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    }
-
-    function initCredentialsSlider() {
-        var track = document.getElementById('sliderTrack'),
-            prevBtn = document.getElementById('sliderPrev'),
-            nextBtn = document.getElementById('sliderNext'),
-            dotsContainer = document.getElementById('sliderDots');
-
-        if (!track || !prevBtn || !nextBtn || !dotsContainer) return;
-
-        var slides = track.querySelectorAll('.slider-card'),
-            totalSlides = slides.length,
-            currentSlide = 0,
-            autoplayInterval;
-
-        // Create dots
-        for (var i = 0; i < totalSlides; i++) {
-            var dot = document.createElement('div');
-            dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
-            dot.setAttribute('data-index', i);
-            dotsContainer.appendChild(dot);
-        }
-
-        var dots = dotsContainer.querySelectorAll('.slider-dot');
-
-        function updateSlider() {
-            track.style.transform = 'translateX(' + (-currentSlide * 100) + '%)';
-            dots.forEach(function(dot, index) {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            updateSlider();
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            updateSlider();
-        }
-
-        function startAutoplay() {
-            autoplayInterval = setInterval(nextSlide, 7000);
-        }
-
-        function stopAutoplay() {
-            clearInterval(autoplayInterval);
-        }
-
-        nextBtn.addEventListener('click', function() {
-            stopAutoplay();
-            nextSlide();
-            startAutoplay();
-        });
-
-        prevBtn.addEventListener('click', function() {
-            stopAutoplay();
-            prevSlide();
-            startAutoplay();
-        });
-
-        dots.forEach(function(dot) {
-            dot.addEventListener('click', function() {
-                stopAutoplay();
-                currentSlide = parseInt(this.getAttribute('data-index'), 10);
-                updateSlider();
-                startAutoplay();
-            });
-        });
-
-        var sliderWrapper = document.querySelector('.slider-wrapper');
-        if (sliderWrapper) {
-            sliderWrapper.addEventListener('mouseenter', stopAutoplay);
-            sliderWrapper.addEventListener('mouseleave', startAutoplay);
-        }
-
-        updateSlider();
-        startAutoplay();
-    }
-
-    function setFooterYear() {
-        var yearSpan = document.getElementById('footerYear');
-        if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        initScrollReveal();
-        // initSmoothScrolling(); // Removed for WordPress compatibility
-        initNavbarScroll();
-        initCredentialsSlider();
-        setFooterYear();
-        initMobileNav();
-        initNavDropdown();
     });
-})();
+    // Set footer year
+    var yearSpan = document.getElementById('footerYear');
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    // Logo click returns to homepage
+    var logo = document.querySelector('.nav-logo');
+    if (logo) {
+        logo.addEventListener('click', function(e) {
+            tabLinks.forEach(function(l) { l.classList.remove('active'); });
+            tabContents.forEach(function(c) { c.style.display = 'none'; });
+        });
+    }
+});
 </script>
 
 
