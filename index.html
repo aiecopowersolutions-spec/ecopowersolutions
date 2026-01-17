@@ -152,6 +152,12 @@
     .nav-links a { color: #e5e7eb; opacity: 0.9; position: relative; }
     .nav-links a::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--ecp-accent); transition: width 0.2s ease; }
     .nav-links a:hover::after { width: 100%; }
+    /* Remove bar effect from all except Contact Us */
+    .nav-links a:not([data-tab="contact"]):after,
+    .nav-links a:not([data-tab="contact"]):hover:after {
+      width: 0 !important;
+      background: none !important;
+    }
     .nav-right { display: flex; align-items: center; gap: 14px; color: #e5e7eb; font-size: 0.85rem; }
     .nav-contact { display: none; flex-direction: column; align-items: flex-end; gap: 2px; }
     .nav-contact a { color: #f9fafb; font-weight: 500; }
@@ -981,7 +987,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
                         </svg>
-                    </div>
+                                       </div>
                     <div>
                         <strong>Help with rebates & loans</strong>
                         We actively help connect your project to BGE/EmPOWER incentives and 0% CEA financing.
