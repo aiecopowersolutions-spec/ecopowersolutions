@@ -440,7 +440,22 @@
                         if (section) {
                             section.scrollIntoView({ behavior: 'smooth' });
                         }
+                        // On mobile, close menu after click
+                        var navLinks = document.querySelector('.nav-links');
+                        if (window.innerWidth < 1024 && navLinks.classList.contains('open')) {
+                            navLinks.classList.remove('open');
+                        }
                     });
+                });
+                // Mobile menu toggle
+                document.addEventListener('DOMContentLoaded', function() {
+                  var menuBtn = document.querySelector('.nav-mobile-btn');
+                  var navLinks = document.querySelector('.nav-links');
+                  if (menuBtn && navLinks) {
+                    menuBtn.addEventListener('click', function() {
+                      navLinks.classList.toggle('open');
+                    });
+                  }
                 });
                 </script>
                 </div>
