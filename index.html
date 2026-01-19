@@ -426,10 +426,23 @@
                     <img src="images/ecologoborderpartial.png" alt="EcoPower Solutions Logo">
                 </a>
                 <div class="nav-links">
-                    <a href="#" class="tab-link" data-tab="audits">Audits</a>
-                    <a href="#" class="tab-link" data-tab="rebates">Rebates and Programs</a>
-                    <a href="#" class="tab-link" data-tab="team">Our Team</a>
+                    <a href="#process" class="nav-scroll-link" data-target="process">Audits</a>
+                    <a href="#rebates" class="nav-scroll-link" data-target="rebates">Rebates and Programs</a>
+                    <a href="#credentials" class="nav-scroll-link" data-target="credentials">Our Team</a>
                     <a href="#" class="tab-link" data-tab="contact">Contact Us</a>
+                <script>
+                // Smooth scroll for nav links to sections
+                document.querySelectorAll('.nav-scroll-link').forEach(function(link) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        var targetId = link.getAttribute('data-target');
+                        var section = document.getElementById(targetId);
+                        if (section) {
+                            section.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                });
+                </script>
                 </div>
             </div>
             <div class="nav-right">
