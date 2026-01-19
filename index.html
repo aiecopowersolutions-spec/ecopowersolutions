@@ -1279,25 +1279,82 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 // Fade-in animation for sections and .animate-on-scroll
 (function() {
-  document.addEventListener('DOMContentLoaded', function() {
-    var fadeEls = document.querySelectorAll('.section, .animate-on-scroll');
-    fadeEls.forEach(function(el) { el.classList.remove('in-view'); });
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      fadeEls.forEach(function(el) { el.classList.add('in-view'); });
-    } else if ('IntersectionObserver' in window) {
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15 });
-      fadeEls.forEach(function(el) { observer.observe(el); });
-    } else {
-      fadeEls.forEach(function(el) { el.classList.add('in-view'); });
-    }
-  });
+    document.addEventListener('DOMContentLoaded', function() {
+        var fadeEls = document.querySelectorAll('.section, .animate-on-scroll');
+        fadeEls.forEach(function(el) { el.classList.remove('in-view'); });
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            fadeEls.forEach(function(el) { el.classList.add('in-view'); });
+        } else if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            fadeEls.forEach(function(el) { observer.observe(el); });
+        } else {
+            fadeEls.forEach(function(el) { el.classList.add('in-view'); });
+        }
+
+        // Core Credentials Slider Script
+        var sliderTrack = document.getElementById('sliderTrack');
+        var sliderCards = sliderTrack ? sliderTrack.querySelectorAll('.slider-card') : [];
+        var sliderPrev = document.getElementById('sliderPrev');
+        var sliderNext = document.getElementById('sliderNext');
+        var sliderDots = document.getElementById('sliderDots');
+        var currentSlide = 0;
+        var totalSlides = sliderCards.length;
+
+        function updateSlider() {
+            if (!sliderTrack) return;
+            sliderTrack.style.transform = 'translateX(' + (-100 * currentSlide) + '%)';
+            // Update dots
+            if (sliderDots) {
+                sliderDots.innerHTML = '';
+                for (var i = 0; i < totalSlides; i++) {
+                    var dot = document.createElement('span');
+                    dot.className = 'slider-dot' + (i === currentSlide ? ' active' : '');
+                    dot.setAttribute('data-slide', i);
+                    sliderDots.appendChild(dot);
+                }
+            }
+            // Enable/disable arrows
+            if (sliderPrev) sliderPrev.disabled = currentSlide === 0;
+            if (sliderNext) sliderNext.disabled = currentSlide === totalSlides - 1;
+        }
+
+        if (sliderPrev) {
+            sliderPrev.addEventListener('click', function() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlider();
+                }
+            });
+        }
+        if (sliderNext) {
+            sliderNext.addEventListener('click', function() {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    updateSlider();
+                }
+            });
+        }
+        if (sliderDots) {
+            sliderDots.addEventListener('click', function(e) {
+                if (e.target.classList.contains('slider-dot')) {
+                    var idx = parseInt(e.target.getAttribute('data-slide'), 10);
+                    if (!isNaN(idx)) {
+                        currentSlide = idx;
+                        updateSlider();
+                    }
+                }
+            });
+        }
+        // Initialize slider
+        if (sliderTrack && totalSlides > 0) updateSlider();
+    });
 })();
 </script>
 </body>
