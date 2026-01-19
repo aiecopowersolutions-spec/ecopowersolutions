@@ -449,6 +449,58 @@
         </div>
         <div id="contact" class="tab-content" style="display: none; min-height: 400px; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 48px 32px;">
             <h2 style="font-size:2rem; color:#222; margin-bottom:24px;">Contact Us</h2>
+            <div class="contact-form-wrapper animate-on-scroll">
+                <h3>Or Send Us a Message</h3>
+                <form id="contactForm" action="https://formsubmit.co/hashim@ecopowersol.com" method="POST">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_subject" value="New EcoPower Solutions Contact Form Submission">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required placeholder="John">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required placeholder="Smith">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(443) 212-8401">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Property Address</label>
+                        <input type="text" id="address" name="address" placeholder="123 Main St, Baltimore, MD 21201">
+                    </div>
+                    <div class="form-group">
+                        <label for="homeType">Home Type</label>
+                        <select id="homeType" name="homeType">
+                            <option value="">Select your home type...</option>
+                            <option value="single-family">Single Family Home</option>
+                            <option value="townhouse">Townhouse</option>
+                            <option value="condo">Condo</option>
+                            <option value="multi-family">Multi-Family</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">How Can We Help? *</label>
+                        <textarea id="message" name="message" required placeholder="Tell us about your home and what you're hoping to learn from an energy audit..."></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">Request Your Audit</button>
+                    </div>
+                    <p class="form-note">We'll respond within 1-2 business days to schedule your audit.</p>
+                </form>
+            </div>
         </div>
     </div>
     <!-- End Tabbed Content System -->
@@ -471,58 +523,7 @@
                     or email <a href="mailto:hkhan@freedomconstructiongrp.com">hkhan@freedomconstructiongrp.com</a>
                 </p>
             </div>
-            <div class="hero-card animate-on-scroll">
-                <span class="hero-card-pill">Rebates May Be Available</span>
-                <h3>What happens during an EcoPower audit?</h3>
-                <ul class="hero-card-list">
-                    <li class="hero-card-item">
-                        <span class="hero-card-check">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                            </svg>
-                        </span>
-                        Use tools like gas sniffers, CO monitors, blower doors, and thermal cameras.
-                    </li>
-                    <li class="hero-card-item">
-                        <span class="hero-card-check">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                            </svg>
-                        </span>
-                        Identify safety risks, leaks, insulation gaps, and areas of energy waste.
-                    </li>
-                    <li class="hero-card-item">
-                        <span class="hero-card-check">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                            </svg>
-                        </span>
-                        Turn results into a clear plan with rebates and 0% CEA loan options where available.
-                    </li>
-                </ul>
-                <p class="hero-card-note">
-                    Eligibility, rebate amounts, and financing terms depend on your home, work scope, and current program rules.
-                </p>
-            </div>
-        </div>
-    </div>
-                <div class="video-embed" style="display: flex; justify-content: center; align-items: center; padding: 32px 0;">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/YolBP0-vkBU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.10);"></iframe>
-                </div>
-
-    <div class="section section-grey" id="process">
-        <div class="container">
-            <div class="section-header">
-                <span class="kicker animate-on-scroll">How It Works</span>
-                <h2 class="section-title animate-on-scroll">A Simple Five-Step Path</h2>
-                <p class="section-subtitle animate-on-scroll">
-                    We keep the process straightforward so you can focus on making the best decisions for your home and family.
-                </p>
-            </div>
-            <div class="process-steps">
-                <div class="process-step animate-on-scroll">
-                    <div class="process-step-number">1</div>
-                    <h3>Schedule Your Audit</h3>
+            <!-- Contact form moved to tab modal -->
                     <p>Reach out by phone or email and we'll confirm a time that works for your household.</p>
                 </div>
                 <div class="process-step animate-on-scroll">
