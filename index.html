@@ -582,7 +582,21 @@
                     We inspect your home, find safety and energy issues, and help you use rebates and programs to fix them — often with little to no out-of-pocket cost when incentives and 0% CEA financing are available.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Schedule Your Home Energy Audit</a>
+                    <a href="#contact" class="btn btn-primary" id="heroContactBtn">Schedule Your Home Energy Audit</a>
+                    </div>
+                    <script>
+                    // Make Hero Schedule button open the Contact Us tab
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var heroBtn = document.getElementById('heroContactBtn');
+                        if (heroBtn) {
+                            heroBtn.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                var contactTab = document.querySelector('.tab-link[data-tab="contact"]');
+                                if (contactTab) contactTab.click();
+                            });
+                        }
+                    });
+                    </script>
                     <a href="#process" class="btn btn-white">See How It Works</a>
                 </div>
                 <p class="hero-contact-line">
