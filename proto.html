@@ -1000,24 +1000,36 @@
                 <div class="slider-wrapper animate-on-scroll">
                     <div class="slider-container">
                         <div class="slider-track" id="sliderTrack">
-                            <div class="slider-card">
-                                <img src="images/LISbpi.png" alt="BPI Certified" class="core-cred-img">
-                            </div>
-                            <div class="slider-card">
-                                <img src="images/LISmhic.png" alt="MHIC Licensed" class="core-cred-img">
-                            </div>
-                            <div class="slider-card">
-                                <img src="images/LISlead.png" alt="EPA Lead-Safe Certified" class="core-cred-img">
-                            </div>
-                            <div class="slider-card">
-                                <img src="images/LISosha.png" alt="OSHA Certified" class="core-cred-img">
-                            </div>
-                            <div class="slider-card">
-                                <img src="images/LISmbe.png" alt="MBE Certified" class="core-cred-img">
-                            </div>
-                            <div class="slider-card">
-                                <img src="images/LISdbe.png" alt="DBE Certified" class="core-cred-img">
-                            </div>
+                            <div class="slider-card"><div class="cred-img-box"><img src="images/LISbpi.png" alt="BPI Certified" class="core-cred-img"></div></div>
+                            <div class="slider-card"><div class="cred-img-box"><img src="images/LISmhic.png" alt="MHIC Licensed" class="core-cred-img"></div></div>
+                            <div class="slider-card"><div class="cred-img-box"><img src="images/LISlead.png" alt="EPA Lead-Safe Certified" class="core-cred-img"></div></div>
+                            <div class="slider-card"><div class="cred-img-box"><img src="images/LISosha.png" alt="OSHA Certified" class="core-cred-img"></div></div>
+                            <div class="slider-card"><div class="cred-img-box"><img src="images/LISmbe.png" alt="MBE Certified" class="core-cred-img"></div></div>
+                            <div class="slider-card"><div class="cred-img-box"><img src="images/LISdbe.png" alt="DBE Certified" class="core-cred-img"></div></div>
+                            .cred-img-box {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 100%;
+                                height: 260px;
+                                background: none;
+                                box-shadow: none;
+                                border: none;
+                                padding: 0;
+                                margin: 0;
+                            }
+                            .core-cred-img {
+                                max-height: 180px;
+                                width: auto;
+                                max-width: 260px;
+                                object-fit: contain;
+                                background: none;
+                                box-shadow: none;
+                                border: none;
+                                margin: 0 auto;
+                                display: block;
+                                align-self: center;
+                            }
                         </div>
                     </div>
                     <div class="slider-controls">
