@@ -1,21 +1,22 @@
-    .core-credentials-images {
+    .slider-card {
+        min-width: 100%;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
         align-items: center;
-        gap: 24px;
-        margin: 24px 0 16px 0;
-    }
-    .core-cred-img {
-        height: 64px;
-        width: auto;
-        max-width: 160px;
-        object-fit: contain;
+        justify-content: center;
         background: none;
         box-shadow: none;
         border: none;
         padding: 0;
-        margin: 0;
+    }
+    .core-cred-img {
+        height: 70px;
+        width: auto;
+        max-width: 180px;
+        object-fit: contain;
+        background: none;
+        box-shadow: none;
+        border: none;
+        margin: 0 auto;
         display: block;
     }
    
@@ -965,13 +966,42 @@
                 </p>
             </div>
             <div class="credentials-wrapper">
-                <div class="core-credentials-images animate-on-scroll">
-                    <img src="images/LISbpi.png" alt="BPI Certified" class="core-cred-img">
-                    <img src="images/LISmhic.png" alt="MHIC Licensed" class="core-cred-img">
-                    <img src="images/LISlead.png" alt="EPA Lead-Safe Certified" class="core-cred-img">
-                    <img src="images/LISosha.png" alt="OSHA Certified" class="core-cred-img">
-                    <img src="images/LISmbe.png" alt="MBE Certified" class="core-cred-img">
-                    <img src="images/LISdbe.png" alt="DBE Certified" class="core-cred-img">
+                <div class="slider-wrapper animate-on-scroll">
+                    <div class="slider-container">
+                        <div class="slider-track" id="sliderTrack">
+                            <div class="slider-card">
+                                <img src="images/LISbpi.png" alt="BPI Certified" class="core-cred-img">
+                            </div>
+                            <div class="slider-card">
+                                <img src="images/LISmhic.png" alt="MHIC Licensed" class="core-cred-img">
+                            </div>
+                            <div class="slider-card">
+                                <img src="images/LISlead.png" alt="EPA Lead-Safe Certified" class="core-cred-img">
+                            </div>
+                            <div class="slider-card">
+                                <img src="images/LISosha.png" alt="OSHA Certified" class="core-cred-img">
+                            </div>
+                            <div class="slider-card">
+                                <img src="images/LISmbe.png" alt="MBE Certified" class="core-cred-img">
+                            </div>
+                            <div class="slider-card">
+                                <img src="images/LISdbe.png" alt="DBE Certified" class="core-cred-img">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="slider-btn" id="sliderPrev" aria-label="Previous">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15 18 9 12 15 6" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                            </svg>
+                        </button>
+                        <div class="slider-dots" id="sliderDots"></div>
+                        <button class="slider-btn" id="sliderNext" aria-label="Next">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
                 <div class="credentials-secondary animate-on-scroll">
                     <div class="cred-mini-card">
