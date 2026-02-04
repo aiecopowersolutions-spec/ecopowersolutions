@@ -1,3 +1,23 @@
+    .core-credentials-images {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        margin: 24px 0 16px 0;
+    }
+    .core-cred-img {
+        height: 64px;
+        width: auto;
+        max-width: 160px;
+        object-fit: contain;
+        background: none;
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        display: block;
+    }
    
 <!DOCTYPE html>
 <html lang="en">
@@ -572,7 +592,7 @@
         <div class="hero-overlay"></div>
         <div class="hero-container">
             <div class="hero-content animate-on-scroll">
-                <img src="images/ecologo.png" alt="EcoPower Solutions" class="hero-logo">
+                <img src="ecopowersolutions/images/EcoPower_Logo_Shiny_Silver_Upscaled_4x_SHARP.png" alt="EcoPower Solutions" class="hero-logo">
                 <span class="hero-kicker">Maryland Home Energy & Safety Audits</span>
                 <h1 class="hero-title">Make Your Maryland Home Safer & More Efficient</h1>
                 <p class="hero-description">
@@ -945,76 +965,13 @@
                 </p>
             </div>
             <div class="credentials-wrapper">
-                <div class="slider-wrapper animate-on-scroll">
-                    <div class="slider-header">
-                        <h3>Core Credentials</h3>
-                        <span class="slider-subtext">Swipe or use arrows</span>
-                    </div>
-                    <div class="slider-container">
-                        <div class="slider-track" id="sliderTrack">
-                            <div class="slider-card">
-                                <div class="slider-card-inner">
-                                    <span class="slider-card-badge">Top Credential</span>
-                                    <img src="images/LISbpi.png" alt="BPI Certified" class="slider-card-logo">
-                                    <h4>BPI Certified Professional</h4>
-                                    <p>Building Performance Institute certification for whole-home energy auditing.</p>
-                                </div>
-                            </div>
-                            <div class="slider-card">
-                                <div class="slider-card-inner">
-                                    <span class="slider-card-badge">Maryland Licensed</span>
-                                    <img src="images/LISmhic.png" alt="MHIC Licensed" class="slider-card-logo">
-                                    <h4>MHIC Licensed Contractor</h4>
-                                    <p>Maryland Home Improvement Commission licensed for residential work.</p>
-                                </div>
-                            </div>
-                            <div class="slider-card">
-                                <div class="slider-card-inner">
-                                    <span class="slider-card-badge">Lead-Safe</span>
-                                    <img src="images/LISlead.png" alt="EPA Lead-Safe Certified" class="slider-card-logo">
-                                    <h4>EPA Lead-Safe Certified</h4>
-                                    <p>Renovation, Repair and Painting (RRP) certified for pre-1978 homes.</p>
-                                </div>
-                            </div>
-                            <div class="slider-card">
-                                <div class="slider-card-inner">
-                                    <span class="slider-card-badge">Safety</span>
-                                    <img src="images/LISosha.png" alt="OSHA Certified" class="slider-card-logo">
-                                    <h4>OSHA Safety Trained</h4>
-                                    <p>Occupational Safety and Health Administration certified for worksite safety.</p>
-                                </div>
-                            </div>
-                            <div class="slider-card">
-                                <div class="slider-card-inner">
-                                    <span class="slider-card-badge">Maryland</span>
-                                    <img src="images/LISmbe.png" alt="MBE Certified" class="slider-card-logo">
-                                    <h4>MBE Certified</h4>
-                                    <p>Maryland Minority Business Enterprise certified contractor.</p>
-                                </div>
-                            </div>
-                            <div class="slider-card">
-                                <div class="slider-card-inner" style="background:#fff;">
-                                    <span class="slider-card-badge">Federal</span>
-                                    <img src="images/LISdbe.png" alt="DBE Certified" class="slider-card-logo">
-                                    <h4>DBE Certified</h4>
-                                    <p>Disadvantaged Business Enterprise certified for federal and state contracts.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slider-controls">
-                        <button class="slider-btn" id="sliderPrev" aria-label="Previous">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="15 18 9 12 15 6" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                            </svg>
-                        </button>
-                        <div class="slider-dots" id="sliderDots"></div>
-                        <button class="slider-btn" id="sliderNext" aria-label="Next">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="9 18 15 12 9 6" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                            </svg>
-                        </button>
-                    </div>
+                <div class="core-credentials-images animate-on-scroll">
+                    <img src="images/LISbpi.png" alt="BPI Certified" class="core-cred-img">
+                    <img src="images/LISmhic.png" alt="MHIC Licensed" class="core-cred-img">
+                    <img src="images/LISlead.png" alt="EPA Lead-Safe Certified" class="core-cred-img">
+                    <img src="images/LISosha.png" alt="OSHA Certified" class="core-cred-img">
+                    <img src="images/LISmbe.png" alt="MBE Certified" class="core-cred-img">
+                    <img src="images/LISdbe.png" alt="DBE Certified" class="core-cred-img">
                 </div>
                 <div class="credentials-secondary animate-on-scroll">
                     <div class="cred-mini-card">
