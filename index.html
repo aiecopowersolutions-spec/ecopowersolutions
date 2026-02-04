@@ -446,8 +446,6 @@
                             tabContents.forEach(function(c) { c.style.display = 'none'; });
                             if (tabOverlay) tabOverlay.style.display = 'none';
                             tabContainer.classList.remove('active');
-                            // Ensure tab state is fully reset so Contact Us can be opened with one click
-                            if (typeof activeTab !== 'undefined') activeTab = null;
                         }
                         var targetId = link.getAttribute('data-target');
                         var section = document.getElementById(targetId);
