@@ -296,7 +296,14 @@
     .danger-card p { font-size: 0.9rem; color: var(--ecp-grey); }
     .danger-tag { display: inline-block; margin-top: 8px; padding: 3px 9px; border-radius: 999px; font-size: 0.78rem; background-color: var(--ecp-danger-soft); color: var(--ecp-danger); }
 
-    .credentials-wrapper { display: grid; gap: 24px; }
+    .credentials-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 320px;
+        width: 100%;
+        gap: 24px;
+    }
     @media (min-width: 960px) { .credentials-wrapper { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); } }
 
     .slider-wrapper {
@@ -310,8 +317,25 @@
     .slider-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
     .slider-header h3 { font-size: 1.05rem; }
     .slider-subtext { font-size: 0.78rem; color: #9ca3af; }
-    .slider-container { overflow: hidden; position: relative; }
-    .slider-track { display: flex; transition: transform 0.45s ease; }
+    .slider-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+        min-height: 320px;
+        width: 100%;
+        height: 320px;
+        box-sizing: border-box;
+    }
+    .slider-track {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        transition: transform 0.45s ease;
+    }
     .slider-card { min-width: 100%; padding: 12px 6px 6px; }
     .slider-card-inner { background: #ffffff; border-radius: 16px; padding: 16px 16px 14px; border: 1px solid #e5e7eb; box-shadow: 0 14px 30px rgba(15, 23, 42, 0.10); color: var(--ecp-grey-dark); }
     .slider-card-badge { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.09em; background: rgba(15, 23, 42, 0.05); border: 1px solid #e5e7eb; margin-bottom: 10px; color: var(--ecp-grey-dark); }
