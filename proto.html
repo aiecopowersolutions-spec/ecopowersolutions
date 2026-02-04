@@ -59,7 +59,6 @@
                         /* Dropdown menu styles */
                         .nav-dropdown {
                             position: absolute;
-
                             top: 100%;
                             left: 0;
                             min-width: 210px;
@@ -437,6 +436,17 @@
                 document.querySelectorAll('.nav-scroll-link').forEach(function(link) {
                     link.addEventListener('click', function(e) {
                         e.preventDefault();
+                        // If contact tab is open, close it
+                        var tabContainer = document.getElementById('tabContainer');
+                        var tabOverlay = document.getElementById('tabOverlay');
+                        var tabLinks = document.querySelectorAll('.tab-link');
+                        var tabContents = document.querySelectorAll('.tab-content');
+                        if (tabContainer && tabContainer.classList.contains('active')) {
+                            tabLinks.forEach(function(l) { l.classList.remove('active'); });
+                            tabContents.forEach(function(c) { c.style.display = 'none'; });
+                            if (tabOverlay) tabOverlay.style.display = 'none';
+                            tabContainer.classList.remove('active');
+                        }
                         var targetId = link.getAttribute('data-target');
                         var section = document.getElementById(targetId);
                         if (section) {
@@ -464,7 +474,7 @@
             </div>
             <div class="nav-right">
                 <div class="nav-contact" style="align-items: flex-end; text-align: right;">
-                    <a href="tel:4433628625">443 362 8625</a>
+                    <a href="tel:4109294254">410 929 4254</a>
                     <span><a href="mailto:info@ecopowersol.com">info@ecopowersol.com</a></span>
                     <span>MHIC #129718</span>
                     <span>1724 Woodlawn Dr, Ste 12b</span>
@@ -527,7 +537,7 @@
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="(443) 362-8625">
+                            <input type="tel" id="phone" name="phone" placeholder="(410) 929-4254">
                         </div>
                     </div>
                     <div class="form-group">
@@ -562,18 +572,32 @@
         <div class="hero-overlay"></div>
         <div class="hero-container">
             <div class="hero-content animate-on-scroll">
-                <img src="images/EcoPower_Logo_Shiny_Silver_Upscaled_4x_SHARP.png" alt="EcoPower Solutions" class="hero-logo">
+                <img src="images/ecologo.png" alt="EcoPower Solutions" class="hero-logo">
                 <span class="hero-kicker">Maryland Home Energy & Safety Audits</span>
                 <h1 class="hero-title">Make Your Maryland Home Safer & More Efficient</h1>
                 <p class="hero-description">
                     We inspect your home, find safety and energy issues, and help you use rebates and programs to fix them — often with little to no out-of-pocket cost when incentives and 0% CEA financing are available.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Schedule Your Home Energy Audit</a>
+                    <a href="#contact" class="btn btn-primary" id="heroContactBtn">Schedule Your Home Energy Audit</a>
+                    </div>
+                    <script>
+                    // Make Hero Schedule button open the Contact Us tab
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var heroBtn = document.getElementById('heroContactBtn');
+                        if (heroBtn) {
+                            heroBtn.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                var contactTab = document.querySelector('.tab-link[data-tab="contact"]');
+                                if (contactTab) contactTab.click();
+                            });
+                        }
+                    });
+                    </script>
                     <a href="#process" class="btn btn-white">See How It Works</a>
                 </div>
                 <p class="hero-contact-line">
-                    Questions? Call <a href="tel:4433628625">443 362 8625</a>
+                    Questions? Call <a href="tel:4109294254">410 929 4254</a>
                     or email <a href="mailto:info@ecopowersol.com">info@ecopowersol.com</a>
                 </p>
             </div>
@@ -1107,51 +1131,24 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-     <!-- Reviews section: easily movable, in its own div, placed after Why Choose Us -->
+             <!-- Single Review Section: placed after Why Choose Us -->
     <div class="section" id="reviews">
         <div class="container">
             <div class="section-header">
-                <span class="kicker animate-on-scroll">Customer Reviews</span>
-                <h2 class="section-title animate-on-scroll">What Our Clients Say</h2>
-                <p class="section-subtitle animate-on-scroll">Real feedback from Maryland homeowners and businesses. Your experience matters to us!</p>
+               <!--  <span class="kicker animate-on-scroll">Customer Reviews</span>
+                <h2 class="section-title animate-on-scroll">What Our Clients Says</h2> -->
             </div>
-            <div class="grid grid-3">
-                <div class="info-card animate-on-scroll">
-                    <h3>"Professional & Thorough"</h3>
-                    <p>EcoPower Solutions made the whole process easy. The audit was detailed, and they explained everything in plain language. Highly recommend!</p>
-                    <div style="margin-top:10px; color:var(--ecp-grey); font-size:0.92rem;">— Sarah L., Baltimore, MD</div>
-                </div>
-                <div class="info-card animate-on-scroll">
-                    <h3>"Saved Us Money"</h3>
-                    <p>We saw a noticeable drop in our energy bills after following their recommendations. The team was friendly and not pushy at all.</p>
-                    <div style="margin-top:10px; color:var(--ecp-grey); font-size:0.92rem;">— Mike R., Columbia, MD</div>
-                </div>
-                <div class="info-card animate-on-scroll">
-                    <h3>"Great for First-Time Homeowners"</h3>
-                    <p>As a new homeowner, I appreciated the clear guidance and help with rebates. The audit gave me peace of mind about my home's safety.</p>
-                    <div style="margin-top:10px; color:var(--ecp-grey); font-size:0.92rem;">— Priya S., Ellicott City, MD</div>
-                </div>
-                <div class="info-card animate-on-scroll">
-                    <h3>"Quick and Courteous"</h3>
-                    <p>The appointment was easy to schedule, and the auditor was on time and respectful of our home. Would use again!</p>
-                    <div style="margin-top:10px; color:var(--ecp-grey); font-size:0.92rem;">— James T., Towson, MD</div>
-                </div>
-                <div class="info-card animate-on-scroll">
-                    <h3>"Helped With Rebates"</h3>
-                    <p>EcoPower walked us through the paperwork for rebates and 0% financing. The process was smooth from start to finish.</p>
-                    <div style="margin-top:10px; color:var(--ecp-grey); font-size:0.92rem;">— Linda W., Catonsville, MD</div>
-                </div>
-                <div class="info-card animate-on-scroll">
-                    <h3>"Highly Recommend"</h3>
-                    <p>Very knowledgeable and honest. No upselling, just solid advice and great service. Thank you!</p>
-                    <div style="margin-top:10px; color:var(--ecp-grey); font-size:0.92rem;">— Alex G., Silver Spring, MD</div>
-                </div>
+            <div class="grid grid-1">
+                    <div class="info-card animate-on-scroll" style="max-width:500px;margin:32px auto 0;">
+                        <h3 style="font-weight:500;font-size:1.1rem;">"EcoPower gave us great information for us to better understand our home and save energy."</h3>
+                        <div style="margin-top:10px; color:var(--ecp-grey); font-size:0.92rem;">— Ella Browm, Baltimore, MD</div>
+                    </div>
             </div>
         </div>
-    
+    </div>
+        </div>
+    </div>
+
 
     <div><section class="section section-blue-gradient" id="contact">
         <div class="container">
