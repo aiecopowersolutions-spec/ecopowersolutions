@@ -27,18 +27,6 @@
         object-fit: contain;
         background: none;
         box-shadow: none;
-            .core-cred-img {
-                max-height: 180px;
-                width: auto;
-                max-width: 260px;
-                object-fit: contain;
-                background: none;
-                box-shadow: none;
-                border: none;
-                margin: 0 auto;
-                display: block;
-                align-self: center;
-            }
 </head>
 
 <body>
@@ -216,7 +204,12 @@
         flex-direction: column;
         gap: 40px;
         max-width: 1200px;
-        margin: 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            background: #f0fff0 !important;
         padding: 0 20px;
     }
     @media (min-width: 1024px) {
@@ -437,7 +430,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+        height: 100%;
   background: rgba(20, 24, 31, 0.55);
   z-index: 100;
   transition: opacity 0.2s;
@@ -1022,7 +1015,7 @@
                                 background: none;
                                 box-shadow: none;
                                 border: none;
-                                margin: 0 auto;
+                                margin: 0;
                                 display: block;
                                 align-self: center;
                             }
