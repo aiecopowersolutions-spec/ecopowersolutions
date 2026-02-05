@@ -955,33 +955,38 @@
                                                 </li>
                                                 <li id="carousel__slide2" tabindex="0" class="carousel__slide">
                                                     <img src="images/LISmhic.png" alt="MHIC Licensed" class="slider-card-logo">
-                                                    <div class="carousel__snapper"></div>
-                                                    <a href="#carousel__slide1" class="carousel__prev">Go to previous slide</a>
-                                                    <a href="#carousel__slide3" class="carousel__next">Go to next slide</a>
+                                                    <div class="carousel__snapper">
+                                                        <a href="#carousel__slide1" class="carousel__prev">Go to previous slide</a>
+                                                        <a href="#carousel__slide3" class="carousel__next">Go to next slide</a>
+                                                    </div>
                                                 </li>
                                                 <li id="carousel__slide3" tabindex="0" class="carousel__slide">
                                                     <img src="images/LISlead.png" alt="EPA Lead-Safe Certified" class="slider-card-logo">
-                                                    <div class="carousel__snapper"></div>
-                                                    <a href="#carousel__slide2" class="carousel__prev">Go to previous slide</a>
-                                                    <a href="#carousel__slide4" class="carousel__next">Go to next slide</a>
+                                                    <div class="carousel__snapper">
+                                                        <a href="#carousel__slide2" class="carousel__prev">Go to previous slide</a>
+                                                        <a href="#carousel__slide4" class="carousel__next">Go to next slide</a>
+                                                    </div>
                                                 </li>
                                                 <li id="carousel__slide4" tabindex="0" class="carousel__slide">
                                                     <img src="images/LISosha.png" alt="OSHA Certified" class="slider-card-logo">
-                                                    <div class="carousel__snapper"></div>
-                                                    <a href="#carousel__slide3" class="carousel__prev">Go to previous slide</a>
-                                                    <a href="#carousel__slide5" class="carousel__next">Go to next slide</a>
+                                                    <div class="carousel__snapper">
+                                                        <a href="#carousel__slide3" class="carousel__prev">Go to previous slide</a>
+                                                        <a href="#carousel__slide5" class="carousel__next">Go to next slide</a>
+                                                    </div>
                                                 </li>
                                                 <li id="carousel__slide5" tabindex="0" class="carousel__slide">
                                                     <img src="images/LISmbe.png" alt="MBE Certified" class="slider-card-logo">
-                                                    <div class="carousel__snapper"></div>
-                                                    <a href="#carousel__slide4" class="carousel__prev">Go to previous slide</a>
-                                                    <a href="#carousel__slide6" class="carousel__next">Go to next slide</a>
+                                                    <div class="carousel__snapper">
+                                                        <a href="#carousel__slide4" class="carousel__prev">Go to previous slide</a>
+                                                        <a href="#carousel__slide6" class="carousel__next">Go to next slide</a>
+                                                    </div>
                                                 </li>
                                                 <li id="carousel__slide6" tabindex="0" class="carousel__slide">
                                                     <img src="images/LISdbe.png" alt="DBE Certified" class="slider-card-logo">
-                                                    <div class="carousel__snapper"></div>
-                                                    <a href="#carousel__slide5" class="carousel__prev">Go to previous slide</a>
-                                                    <a href="#carousel__slide1" class="carousel__next">Go to first slide</a>
+                                                    <div class="carousel__snapper">
+                                                        <a href="#carousel__slide5" class="carousel__prev">Go to previous slide</a>
+                                                        <a href="#carousel__slide1" class="carousel__next">Go to first slide</a>
+                                                    </div>
                                                 </li>
                                             </ol>
                                             <aside class="carousel__navigation">
@@ -1007,6 +1012,145 @@
                                                 </ol>
                                             </aside>
                                         </section>
+                    </style>
+                    <!-- Carousel CSS for functional CSS-only slider -->
+                    <style>
+                    @keyframes tonext {
+                        75% { left: 0; }
+                        95% { left: 100%; }
+                        98% { left: 100%; }
+                        99% { left: 0; }
+                    }
+                    @keyframes tostart {
+                        75% { left: 0; }
+                        95% { left: -500%; }
+                        98% { left: -500%; }
+                        99% { left: 0; }
+                    }
+                    @keyframes snap {
+                        96% { scroll-snap-align: center; }
+                        97% { scroll-snap-align: none; }
+                        99% { scroll-snap-align: none; }
+                        100% { scroll-snap-align: center; }
+                    }
+                    .carousel {
+                        position: relative;
+                        padding-top: 56.25%;
+                        filter: drop-shadow(0 0 10px #0003);
+                        perspective: 100px;
+                        background: none;
+                    }
+                    .carousel__viewport {
+                        position: absolute;
+                        top: 0; right: 0; bottom: 0; left: 0;
+                        display: flex;
+                        overflow-x: scroll;
+                        counter-reset: item;
+                        scroll-behavior: smooth;
+                        scroll-snap-type: x mandatory;
+                    }
+                    .carousel__slide {
+                        position: relative;
+                        flex: 0 0 100%;
+                        width: 100%;
+                        background: #fff;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        counter-increment: item;
+                        min-height: 220px;
+                    }
+                    .carousel__slide img {
+                        max-width: 180px;
+                        max-height: 120px;
+                        margin: 0 auto;
+                        display: block;
+                    }
+                    .carousel__snapper {
+                        position: absolute;
+                        top: 0; left: 0; width: 100%; height: 100%;
+                        scroll-snap-align: center;
+                    }
+                    @media (hover: hover) {
+                        .carousel__snapper {
+                            animation-name: tonext, snap;
+                            animation-timing-function: ease;
+                            animation-duration: 4s;
+                            animation-iteration-count: infinite;
+                        }
+                        .carousel__slide:last-child .carousel__snapper {
+                            animation-name: tostart, snap;
+                        }
+                    }
+                    @media (prefers-reduced-motion: reduce) {
+                        .carousel__snapper {
+                            animation-name: none;
+                        }
+                    }
+                    .carousel:hover .carousel__snapper,
+                    .carousel:focus-within .carousel__snapper {
+                        animation-name: none;
+                    }
+                    .carousel__navigation {
+                        position: absolute;
+                        right: 0; bottom: 0; left: 0;
+                        text-align: center;
+                        margin-bottom: 8px;
+                    }
+                    .carousel__navigation-list,
+                    .carousel__navigation-item {
+                        display: inline-block;
+                    }
+                    .carousel__navigation-button {
+                        display: inline-block;
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        background-color: #333;
+                        background-clip: content-box;
+                        border: 0.25rem solid transparent;
+                        border-radius: 50%;
+                        font-size: 0;
+                        margin: 0 2px;
+                        transition: transform 0.1s;
+                    }
+                    .carousel__prev,
+                    .carousel__next {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        background: rgba(0,0,0,0.2);
+                        color: #fff;
+                        border-radius: 50%;
+                        text-align: center;
+                        font-size: 0;
+                        z-index: 2;
+                    }
+                    .carousel__prev { left: 0.5rem; }
+                    .carousel__next { right: 0.5rem; }
+                    .carousel__prev:after {
+                        content: '<';
+                        font-size: 1.5rem;
+                        color: #fff;
+                        line-height: 2.5rem;
+                    }
+                    .carousel__next:after {
+                        content: '>';
+                        font-size: 1.5rem;
+                        color: #fff;
+                        line-height: 2.5rem;
+                    }
+                    @media (max-width: 600px) {
+                        .carousel {
+                            padding-top: 80%;
+                        }
+                        .carousel__slide img {
+                            max-width: 120px;
+                            max-height: 80px;
+                        }
+                    }
+                    </style>
                     <div class="slider-controls">
                         <button class="slider-btn" id="sliderPrev" aria-label="Previous">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
