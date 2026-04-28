@@ -1,13 +1,19 @@
-   
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="EcoPower Solutions - Maryland Home Energy & Safety Audits. Professional home energy audits with rebate assistance and 0% CEA financing options.">
     <title>EcoPower Solutions | Maryland Home Energy & Safety Audits</title>
+   
+    <link rel="icon" href="/favicon.ico?v=1" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=1">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=1">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1">
 </head>
 
+    
 <body>
 
 
@@ -252,7 +258,56 @@
     .danger-tag { display: inline-block; margin-top: 8px; padding: 3px 9px; border-radius: 999px; font-size: 0.78rem; background-color: var(--ecp-danger-soft); color: var(--ecp-danger); }
 
     .credentials-wrapper { display: grid; gap: 24px; }
+    @media (min-width: 960px) { .credentials-wrapper { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); } }
 
+    .slider-wrapper { background: #020617; border-radius: var(--ecp-radius-lg); border: 1px solid #1f2937; padding: 20px 18px 22px; color: #e5e7eb; box-shadow: var(--ecp-shadow-soft); }
+    .slider-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .slider-header h3 { font-size: 1.05rem; }
+    .slider-subtext { font-size: 0.78rem; color: #9ca3af; }
+    .slider-container { overflow: hidden; position: relative; }
+    .slider-track { display: flex; transition: transform 0.45s ease; }
+    .slider-card { min-width: 100%; padding: 12px 6px 6px; }
+    .slider-card-inner { background: #ffffff; border-radius: 16px; padding: 16px 16px 14px; border: 1px solid #e5e7eb; box-shadow: 0 14px 30px rgba(15, 23, 42, 0.10); color: var(--ecp-grey-dark); }
+    .slider-card-badge { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.09em; background: rgba(15, 23, 42, 0.05); border: 1px solid #e5e7eb; margin-bottom: 10px; color: var(--ecp-grey-dark); }
+    .slider-card-logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 70px;
+        width: auto;
+        margin-bottom: 18px;
+        max-width: 180px;
+    }
+    /* Remove path color override, use currentColor */
+    .slider-card-inner h4 { font-size: 1rem; margin-bottom: 6px; }
+    .slider-card-inner p { font-size: 0.88rem; color: var(--ecp-grey); }
+    .slider-controls { margin-top: 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .slider-dots { display: flex; gap: 4px; }
+    .slider-dot { width: 7px; height: 7px; border-radius: 999px; background: #1f2937; cursor: pointer; }
+    .slider-dot.active { width: 18px; background: #38bdf8; }
+    .slider-btn { border-radius: 999px; border: 1px solid rgba(148, 163, 184, 0.8); background: rgba(15, 23, 42, 0.8); width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; color: #e5e7eb; }
+    .slider-btn:hover { background: rgba(37, 99, 235, 0.85); }
+
+@media (max-width: 600px) {
+    .slider-wrapper {
+        padding: 12px 2vw 16px !important;
+        border-radius: 12px !important;
+        box-sizing: border-box;
+        width: 100vw;
+        max-width: 100vw;
+        margin-left: -4vw;
+        margin-right: -4vw;
+    }
+    .slider-container {
+        overflow-x: auto !important;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
+    }
+    .slider-track {
+        min-width: 320px;
+    }
+}
 
     .credentials-secondary { display: grid; gap: 14px; }
     .cred-mini-card { background: #ffffff; border-radius: var(--ecp-radius-md); padding: 13px 14px; border: 1px solid #e5e7eb; display: grid; grid-template-columns: auto 1fr; gap: 10px 12px; align-items: center; }
@@ -523,7 +578,7 @@
         <div class="hero-overlay"></div>
         <div class="hero-container">
             <div class="hero-content animate-on-scroll">
-                <img src="images/ecologo.png" alt="EcoPower Solutions" class="hero-logo">
+                <img src="images/EcoPower_Logo_Shiny_Silver_Upscaled_4x_SHARP.png" alt="EcoPower Solutions" class="hero-logo">
                 <span class="hero-kicker">Maryland Home Energy & Safety Audits</span>
                 <h1 class="hero-title">Make Your Maryland Home Safer & More Efficient</h1>
                 <p class="hero-description">
@@ -896,7 +951,77 @@
                 </p>
             </div>
             <div class="credentials-wrapper">
-                <!-- Slideshow removed -->
+                <div class="slider-wrapper animate-on-scroll">
+                    <div class="slider-header">
+                        <h3>Core Credentials</h3>
+                        <span class="slider-subtext">Swipe or use arrows</span>
+                    </div>
+                    <div class="slider-container">
+                        <div class="slider-track" id="sliderTrack">
+                            <div class="slider-card">
+                                <div class="slider-card-inner">
+                                    <span class="slider-card-badge">Top Credential</span>
+                                    <img src="images/LISbpi.png" alt="BPI Certified" class="slider-card-logo">
+                                    <h4>BPI Certified Professional</h4>
+                                    <p>Building Performance Institute certification for whole-home energy auditing.</p>
+                                </div>
+                            </div>
+                            <div class="slider-card">
+                                <div class="slider-card-inner">
+                                    <span class="slider-card-badge">Maryland Licensed</span>
+                                    <img src="images/LISmhic.png" alt="MHIC Licensed" class="slider-card-logo">
+                                    <h4>MHIC Licensed Contractor</h4>
+                                    <p>Maryland Home Improvement Commission licensed for residential work.</p>
+                                </div>
+                            </div>
+                            <div class="slider-card">
+                                <div class="slider-card-inner">
+                                    <span class="slider-card-badge">Lead-Safe</span>
+                                    <img src="images/LISlead.png" alt="EPA Lead-Safe Certified" class="slider-card-logo">
+                                    <h4>EPA Lead-Safe Certified</h4>
+                                    <p>Renovation, Repair and Painting (RRP) certified for pre-1978 homes.</p>
+                                </div>
+                            </div>
+                            <div class="slider-card">
+                                <div class="slider-card-inner">
+                                    <span class="slider-card-badge">Safety</span>
+                                    <img src="images/LISosha.png" alt="OSHA Certified" class="slider-card-logo">
+                                    <h4>OSHA Safety Trained</h4>
+                                    <p>Occupational Safety and Health Administration certified for worksite safety.</p>
+                                </div>
+                            </div>
+                            <div class="slider-card">
+                                <div class="slider-card-inner">
+                                    <span class="slider-card-badge">Maryland</span>
+                                    <img src="images/LISmbe.png" alt="MBE Certified" class="slider-card-logo">
+                                    <h4>MBE Certified</h4>
+                                    <p>Maryland Minority Business Enterprise certified contractor.</p>
+                                </div>
+                            </div>
+                            <div class="slider-card">
+                                <div class="slider-card-inner" style="background:#fff;">
+                                    <span class="slider-card-badge">Federal</span>
+                                    <img src="images/LISdbe.png" alt="DBE Certified" class="slider-card-logo">
+                                    <h4>DBE Certified</h4>
+                                    <p>Disadvantaged Business Enterprise certified for federal and state contracts.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="slider-btn" id="sliderPrev" aria-label="Previous">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15 18 9 12 15 6" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                            </svg>
+                        </button>
+                        <div class="slider-dots" id="sliderDots"></div>
+                        <button class="slider-btn" id="sliderNext" aria-label="Next">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
                 <div class="credentials-secondary animate-on-scroll">
                     <div class="cred-mini-card">
                         <img src="https://freedomconstructiongrp.com/wp-content/uploads/2025/10/679b9a0473b931dd64dd58b5_everblue_logo_2024.png" alt="Everblue Training" class="cred-mini-logo">
@@ -1019,11 +1144,15 @@
                <!--  <span class="kicker animate-on-scroll">Customer Reviews</span>
                 <h2 class="section-title animate-on-scroll">What Our Clients Says</h2> -->
             </div>
-            <div class="grid grid-1">
-                    <div class="info-card animate-on-scroll" style="max-width:500px;margin:32px auto 0;">
-                        <h3 style="font-weight:500;font-size:1.1rem;">"EcoPower gave us great information for us to better understand our home and save energy."</h3>
-                        <div style="margin-top:10px; color:var(--ecp-grey); font-size:0.92rem;">— Ella Browm, Baltimore, MD</div>
-                    </div>
+            <div class="grid grid-2">
+                <div class="info-card animate-on-scroll" style="max-width:500px;margin:32px auto 0;">
+                    <h3 style="font-weight:500;font-size:1.1rem;">"EcoPower gave us great information for us to better understand our home and save energy."</h3>
+                    <div style="margin-top:10px; color:var(--ecp-grey); font-size:0.92rem;">— Ella Brown, Baltimore, MD</div>
+                </div>
+                <div class="info-card animate-on-scroll" style="max-width:500px;margin:32px auto 0;">
+                    <h3 style="font-weight:500;font-size:1.1rem;">"Many places in my house were very cold and I didn't know why. They were very nice and did many tests and found the reason. I am very happy with them!"</h3>
+                    <div style="margin-top:10px; color:var(--ecp-grey); font-size:0.92rem;">— Shabana J., Jessup, MD</div>
+                </div>
             </div>
         </div>
     </div>
