@@ -823,9 +823,9 @@
 <!-- Inline Tabs for Upgrades & Programs -->
 <div class="inline-tabs-section" style="margin-top:40px;">
     <div class="inline-tabs-nav" style="display:flex; gap:8px; margin-bottom:18px;">
-        <button class="inline-tab-btn active" data-tab="hvac">BGE HVAC Tune-Ups</button>
-        <button class="inline-tab-btn" data-tab="retrofit">Retrofit Upgrades</button>
-        <button class="inline-tab-btn" data-tab="weather">Weatherization</button>
+        <button class="inline-tab-btn active" data-tab="hvac" style="background:#eaf4fb; color:#1A4D8F;">BGE HVAC Tune-Ups</button>
+        <button class="inline-tab-btn" data-tab="retrofit" style="background:#eafbee; color:#227a3a;">Retrofit Upgrades</button>
+        <button class="inline-tab-btn" data-tab="weather" style="background:#fffbe6; color:#b59a00;">Weatherization</button>
     </div>
     <div class="inline-tab-content" id="tab-hvac" style="display:block;">
         <!-- BGE HVAC Tune-Ups content (move from original section) -->
@@ -1300,21 +1300,30 @@ document.addEventListener('DOMContentLoaded', function() {
   border-bottom: 2px solid #e5e7eb;
 }
 .inline-tab-btn {
-  background: none;
-  border: none;
-  font-size: 1.08rem;
-  font-weight: 600;
-  color: #1A4D8F;
-  padding: 10px 22px 10px 22px;
-  border-radius: 10px 10px 0 0;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-  margin-bottom: -2px;
+    border: none;
+    font-size: 1.08rem;
+    font-weight: 600;
+    padding: 10px 22px 10px 22px;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    margin-bottom: -2px;
 }
-.inline-tab-btn.active, .inline-tab-btn:hover {
-  background: #fff;
-  color: #059669;
-  border-bottom: 2px solid #059669;
+/* Active/hover color for each tab */
+.inline-tab-btn.active[data-tab="hvac"], .inline-tab-btn[data-tab="hvac"]:hover {
+    background: #d2eafd;
+    color: #1A4D8F;
+    border-bottom: 2px solid #1A4D8F;
+}
+.inline-tab-btn.active[data-tab="retrofit"], .inline-tab-btn[data-tab="retrofit"]:hover {
+    background: #d2fbe0;
+    color: #227a3a;
+    border-bottom: 2px solid #227a3a;
+}
+.inline-tab-btn.active[data-tab="weather"], .inline-tab-btn[data-tab="weather"]:hover {
+    background: #fff7cc;
+    color: #b59a00;
+    border-bottom: 2px solid #b59a00;
 }
 .inline-tab-content {
   background: #fff;
