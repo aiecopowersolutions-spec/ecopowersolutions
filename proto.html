@@ -8,6 +8,36 @@
 
 <!-- =================== HEAD: Meta, Title, Icons =================== -->
 <head>
+                                            <style>
+                                                /* Fix flipcard grid overlap: set consistent min-height */
+                                                .grid.grid-3 {
+                                                    align-items: stretch;
+                                                }
+                                                .flipcard {
+                                                    min-height: 270px;
+                                                    height: 100%;
+                                                    display: flex;
+                                                    align-items: stretch;
+                                                }
+                                                .flipcard-inner,
+                                                .flipcard-front,
+                                                .flipcard-back {
+                                                    min-height: 270px;
+                                                    height: 100%;
+                                                    box-sizing: border-box;
+                                                }
+                                                @media (max-width: 900px) {
+                                                    .flipcard, .flipcard-inner, .flipcard-front, .flipcard-back {
+                                                        min-height: 320px;
+                                                    }
+                                                }
+                                                @media (max-width: 600px) {
+                                                    .flipcard, .flipcard-inner, .flipcard-front, .flipcard-back {
+                                                        min-height: 0;
+                                                        height: auto;
+                                                    }
+                                                }
+                                            </style>
                                     <style>
                                         /* Flipcard animation for audit info cards */
                                         .flipcard {
