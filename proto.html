@@ -33,32 +33,8 @@
                     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
                     padding: 32px 24px 32px 24px;
                     display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    gap: 24px;
-                }
-                .slider-card-logo {
-                    width: 90px;
-                    height: 90px;
-                    object-fit: contain;
-                    flex-shrink: 0;
-                    margin-bottom: 0;
-                }
-                .slider-card-content {
-                    display: flex;
                     flex-direction: column;
-                    gap: 8px;
-                }
-                /* Responsive: stack on mobile */
-                @media (max-width: 700px) {
-                    .slider-card-inner {
-                        flex-direction: column;
-                        align-items: flex-start;
-                        gap: 12px;
-                    }
-                    .slider-card-logo {
-                        margin-bottom: 8px;
-                    }
+                    justify-content: flex-start;
                 }
                 /* Hide Swiper overflow */
                 .swiper {
@@ -1076,62 +1052,50 @@
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <div class="slider-card-inner">
+                                                <span class="slider-card-badge">Top Credential</span>
                                                 <img src="images/LISbpi.png" alt="BPI Certified" class="slider-card-logo">
-                                                <div class="slider-card-content">
-                                                    <span class="slider-card-badge">Top Credential</span>
-                                                    <h4>BPI Certified Professional</h4>
-                                                    <p>Building Performance Institute certification for whole-home energy auditing.</p>
-                                                </div>
+                                                <h4>BPI Certified Professional</h4>
+                                                <p>Building Performance Institute certification for whole-home energy auditing.</p>
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="slider-card-inner">
+                                                <span class="slider-card-badge">Maryland Licensed</span>
                                                 <img src="images/LISmhic.png" alt="MHIC Licensed" class="slider-card-logo">
-                                                <div class="slider-card-content">
-                                                    <span class="slider-card-badge">Maryland Licensed</span>
-                                                    <h4>MHIC Licensed Contractor</h4>
-                                                    <p>Maryland Home Improvement Commission licensed for residential work.</p>
-                                                </div>
+                                                <h4>MHIC Licensed Contractor</h4>
+                                                <p>Maryland Home Improvement Commission licensed for residential work.</p>
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="slider-card-inner">
+                                                <span class="slider-card-badge">Lead-Safe</span>
                                                 <img src="images/LISlead.png" alt="EPA Lead-Safe Certified" class="slider-card-logo">
-                                                <div class="slider-card-content">
-                                                    <span class="slider-card-badge">Lead-Safe</span>
-                                                    <h4>EPA Lead-Safe Certified</h4>
-                                                    <p>Renovation, Repair and Painting (RRP) certified for pre-1978 homes.</p>
-                                                </div>
+                                                <h4>EPA Lead-Safe Certified</h4>
+                                                <p>Renovation, Repair and Painting (RRP) certified for pre-1978 homes.</p>
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="slider-card-inner">
+                                                <span class="slider-card-badge">Safety</span>
                                                 <img src="images/LISosha.png" alt="OSHA Certified" class="slider-card-logo">
-                                                <div class="slider-card-content">
-                                                    <span class="slider-card-badge">Safety</span>
-                                                    <h4>OSHA Safety Trained</h4>
-                                                    <p>Occupational Safety and Health Administration certified for worksite safety.</p>
-                                                </div>
+                                                <h4>OSHA Safety Trained</h4>
+                                                <p>Occupational Safety and Health Administration certified for worksite safety.</p>
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="slider-card-inner">
+                                                <span class="slider-card-badge">Maryland</span>
                                                 <img src="images/LISmbe.png" alt="MBE Certified" class="slider-card-logo">
-                                                <div class="slider-card-content">
-                                                    <span class="slider-card-badge">Maryland</span>
-                                                    <h4>MBE Certified</h4>
-                                                    <p>Maryland Minority Business Enterprise certified contractor.</p>
-                                                </div>
+                                                <h4>MBE Certified</h4>
+                                                <p>Maryland Minority Business Enterprise certified contractor.</p>
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="slider-card-inner" style="background:#fff;">
+                                                <span class="slider-card-badge">Federal</span>
                                                 <img src="images/LISdbe.png" alt="DBE Certified" class="slider-card-logo">
-                                                <div class="slider-card-content">
-                                                    <span class="slider-card-badge">Federal</span>
-                                                    <h4>DBE Certified</h4>
-                                                    <p>Disadvantaged Business Enterprise certified for federal and state contracts.</p>
-                                                </div>
+                                                <h4>DBE Certified</h4>
+                                                <p>Disadvantaged Business Enterprise certified for federal and state contracts.</p>
                                             </div>
                                         </div>
                                     </div>
