@@ -8,6 +8,45 @@
 
 <!-- =================== HEAD: Meta, Title, Icons =================== -->
 <head>
+                            <style>
+                                /* Swiper card image container for consistent sizing */
+                                .slider-card-image {
+                                    width: 100%;
+                                    height: 80px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    margin-bottom: 16px;
+                                    background: #fff;
+                                    padding: 4px 0;
+                                }
+                                .slider-card-logo {
+                                    max-width: 100%;
+                                    max-height: 70px;
+                                    width: auto;
+                                    height: auto;
+                                    object-fit: contain;
+                                    display: block;
+                                    background: none;
+                                    margin: 0;
+                                }
+                                .slider-card-inner {
+                                    overflow: hidden;
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    justify-content: flex-start;
+                                }
+                                /* Responsive: adjust image size on mobile */
+                                @media (max-width: 700px) {
+                                    .slider-card-image {
+                                        height: 56px;
+                                    }
+                                    .slider-card-logo {
+                                        max-height: 44px;
+                                    }
+                                }
+                            </style>
                     <style>
                         /* Ensure Swiper card images are contained and centered */
                         .slider-card-logo {
@@ -1131,72 +1170,6 @@
                                     <div class="swiper-button-next"></div>
                                     <div class="swiper-pagination"></div>
                                 </div>
-                <script>
-                // Initialize Swiper for Core Credentials
-                document.addEventListener('DOMContentLoaded', function() {
-                    if (window.Swiper) {
-                        new Swiper('.swiper', {
-                            loop: true,
-                            slidesPerView: 1,
-                            spaceBetween: 24,
-                            navigation: {
-                                nextEl: '.swiper-button-next',
-                                prevEl: '.swiper-button-prev',
-                            },
-                            pagination: {
-                                el: '.swiper-pagination',
-                                clickable: true,
-                            },
-                            autoplay: {
-                                delay: 3500,
-                                disableOnInteraction: false,
-                            },
-                            breakpoints: {
-                                768: { slidesPerView: 2 },
-                                1100: { slidesPerView: 3 }
-                            },
-                            effect: 'slide',
-                            speed: 600
-                        });
-                    }
-                });
-                </script>
-                <div class="credentials-secondary animate-on-scroll">
-                    <div class="cred-mini-card">
-                        <img src="https://freedomconstructiongrp.com/wp-content/uploads/2025/10/679b9a0473b931dd64dd58b5_everblue_logo_2024.png" alt="Everblue Training" class="cred-mini-logo">
-                        <h5>Everblue Training</h5>
-                        <p>Advanced energy audit training</p>
-                    </div>
-                    <div class="cred-mini-card">
-                        <img src="https://freedomconstructiongrp.com/wp-content/uploads/2025/10/esco-institute.png" alt="ESCO Institute" class="cred-mini-logo">
-                        <h5>ESCO Institute</h5>
-                        <p>HVAC & energy certification</p>
-                    </div>
-                    <div class="cred-mini-card">
-                        <img src="https://freedomconstructiongrp.com/wp-content/uploads/2025/10/BetterCertify_Horizontal_color-768x131-1.webp" alt="BetterCertify" class="cred-mini-logo">
-                        <h5>BetterCertify</h5>
-                        <p>Environmental compliance</p>
-                    </div>
-                    <div class="cred-mini-card">
-                        <img src="https://freedomconstructiongrp.com/wp-content/uploads/2024/06/1-1.png" alt="PRPM" class="cred-mini-logo">
-                        <h5>PRPM Certified</h5>
-                        <p>Property maintenance standards</p>
-                    </div>
-                    <div class="cred-mini-card empower-card">
-                        <img src="https://freedomconstructiongrp.com/wp-content/uploads/2025/12/empowerlogo.webp" alt="EmPOWER Maryland" class="cred-mini-logo">
-                        <h5>EmPOWER Maryland Programs</h5>
-                        <p>Statewide energy efficiency and rebate programs supporting Maryland homeowners.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-
-    
-
-    <!-- =================== WHY CHOOSE ECOPOWER (Benefits) SECTION =================== -->
     <div class="section" id="benefits">
         <div class="container">
             <div class="section-header">
