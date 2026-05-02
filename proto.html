@@ -8,6 +8,48 @@
 
 <!-- =================== HEAD: Meta, Title, Icons =================== -->
 <head>
+            <style>
+                /* Swiper container: center and constrain width */
+                .swiper {
+                    max-width: 600px;
+                    margin: 0 auto 36px auto;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+                /* Swiper slides: responsive and not stretched */
+                .swiper-slide {
+                    display: flex;
+                    align-items: stretch;
+                    justify-content: center;
+                    height: auto;
+                }
+                .slider-card-inner {
+                    width: 100%;
+                    max-width: 520px;
+                    min-height: 180px;
+                    box-sizing: border-box;
+                    background: #fff;
+                    border-radius: 16px;
+                    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+                    padding: 32px 24px 32px 24px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                }
+                /* Hide Swiper overflow */
+                .swiper {
+                    overflow: hidden;
+                }
+                /* Responsive for mobile */
+                @media (max-width: 700px) {
+                    .swiper {
+                        max-width: 98vw;
+                    }
+                    .slider-card-inner {
+                        padding: 18px 8px;
+                    }
+                }
+            </style>
     <!-- Swiper.js CSS for animated carousel -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- ...existing code... -->
