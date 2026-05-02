@@ -1145,10 +1145,10 @@
                                     <div class="swiper-pagination"></div>
                                 </div>
                 <script>
-                // Initialize Swiper for Core Credentials
+                // Initialize Swiper for Core Credentials with constant steady movement and pause on hover
                 document.addEventListener('DOMContentLoaded', function() {
                     if (window.Swiper) {
-                        new Swiper('.swiper', {
+                        var swiper = new Swiper('.swiper', {
                             loop: true,
                             slidesPerView: 1,
                             spaceBetween: 24,
@@ -1161,16 +1161,28 @@
                                 clickable: true,
                             },
                             autoplay: {
-                                delay: 3500,
+                                delay: 0, // No delay between transitions
                                 disableOnInteraction: false,
+                                pauseOnMouseEnter: false // We'll handle pause manually
                             },
+                            speed: 3500, // Duration of slide transition in ms (controls how steady/slow)
                             breakpoints: {
                                 768: { slidesPerView: 2 },
                                 1100: { slidesPerView: 3 }
                             },
                             effect: 'slide',
-                            speed: 600
                         });
+
+                        // Pause on hover over any slide
+                        var swiperEl = document.querySelector('.swiper');
+                        if (swiperEl) {
+                            swiperEl.addEventListener('mouseenter', function() {
+                                swiper.autoplay.stop();
+                            });
+                            swiperEl.addEventListener('mouseleave', function() {
+                                swiper.autoplay.start();
+                            });
+                        }
                     }
                 });
                 </script>
