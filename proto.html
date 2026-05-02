@@ -8,6 +8,19 @@
 
 <!-- =================== HEAD: Meta, Title, Icons =================== -->
 <head>
+                            <style>
+                                /* Only shrink wide images for LEAD CLASSES and OSHA */
+                                .slider-card-logo[alt="EPA Lead-Safe Certified"],
+                                .slider-card-logo[alt="OSHA Certified"] {
+                                    max-width: 90px;
+                                    max-height: 38px;
+                                    width: auto;
+                                    height: auto;
+                                    object-fit: contain;
+                                    display: block;
+                                    margin: 0 auto 16px auto;
+                                }
+                            </style>
                     <style>
                         /* Ensure Swiper card images are contained and centered */
                         .slider-card-logo {
