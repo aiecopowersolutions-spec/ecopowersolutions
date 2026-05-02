@@ -8,6 +8,43 @@
 
 <!-- =================== HEAD: Meta, Title, Icons =================== -->
 <head>
+                                                                            <style>
+                                                                                /* Flipcard front: blue tint over background image */
+                                                                                .flipcard-front.info-card {
+                                                                                    position: relative;
+                                                                                    overflow: hidden;
+                                                                                }
+                                                                                .flipcard-front-bg {
+                                                                                    position: absolute;
+                                                                                    inset: 0;
+                                                                                    width: 100%;
+                                                                                    height: 100%;
+                                                                                    background-size: cover;
+                                                                                    background-position: center;
+                                                                                    z-index: 0;
+                                                                                    pointer-events: none;
+                                                                                }
+                                                                                .flipcard-front-tint {
+                                                                                    position: absolute;
+                                                                                    inset: 0;
+                                                                                    width: 100%;
+                                                                                    height: 100%;
+                                                                                    background: rgba(37, 99, 235, 0.92);
+                                                                                    z-index: 1;
+                                                                                    pointer-events: none;
+                                                                                }
+                                                                                .flipcard-front.info-card h3 {
+                                                                                    position: relative;
+                                                                                    z-index: 2;
+                                                                                }
+                                                                                /* Example unique backgrounds for each card */
+                                                                                .flipcard-front.bg-safety .flipcard-front-bg { background-image: url('images/card-safety.jpg'); }
+                                                                                .flipcard-front.bg-leaks .flipcard-front-bg { background-image: url('images/card-leaks.jpg'); }
+                                                                                .flipcard-front.bg-insulation .flipcard-front-bg { background-image: url('images/card-insulation.jpg'); }
+                                                                                .flipcard-front.bg-hvac .flipcard-front-bg { background-image: url('images/card-hvac.jpg'); }
+                                                                                .flipcard-front.bg-electrical .flipcard-front-bg { background-image: url('images/card-electrical.jpg'); }
+                                                                                .flipcard-front.bg-appliances .flipcard-front-bg { background-image: url('images/card-appliances.jpg'); }
+                                                                            </style>
                                                                     <style>
                                                                         /* Flipcard front: blue background, white bold heading */
                                                                         .flipcard-front.info-card {
@@ -880,7 +917,9 @@
             <div class="grid grid-3">
                                 <div class="flipcard animate-on-scroll" tabindex="0">
                                     <div class="flipcard-inner">
-                                        <div class="flipcard-front info-card">
+                                        <div class="flipcard-front info-card bg-safety">
+                                            <div class="flipcard-front-bg"></div>
+                                            <div class="flipcard-front-tint"></div>
                                             <h3>Safety & Combustion</h3>
                                         </div>
                                         <div class="flipcard-back info-card">
@@ -894,7 +933,9 @@
                                 </div>
                                 <div class="flipcard animate-on-scroll" tabindex="0">
                                     <div class="flipcard-inner">
-                                        <div class="flipcard-front info-card">
+                                        <div class="flipcard-front info-card bg-leaks">
+                                            <div class="flipcard-front-bg"></div>
+                                            <div class="flipcard-front-tint"></div>
                                             <h3>Leaks & Drafts</h3>
                                         </div>
                                         <div class="flipcard-back info-card">
@@ -908,7 +949,9 @@
                                 </div>
                                 <div class="flipcard animate-on-scroll" tabindex="0">
                                     <div class="flipcard-inner">
-                                        <div class="flipcard-front info-card">
+                                        <div class="flipcard-front info-card bg-insulation">
+                                            <div class="flipcard-front-bg"></div>
+                                            <div class="flipcard-front-tint"></div>
                                             <h3>Insulation & Attic</h3>
                                         </div>
                                         <div class="flipcard-back info-card">
@@ -922,7 +965,9 @@
                                 </div>
                                 <div class="flipcard animate-on-scroll" tabindex="0">
                                     <div class="flipcard-inner">
-                                        <div class="flipcard-front info-card">
+                                        <div class="flipcard-front info-card bg-hvac">
+                                            <div class="flipcard-front-bg"></div>
+                                            <div class="flipcard-front-tint"></div>
                                             <h3>HVAC & Ventilation</h3>
                                         </div>
                                         <div class="flipcard-back info-card">
@@ -936,7 +981,9 @@
                                 </div>
                                 <div class="flipcard animate-on-scroll" tabindex="0">
                                     <div class="flipcard-inner">
-                                        <div class="flipcard-front info-card">
+                                        <div class="flipcard-front info-card bg-electrical">
+                                            <div class="flipcard-front-bg"></div>
+                                            <div class="flipcard-front-tint"></div>
                                             <h3>Electrical & Piping</h3>
                                         </div>
                                         <div class="flipcard-back info-card">
@@ -950,7 +997,9 @@
                                 </div>
                                 <div class="flipcard animate-on-scroll" tabindex="0">
                                     <div class="flipcard-inner">
-                                        <div class="flipcard-front info-card">
+                                        <div class="flipcard-front info-card bg-appliances">
+                                            <div class="flipcard-front-bg"></div>
+                                            <div class="flipcard-front-tint"></div>
                                             <h3>Appliances & Programs</h3>
                                         </div>
                                         <div class="flipcard-back info-card">
