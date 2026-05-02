@@ -8,6 +8,33 @@
 
 <!-- =================== HEAD: Meta, Title, Icons =================== -->
 <head>
+                    <style>
+                        /* Ensure Swiper card images are contained and centered */
+                        .slider-card-logo {
+                            display: block;
+                            margin: 0 auto 16px auto;
+                            max-width: 120px;
+                            max-height: 70px;
+                            width: auto;
+                            height: auto;
+                            object-fit: contain;
+                            background: #fff;
+                        }
+                        .slider-card-inner {
+                            overflow: hidden;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: flex-start;
+                        }
+                        /* Responsive: adjust image size on mobile */
+                        @media (max-width: 700px) {
+                            .slider-card-logo {
+                                max-width: 90px;
+                                max-height: 50px;
+                            }
+                        }
+                    </style>
             <style>
                 /* Swiper container: center and constrain width */
                 .swiper {
