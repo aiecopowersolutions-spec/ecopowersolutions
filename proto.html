@@ -8,6 +8,28 @@
 
 <!-- =================== HEAD: Meta, Title, Icons =================== -->
 <head>
+                                                    <style>
+                                                        /* Flipcard back: stack content vertically and left-align */
+                                                        .flipcard-back.info-card {
+                                                            display: flex;
+                                                            flex-direction: column;
+                                                            align-items: flex-start;
+                                                            justify-content: center;
+                                                            text-align: left;
+                                                            padding: 24px 18px 18px 18px;
+                                                            gap: 10px;
+                                                        }
+                                                        .flipcard-back.info-card h3 {
+                                                            margin-bottom: 6px;
+                                                        }
+                                                        .flipcard-back.info-card p {
+                                                            margin-bottom: 8px;
+                                                        }
+                                                        .flipcard-back.info-card ul {
+                                                            margin: 0;
+                                                            padding-left: 18px;
+                                                        }
+                                                    </style>
                                             <style>
                                                 /* Fix flipcard grid overlap: set consistent min-height */
                                                 .grid.grid-3 {
@@ -837,9 +859,10 @@
             <div class="grid grid-3">
                                 <div class="flipcard animate-on-scroll" tabindex="0">
                                     <div class="flipcard-inner">
-                                        <div class="flipcard-front info-card"></div>
-                                        <div class="flipcard-back info-card">
+                                        <div class="flipcard-front info-card">
                                             <h3>Safety & Combustion</h3>
+                                        </div>
+                                        <div class="flipcard-back info-card">
                                             <p>Gas sniffers, ambient CO checks, and combustion testing for furnaces, boilers, and water heaters.</p>
                                             <ul class="info-card-list">
                                                 <li><span class="info-card-dot"></span>CO monitoring and venting checks</li>
@@ -850,9 +873,10 @@
                                 </div>
                                 <div class="flipcard animate-on-scroll" tabindex="0">
                                     <div class="flipcard-inner">
-                                        <div class="flipcard-front info-card"></div>
-                                        <div class="flipcard-back info-card">
+                                        <div class="flipcard-front info-card">
                                             <h3>Leaks & Drafts</h3>
+                                        </div>
+                                        <div class="flipcard-back info-card">
                                             <p>Air, water, and gas leaks in attics, basements, crawlspaces, and around doors and windows.</p>
                                             <ul class="info-card-list">
                                                 <li><span class="info-card-dot"></span>Blower door testing (where applicable)</li>
@@ -863,9 +887,10 @@
                                 </div>
                                 <div class="flipcard animate-on-scroll" tabindex="0">
                                     <div class="flipcard-inner">
-                                        <div class="flipcard-front info-card"></div>
-                                        <div class="flipcard-back info-card">
+                                        <div class="flipcard-front info-card">
                                             <h3>Insulation & Attic</h3>
+                                        </div>
+                                        <div class="flipcard-back info-card">
                                             <p>Insulation levels, attic conditions, and ventilation that affect comfort and mold risk.</p>
                                             <ul class="info-card-list">
                                                 <li><span class="info-card-dot"></span>Attic and knee wall insulation</li>
@@ -876,9 +901,10 @@
                                 </div>
                                 <div class="flipcard animate-on-scroll" tabindex="0">
                                     <div class="flipcard-inner">
-                                        <div class="flipcard-front info-card"></div>
-                                        <div class="flipcard-back info-card">
+                                        <div class="flipcard-front info-card">
                                             <h3>HVAC & Ventilation</h3>
+                                        </div>
+                                        <div class="flipcard-back info-card">
                                             <p>Heaters, AC units, thermostats, bath fans, and exhaust systems that move air through your home.</p>
                                             <ul class="info-card-list">
                                                 <li><span class="info-card-dot"></span>Equipment condition and basic performance</li>
@@ -889,9 +915,10 @@
                                 </div>
                                 <div class="flipcard animate-on-scroll" tabindex="0">
                                     <div class="flipcard-inner">
-                                        <div class="flipcard-front info-card"></div>
-                                        <div class="flipcard-back info-card">
+                                        <div class="flipcard-front info-card">
                                             <h3>Electrical & Piping</h3>
+                                        </div>
+                                        <div class="flipcard-back info-card">
                                             <p>Visible wiring, panels, and piping issues that may indicate safety or moisture problems.</p>
                                             <ul class="info-card-list">
                                                 <li><span class="info-card-dot"></span>Noting visible electrical red flags</li>
@@ -902,9 +929,10 @@
                                 </div>
                                 <div class="flipcard animate-on-scroll" tabindex="0">
                                     <div class="flipcard-inner">
-                                        <div class="flipcard-front info-card"></div>
-                                        <div class="flipcard-back info-card">
+                                        <div class="flipcard-front info-card">
                                             <h3>Appliances & Programs</h3>
+                                        </div>
+                                        <div class="flipcard-back info-card">
                                             <p>Major appliances and equipment that may qualify for swap programs or efficiency incentives.</p>
                                             <ul class="info-card-list">
                                                 <li><span class="info-card-dot"></span>Appliance efficiency and age review</li>
