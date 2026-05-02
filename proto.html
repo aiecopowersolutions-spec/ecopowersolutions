@@ -1,6 +1,16 @@
+<!--
+    EcoPower Solutions - Main Webpage
+    This file contains the full structure, styles, and scripts for the EcoPower Solutions website.
+    Comments throughout explain each major section for first-time readers.
+-->
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- =================== HEAD: Meta, Title, Icons =================== -->
 <head>
+    <!-- Swiper.js CSS for animated carousel -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- ...existing code... -->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,11 +22,16 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=1">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1">
 </head>
+    <!-- Swiper.js library for animated carousel -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     
+
+<!-- =================== BODY: Main Page Content =================== -->
 <body>
 
 
+<!-- =================== GLOBAL STYLES =================== -->
 <style>
                 /* Show/hide nav items for desktop/mobile */
                 .desktop-only { display: none !important; }
@@ -426,6 +441,7 @@
 </style>
 
     
+    <!-- =================== TOP NAVIGATION BAR =================== -->
     <nav class="top-nav" id="topNav">
         <div class="top-nav-inner">
             <div class="nav-left">
@@ -494,6 +510,7 @@
         </div>
     </nav>
 
+    <!-- =================== ANNOUNCEMENT BAR =================== -->
     <div class="announcement-bar">
         <div class="announcement-inner">
             <div class="announcement-icon">!</div>
@@ -505,7 +522,7 @@
         </div>
     </div>
 
-    <!-- Tabbed Content System -->
+    <!-- =================== TABBED CONTENT SYSTEM (Contact, Team, etc.) =================== -->
     <div id="tabOverlay" class="tab-overlay" style="display:none;"></div>
     <div id="tabContainer" class="tab-container">
         <div id="audits" class="tab-content" style="display: none; min-height: 400px; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 48px 32px;">
@@ -574,6 +591,7 @@
         </div>
     </div>
     <!-- End Tabbed Content System -->
+    <!-- =================== HERO SECTION (Main Banner) =================== -->
     <div class="hero" id="top">
         <div class="hero-overlay"></div>
         <div class="hero-container">
@@ -610,7 +628,7 @@
         </div>
     </div>
 
-    <!-- Five Step Plan & Video Section -->
+    <!-- =================== FIVE STEP PLAN & VIDEO SECTION =================== -->
     <div class="section" id="process">
         <div class="container">
             <div class="section-header">
@@ -655,6 +673,7 @@
 
  
 
+    <!-- =================== WHAT WE CHECK SECTION =================== -->
     <div class="section" id="scope">
             
         <div class="container">
@@ -722,6 +741,7 @@
     </div>
 
             
+    <!-- =================== HIDDEN RISKS SECTION =================== -->
     <div class="section section-grey" id="dangers">
         <div class="container">
             <div class="section-header">
@@ -751,6 +771,7 @@
         </div>
     </div>
 
+    <!-- =================== REBATES & PROGRAMS SECTION =================== -->
     <div class="section" id="rebates">
         <div class="container">
             <div class="section-header">
@@ -820,15 +841,24 @@
             </div>
         </div>
     </div>
-<!-- Inline Tabs for Upgrades & Programs -->
+<!-- =================== INLINE TABS FOR UPGRADES & PROGRAMS =================== -->
+<!--
+    This section provides a tabbed interface for three upgrade/program categories:
+    1. BGE HVAC Tune-Ups (blue)
+    2. Retrofit Upgrades (green)
+    3. Weatherization (yellow)
+    Each tab displays its own content container below.
+-->
 <div class="inline-tabs-section" style="margin-top:40px;">
+    <!-- Tab navigation buttons. Each button switches the visible content below. -->
     <div class="inline-tabs-nav" style="display:flex; gap:8px; margin-bottom:18px;">
         <button class="inline-tab-btn active" data-tab="hvac" style="background:#eaf4fb; color:#1A4D8F;">BGE HVAC Tune-Ups</button>
         <button class="inline-tab-btn" data-tab="retrofit" style="background:#eafbee; color:#227a3a;">Retrofit Upgrades</button>
         <button class="inline-tab-btn" data-tab="weather" style="background:#fffbe6; color:#b59a00;">Weatherization</button>
     </div>
+    <!-- Tab content: BGE HVAC Tune-Ups (shown by default) -->
     <div class="inline-tab-content" id="tab-hvac" style="display:block;">
-        <!-- BGE HVAC Tune-Ups content (move from original section) -->
+        <!-- Content container for BGE HVAC Tune-Ups. Light blue background. -->
         <div style="background:#eaf4fb; border-radius:14px; padding:24px 18px 10px 18px; margin-bottom:18px;">
             <div class="section-header">
                 <span class="kicker animate-on-scroll">BGE HVAC Tune-Ups</span>
@@ -871,8 +901,9 @@
             <strong>Tip:</strong> Prepare any questions about your system and clear the area around your equipment before your appointment for a smooth visit.
         </p>
     </div>
+    <!-- Tab content: Retrofit Upgrades (hidden by default) -->
     <div class="inline-tab-content" id="tab-retrofit" style="display:none;">
-        <!-- Retrofit Upgrades content (move from original section) -->
+        <!-- Content container for Retrofit Upgrades. Light green background. -->
         <div style="background:#eafbee; border-radius:14px; padding:24px 18px 10px 18px; margin-bottom:18px;">
             <div class="section-header">
                 <span class="kicker animate-on-scroll">Retrofit Upgrades</span>
@@ -916,8 +947,9 @@
             <strong>Tip:</strong> Many of these upgrades may qualify for rebates or financing. Consult with a local energy professional to maximize your savings.
         </p>
     </div>
+    <!-- Tab content: Weatherization (hidden by default) -->
     <div class="inline-tab-content" id="tab-weather" style="display:none;">
-        <!-- Weatherization content (move from original section) -->
+        <!-- Content container for Weatherization. Light yellow background. -->
         <div style="background:#fffbe6; border-radius:14px; padding:24px 18px 10px 18px; margin-bottom:18px;">
             <div class="section-header">
                 <span class="kicker animate-on-scroll">Weatherization</span>
@@ -951,7 +983,11 @@
         </p>
     </div>
 </div>
-<!-- End Inline Tabs for Upgrades & Programs -->
+<!-- =================== END INLINE TABS FOR UPGRADES & PROGRAMS =================== -->
+<!--
+    Only the tabbed versions of these sections remain; extra standalone sections were removed.
+-->
+    <!-- =================== CREDENTIALS & CERTIFICATIONS SECTION =================== -->
     <div class="section section-blue-gradient" id="credentials">
             </div>
 
@@ -965,77 +1001,97 @@
                 </p>
             </div>
             <div class="credentials-wrapper">
-                <div class="slider-wrapper animate-on-scroll">
-                    <div class="slider-header">
-                        <h3>Core Credentials</h3>
-                        <span class="slider-subtext">Swipe or use arrows</span>
-                    </div>
-                    <div class="slider-container">
-                        <div class="slider-track" id="sliderTrack">
-                            <div class="slider-card">
-                                <div class="slider-card-inner">
-                                    <span class="slider-card-badge">Top Credential</span>
-                                    <img src="images/LISbpi.png" alt="BPI Certified" class="slider-card-logo">
-                                    <h4>BPI Certified Professional</h4>
-                                    <p>Building Performance Institute certification for whole-home energy auditing.</p>
+                                <!-- Swiper Carousel for Core Credentials -->
+                                <div class="swiper animate-on-scroll" style="padding-bottom:36px;">
+                                    <div class="slider-header" style="margin-bottom:18px;">
+                                        <h3>Core Credentials</h3>
+                                        <span class="slider-subtext">Swipe or use arrows</span>
+                                    </div>
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="slider-card-inner">
+                                                <span class="slider-card-badge">Top Credential</span>
+                                                <img src="images/LISbpi.png" alt="BPI Certified" class="slider-card-logo">
+                                                <h4>BPI Certified Professional</h4>
+                                                <p>Building Performance Institute certification for whole-home energy auditing.</p>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slider-card-inner">
+                                                <span class="slider-card-badge">Maryland Licensed</span>
+                                                <img src="images/LISmhic.png" alt="MHIC Licensed" class="slider-card-logo">
+                                                <h4>MHIC Licensed Contractor</h4>
+                                                <p>Maryland Home Improvement Commission licensed for residential work.</p>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slider-card-inner">
+                                                <span class="slider-card-badge">Lead-Safe</span>
+                                                <img src="images/LISlead.png" alt="EPA Lead-Safe Certified" class="slider-card-logo">
+                                                <h4>EPA Lead-Safe Certified</h4>
+                                                <p>Renovation, Repair and Painting (RRP) certified for pre-1978 homes.</p>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slider-card-inner">
+                                                <span class="slider-card-badge">Safety</span>
+                                                <img src="images/LISosha.png" alt="OSHA Certified" class="slider-card-logo">
+                                                <h4>OSHA Safety Trained</h4>
+                                                <p>Occupational Safety and Health Administration certified for worksite safety.</p>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slider-card-inner">
+                                                <span class="slider-card-badge">Maryland</span>
+                                                <img src="images/LISmbe.png" alt="MBE Certified" class="slider-card-logo">
+                                                <h4>MBE Certified</h4>
+                                                <p>Maryland Minority Business Enterprise certified contractor.</p>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slider-card-inner" style="background:#fff;">
+                                                <span class="slider-card-badge">Federal</span>
+                                                <img src="images/LISdbe.png" alt="DBE Certified" class="slider-card-logo">
+                                                <h4>DBE Certified</h4>
+                                                <p>Disadvantaged Business Enterprise certified for federal and state contracts.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Swiper navigation buttons -->
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-pagination"></div>
                                 </div>
-                            </div>
-                            <div class="slider-card">
-                                <div class="slider-card-inner">
-                                    <span class="slider-card-badge">Maryland Licensed</span>
-                                    <img src="images/LISmhic.png" alt="MHIC Licensed" class="slider-card-logo">
-                                    <h4>MHIC Licensed Contractor</h4>
-                                    <p>Maryland Home Improvement Commission licensed for residential work.</p>
-                                </div>
-                            </div>
-                            <div class="slider-card">
-                                <div class="slider-card-inner">
-                                    <span class="slider-card-badge">Lead-Safe</span>
-                                    <img src="images/LISlead.png" alt="EPA Lead-Safe Certified" class="slider-card-logo">
-                                    <h4>EPA Lead-Safe Certified</h4>
-                                    <p>Renovation, Repair and Painting (RRP) certified for pre-1978 homes.</p>
-                                </div>
-                            </div>
-                            <div class="slider-card">
-                                <div class="slider-card-inner">
-                                    <span class="slider-card-badge">Safety</span>
-                                    <img src="images/LISosha.png" alt="OSHA Certified" class="slider-card-logo">
-                                    <h4>OSHA Safety Trained</h4>
-                                    <p>Occupational Safety and Health Administration certified for worksite safety.</p>
-                                </div>
-                            </div>
-                            <div class="slider-card">
-                                <div class="slider-card-inner">
-                                    <span class="slider-card-badge">Maryland</span>
-                                    <img src="images/LISmbe.png" alt="MBE Certified" class="slider-card-logo">
-                                    <h4>MBE Certified</h4>
-                                    <p>Maryland Minority Business Enterprise certified contractor.</p>
-                                </div>
-                            </div>
-                            <div class="slider-card">
-                                <div class="slider-card-inner" style="background:#fff;">
-                                    <span class="slider-card-badge">Federal</span>
-                                    <img src="images/LISdbe.png" alt="DBE Certified" class="slider-card-logo">
-                                    <h4>DBE Certified</h4>
-                                    <p>Disadvantaged Business Enterprise certified for federal and state contracts.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slider-controls">
-                        <button class="slider-btn" id="sliderPrev" aria-label="Previous">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="15 18 9 12 15 6" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                            </svg>
-                        </button>
-                        <div class="slider-dots" id="sliderDots"></div>
-                        <button class="slider-btn" id="sliderNext" aria-label="Next">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="9 18 15 12 9 6" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+                <script>
+                // Initialize Swiper for Core Credentials
+                document.addEventListener('DOMContentLoaded', function() {
+                    if (window.Swiper) {
+                        new Swiper('.swiper', {
+                            loop: true,
+                            slidesPerView: 1,
+                            spaceBetween: 24,
+                            navigation: {
+                                nextEl: '.swiper-button-next',
+                                prevEl: '.swiper-button-prev',
+                            },
+                            pagination: {
+                                el: '.swiper-pagination',
+                                clickable: true,
+                            },
+                            autoplay: {
+                                delay: 3500,
+                                disableOnInteraction: false,
+                            },
+                            breakpoints: {
+                                768: { slidesPerView: 2 },
+                                1100: { slidesPerView: 3 }
+                            },
+                            effect: 'slide',
+                            speed: 600
+                        });
+                    }
+                });
+                </script>
                 <div class="credentials-secondary animate-on-scroll">
                     <div class="cred-mini-card">
                         <img src="https://freedomconstructiongrp.com/wp-content/uploads/2025/10/679b9a0473b931dd64dd58b5_everblue_logo_2024.png" alt="Everblue Training" class="cred-mini-logo">
@@ -1071,6 +1127,7 @@
 
     
 
+    <!-- =================== WHY CHOOSE ECOPOWER (Benefits) SECTION =================== -->
     <div class="section" id="benefits">
         <div class="container">
             <div class="section-header">
@@ -1174,6 +1231,7 @@
     </div>
 
 
+    <!-- =================== CONTACT CTA SECTION =================== -->
     <div><section class="section section-blue-gradient" id="contact">
         <div class="container">
             <div class="cta-banner animate-on-scroll">
