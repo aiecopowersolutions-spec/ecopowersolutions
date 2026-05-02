@@ -1574,32 +1574,24 @@
     <!-- =================== CONTACT CTA SECTION =================== -->
     <div><section class="section section-blue-gradient" id="contact">
         <div class="container">
-            <div class="cta-banner animate-on-scroll">
-                <h2>Ready to Schedule Your Home Energy Audit?</h2>
-                <p>Get a clear picture of your home's safety and efficiency — and see what rebates and 0% CEA loan options may be available for your project.</p>
-                <div class="cta-buttons">
-                    <a href="#" class="btn btn-primary" id="ctaContactBtn">Contact Us</a>
-                <script>
-                // Make CTA Contact Us button open the Contact Us tab
-                document.addEventListener('DOMContentLoaded', function() {
-                    var ctaBtn = document.getElementById('ctaContactBtn');
-                    if (ctaBtn) {
-                        ctaBtn.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            var contactTab = document.querySelector('.tab-link[data-tab="contact"]');
-                            if (contactTab) contactTab.click();
-                        });
-                    }
-                });
-                </script>
-                </div>
-                <p class="cta-contact-line">
-                    Prefer another time or method? Reach out and we'll follow up with options that work for you.
-                </p>
-            </div>
+            <div class="cta-banner" style="max-width: 960px; margin: 0 auto; padding: 26px 20px 24px; border-radius: var(--ecp-radius-lg); background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), transparent 55%), linear-gradient(135deg, var(--ecp-blue), var(--ecp-blue-dark)); color: #f9fafb; box-shadow: var(--ecp-shadow-soft); text-align: center;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 6px;">Ready to Schedule Your Home Energy Audit?</h2>
+        <p style="font-size: 0.95rem; margin-bottom: 14px; color: #e5e7eb;">Get a clear picture of your home's safety and efficiency — and see what rebates and 0% CEA loan options may be available for your project.</p>
+        <div class="cta-buttons" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 8px;">
+            <a href="#contact" class="btn btn-primary" style="min-width: 150px;">Contact Us</a>
         </div>
-    </section></div>
-
+        <div class="cta-contact-line" style="font-size: 0.85rem; color: #e5e7eb;">Prefer another time or method? Reach out and we'll follow up with options that work for you.</div>
+        <div class="grid grid-2" style="align-items: center; gap: 18px; margin-top: 40px;">
+          <div style="text-align:center; padding: 18px;">
+            <img src="images/2026-01-15.jpg" alt="Baltimore Office" style="max-width: 100%; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.10);">
+          </div>
+          <div style="min-height:300px;">
+            <iframe src="https://www.google.com/maps?q=1724+Woodlawn+Dr,+Woodlawn,+MD+21207&output=embed" width="100%" height="320" style="border:0; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.10);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+    </div>
+    <!-- End CTA Banner Section -->
+    <!-- =================== END CONTACT CTA SECTION =================== -->
     <footer class="footer">
         <div class="footer-inner">
             <div class="footer-left">
