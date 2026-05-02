@@ -8,6 +8,44 @@
 
 <!-- =================== HEAD: Meta, Title, Icons =================== -->
 <head>
+                                    <style>
+                                        /* Flipcard animation for audit info cards */
+                                        .flipcard {
+                                            perspective: 1000px;
+                                            width: 100%;
+                                            height: 100%;
+                                        }
+                                        .flipcard-inner {
+                                            position: relative;
+                                            width: 100%;
+                                            height: 100%;
+                                            transition: transform 0.6s cubic-bezier(.4,2,.6,1);
+                                            transform-style: preserve-3d;
+                                        }
+                                        .flipcard:hover .flipcard-inner,
+                                        .flipcard:focus-within .flipcard-inner {
+                                            transform: rotateY(180deg);
+                                        }
+                                        .flipcard-front, .flipcard-back {
+                                            position: absolute;
+                                            width: 100%;
+                                            height: 100%;
+                                            top: 0; left: 0;
+                                            backface-visibility: hidden;
+                                        }
+                                        .flipcard-front {
+                                            z-index: 2;
+                                        }
+                                        .flipcard-back {
+                                            transform: rotateY(180deg);
+                                            background: #f3f4f6;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            color: #222;
+                                            font-size: 1.1rem;
+                                        }
+                                    </style>
                             <style>
                                 /* Only shrink wide images for LEAD CLASSES and OSHA */
                                 .slider-card-logo[alt="EPA Lead-Safe Certified"],
@@ -767,54 +805,84 @@
                 </p>
             </div>
             <div class="grid grid-3">
-                <div class="info-card animate-on-scroll">
-                    <h3>Safety & Combustion</h3>
-                    <p>Gas sniffers, ambient CO checks, and combustion testing for furnaces, boilers, and water heaters.</p>
-                    <ul class="info-card-list">
-                        <li><span class="info-card-dot"></span>CO monitoring and venting checks</li>
-                        <li><span class="info-card-dot"></span>Appliance backdraft and exhaust verification</li>
-                    </ul>
-                </div>
-                <div class="info-card animate-on-scroll">
-                    <h3>Leaks & Drafts</h3>
-                    <p>Air, water, and gas leaks in attics, basements, crawlspaces, and around doors and windows.</p>
-                    <ul class="info-card-list">
-                        <li><span class="info-card-dot"></span>Blower door testing (where applicable)</li>
-                        <li><span class="info-card-dot"></span>Moisture and leak risk areas</li>
-                    </ul>
-                </div>
-                <div class="info-card animate-on-scroll">
-                    <h3>Insulation & Attic</h3>
-                    <p>Insulation levels, attic conditions, and ventilation that affect comfort and mold risk.</p>
-                    <ul class="info-card-list">
-                        <li><span class="info-card-dot"></span>Attic and knee wall insulation</li>
-                        <li><span class="info-card-dot"></span>Air sealing opportunities</li>
-                    </ul>
-                </div>
-                <div class="info-card animate-on-scroll">
-                    <h3>HVAC & Ventilation</h3>
-                    <p>Heaters, AC units, thermostats, bath fans, and exhaust systems that move air through your home.</p>
-                    <ul class="info-card-list">
-                        <li><span class="info-card-dot"></span>Equipment condition and basic performance</li>
-                        <li><span class="info-card-dot"></span>Exhaust and ventilation checks</li>
-                    </ul>
-                </div>
-                <div class="info-card animate-on-scroll">
-                    <h3>Electrical & Piping</h3>
-                    <p>Visible wiring, panels, and piping issues that may indicate safety or moisture problems.</p>
-                    <ul class="info-card-list">
-                        <li><span class="info-card-dot"></span>Noting visible electrical red flags</li>
-                        <li><span class="info-card-dot"></span>Checking for rust, corrosion, and leaks</li>
-                    </ul>
-                </div>
-                <div class="info-card animate-on-scroll">
-                    <h3>Appliances & Programs</h3>
-                    <p>Major appliances and equipment that may qualify for swap programs or efficiency incentives.</p>
-                    <ul class="info-card-list">
-                        <li><span class="info-card-dot"></span>Appliance efficiency and age review</li>
-                        <li><span class="info-card-dot"></span>Identifying potential rebate-covered upgrades</li>
-                    </ul>
-                </div>
+                                <div class="flipcard animate-on-scroll" tabindex="0">
+                                    <div class="flipcard-inner">
+                                        <div class="flipcard-front info-card">
+                                            <h3>Safety & Combustion</h3>
+                                            <p>Gas sniffers, ambient CO checks, and combustion testing for furnaces, boilers, and water heaters.</p>
+                                            <ul class="info-card-list">
+                                                <li><span class="info-card-dot"></span>CO monitoring and venting checks</li>
+                                                <li><span class="info-card-dot"></span>Appliance backdraft and exhaust verification</li>
+                                            </ul>
+                                        </div>
+                                        <div class="flipcard-back info-card"></div>
+                                    </div>
+                                </div>
+                                <div class="flipcard animate-on-scroll" tabindex="0">
+                                    <div class="flipcard-inner">
+                                        <div class="flipcard-front info-card">
+                                            <h3>Leaks & Drafts</h3>
+                                            <p>Air, water, and gas leaks in attics, basements, crawlspaces, and around doors and windows.</p>
+                                            <ul class="info-card-list">
+                                                <li><span class="info-card-dot"></span>Blower door testing (where applicable)</li>
+                                                <li><span class="info-card-dot"></span>Moisture and leak risk areas</li>
+                                            </ul>
+                                        </div>
+                                        <div class="flipcard-back info-card"></div>
+                                    </div>
+                                </div>
+                                <div class="flipcard animate-on-scroll" tabindex="0">
+                                    <div class="flipcard-inner">
+                                        <div class="flipcard-front info-card">
+                                            <h3>Insulation & Attic</h3>
+                                            <p>Insulation levels, attic conditions, and ventilation that affect comfort and mold risk.</p>
+                                            <ul class="info-card-list">
+                                                <li><span class="info-card-dot"></span>Attic and knee wall insulation</li>
+                                                <li><span class="info-card-dot"></span>Air sealing opportunities</li>
+                                            </ul>
+                                        </div>
+                                        <div class="flipcard-back info-card"></div>
+                                    </div>
+                                </div>
+                                <div class="flipcard animate-on-scroll" tabindex="0">
+                                    <div class="flipcard-inner">
+                                        <div class="flipcard-front info-card">
+                                            <h3>HVAC & Ventilation</h3>
+                                            <p>Heaters, AC units, thermostats, bath fans, and exhaust systems that move air through your home.</p>
+                                            <ul class="info-card-list">
+                                                <li><span class="info-card-dot"></span>Equipment condition and basic performance</li>
+                                                <li><span class="info-card-dot"></span>Exhaust and ventilation checks</li>
+                                            </ul>
+                                        </div>
+                                        <div class="flipcard-back info-card"></div>
+                                    </div>
+                                </div>
+                                <div class="flipcard animate-on-scroll" tabindex="0">
+                                    <div class="flipcard-inner">
+                                        <div class="flipcard-front info-card">
+                                            <h3>Electrical & Piping</h3>
+                                            <p>Visible wiring, panels, and piping issues that may indicate safety or moisture problems.</p>
+                                            <ul class="info-card-list">
+                                                <li><span class="info-card-dot"></span>Noting visible electrical red flags</li>
+                                                <li><span class="info-card-dot"></span>Checking for rust, corrosion, and leaks</li>
+                                            </ul>
+                                        </div>
+                                        <div class="flipcard-back info-card"></div>
+                                    </div>
+                                </div>
+                                <div class="flipcard animate-on-scroll" tabindex="0">
+                                    <div class="flipcard-inner">
+                                        <div class="flipcard-front info-card">
+                                            <h3>Appliances & Programs</h3>
+                                            <p>Major appliances and equipment that may qualify for swap programs or efficiency incentives.</p>
+                                            <ul class="info-card-list">
+                                                <li><span class="info-card-dot"></span>Appliance efficiency and age review</li>
+                                                <li><span class="info-card-dot"></span>Identifying potential rebate-covered upgrades</li>
+                                            </ul>
+                                        </div>
+                                        <div class="flipcard-back info-card"></div>
+                                    </div>
+                                </div>
             </div>
             <p class="section-subtitle animate-on-scroll" style="margin-top: 24px; font-size: 0.9rem;">
                 <strong>Note:</strong> EcoPower audits are assessment-only. We do not perform on-the-spot repairs during the audit visit. Our job is to test, document, and guide your next steps.
