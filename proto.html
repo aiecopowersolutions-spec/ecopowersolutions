@@ -143,15 +143,24 @@
                                             height: 100%;
                                             top: 0; left: 0;
                                             backface-visibility: hidden;
+                                            transition: z-index 0s linear 0.6s;
                                         }
                                         .flipcard-front {
                                             z-index: 2;
+                                            /* Hide front when flipped */
+                                            transition: z-index 0s linear 0.6s;
+                                        }
+                                        .flipcard:hover .flipcard-front,
+                                        .flipcard:focus-within .flipcard-front {
+                                            z-index: 1;
+                                            transition: z-index 0s;
                                         }
                                         .flipcard-back {
                                             transform: rotateY(180deg);
                                             background: #f3f4f6;
                                             color: #222;
                                             font-size: 1.1rem;
+                                            z-index: 2;
                                         }
                                     </style>
                             <style>
