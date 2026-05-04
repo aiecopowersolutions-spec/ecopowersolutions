@@ -1,16 +1,274 @@
-   
+<!--
+    EcoPower Solutions - Main Webpage
+    This file contains the full structure, styles, and scripts for the EcoPower Solutions website.
+    Comments throughout explain each major section for first-time readers.
+-->
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- =================== HEAD: Meta, Title, Icons =================== -->
 <head>
+    <meta charset="UTF-8">
+                                                                            <style>
+                                                                                /* Flipcard front: blue tint over background image */
+                                                                                .flipcard-front.info-card {
+                                                                                    position: relative;
+                                                                                    overflow: hidden;
+                                                                                }
+                                                                                .flipcard-front-bg {
+                                                                                    position: absolute;
+                                                                                    inset: 0;
+                                                                                    width: 100%;
+                                                                                    height: 100%;
+                                                                                    background-size: cover;
+                                                                                    background-position: center;
+                                                                                    z-index: 0;
+                                                                                    pointer-events: none;
+                                                                                }
+                                                                                .flipcard-front-tint {
+                                                                                    position: absolute;
+                                                                                    inset: 0;
+                                                                                    width: 100%;
+                                                                                    height: 100%;
+                                                                                    background: rgba(37, 99, 235, 0.75);
+                                                                                    z-index: 1;
+                                                                                    pointer-events: none;
+                                                                                }
+                                                                                .flipcard-front.info-card h3 {
+                                                                                    position: relative;
+                                                                                    z-index: 2;
+                                                                                }
+                                                                                /* Example unique backgrounds for each card */
+                                                                                .flipcard-front.bg-safety .flipcard-front-bg { background-image: url('images/mark-owen-wilkinson-hughes-f8kFWMtA6qM-unsplash.jpg'); }
+                                                                                .flipcard-front.bg-leaks .flipcard-front-bg { background-image: url('images/draft.jpeg'); }
+                                                                                .flipcard-front.bg-insulation .flipcard-front-bg { background-image: url('images/TC_00219.jpeg'); }
+                                                                                .flipcard-front.bg-hvac .flipcard-front-bg { background-image: url('images/everett-pachmann-JsPkVrHMQoo-unsplash.jpg'); }
+                                                                                .flipcard-front.bg-electrical .flipcard-front-bg { background-image: url('images/stephan-hinni-y-OKpZsZc2I-unsplash.jpg'); }
+                                                                                .flipcard-front.bg-appliances .flipcard-front-bg { background-image: url('images/josbra-design-1eWGq_l_DuU-unsplash.jpg'); }
+                                                                            </style>
+                                                                    <style>
+                                                                        /* Flipcard front: blue background, white bold heading */
+                                                                        .flipcard-front.info-card {
+                                                                            display: flex;
+                                                                            align-items: center;
+                                                                            justify-content: center;
+                                                                            height: 100%;
+                                                                            min-height: 200px;
+                                                                            text-align: center;
+                                                                            background: rgba(37, 99, 235, 0.92); /* theme blue, opaque */
+                                                                            border-radius: 16px;
+                                                                        }
+                                                                        .flipcard-front.info-card h3 {
+                                                                            font-size: 2rem;
+                                                                            margin: 0;
+                                                                            font-weight: 800;
+                                                                            color: #fff;
+                                                                            letter-spacing: 0.01em;
+                                                                            text-shadow: 0 2px 8px rgba(0,0,0,0.10);
+                                                                        }
+                                                                    </style>
+                                                    <style>
+                                                        /* Flipcard back: stack content vertically and left-align */
+                                                        .flipcard-back.info-card {
+                                                            display: flex;
+                                                            flex-direction: column;
+                                                            align-items: flex-start;
+                                                            justify-content: center;
+                                                            text-align: left;
+                                                            padding: 24px 18px 18px 18px;
+                                                            gap: 10px;
+                                                        }
+                                                        .flipcard-back.info-card h3 {
+                                                            margin-bottom: 6px;
+                                                        }
+                                                        .flipcard-back.info-card p {
+                                                            margin-bottom: 8px;
+                                                        }
+                                                        .flipcard-back.info-card ul {
+                                                            margin: 0;
+                                                            padding-left: 18px;
+                                                        }
+                                                    </style>
+                                            <style>
+                                                /* Fix flipcard grid overlap: set consistent min-height */
+                                                .grid.grid-3 {
+                                                    align-items: stretch;
+                                                }
+                                                .flipcard {
+                                                    min-height: 270px;
+                                                    height: 100%;
+                                                    display: flex;
+                                                    align-items: stretch;
+                                                }
+                                                .flipcard-inner,
+                                                .flipcard-front,
+                                                .flipcard-back {
+                                                    min-height: 270px;
+                                                    height: 100%;
+                                                    box-sizing: border-box;
+                                                }
+                                                @media (max-width: 900px) {
+                                                    .flipcard, .flipcard-inner, .flipcard-front, .flipcard-back {
+                                                        min-height: 320px;
+                                                    }
+                                                }
+                                                @media (max-width: 600px) {
+                                                    .flipcard, .flipcard-inner, .flipcard-front, .flipcard-back {
+                                                        min-height: 0;
+                                                        height: auto;
+                                                    }
+                                                }
+                                            </style>
+                                    <style>
+                                        /* Flipcard animation for audit info cards */
+                                        .flipcard {
+                                            perspective: 1000px;
+                                            width: 100%;
+                                            height: 100%;
+                                        }
+                                        .flipcard-inner {
+                                            position: relative;
+                                            width: 100%;
+                                            height: 100%;
+                                            transition: transform 0.6s cubic-bezier(.4,2,.6,1);
+                                            transform-style: preserve-3d;
+                                        }
+                                        .flipcard:hover .flipcard-inner,
+                                        .flipcard:focus-within .flipcard-inner {
+                                            transform: rotateY(180deg);
+                                        }
+                                        .flipcard-front, .flipcard-back {
+                                            position: absolute;
+                                            width: 100%;
+                                            height: 100%;
+                                            top: 0; left: 0;
+                                            backface-visibility: hidden;
+                                            transition: z-index 0s linear 0.6s;
+                                        }
+                                        .flipcard-front {
+                                            z-index: 2;
+                                            /* Hide front when flipped */
+                                            transition: z-index 0s linear 0.6s;
+                                        }
+                                        .flipcard:hover .flipcard-front,
+                                        .flipcard:focus-within .flipcard-front {
+                                            z-index: 1;
+                                            transition: z-index 0s;
+                                        }
+                                        .flipcard-back {
+                                            transform: rotateY(180deg);
+                                            background: #f3f4f6;
+                                            color: #222;
+                                            font-size: 1.1rem;
+                                            z-index: 2;
+                                        }
+                                    </style>
+                            <style>
+                                /* Only shrink wide images for LEAD CLASSES and OSHA */
+                                .slider-card-logo[alt="EPA Lead-Safe Certified"],
+                                .slider-card-logo[alt="OSHA Certified"] {
+                                    max-width: 90px;
+                                    max-height: 38px;
+                                    width: auto;
+                                    height: auto;
+                                    object-fit: contain;
+                                    display: block;
+                                    margin: 0 auto 16px auto;
+                                }
+                            </style>
+                    <style>
+                        /* Ensure Swiper card images are contained and centered */
+                        .slider-card-logo {
+                            display: block;
+                            margin: 0 auto 16px auto;
+                            max-width: 120px;
+                            max-height: 70px;
+                            width: auto;
+                            height: auto;
+                            object-fit: contain;
+                            background: #fff;
+                        }
+                        .slider-card-inner {
+                            overflow: hidden;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: flex-start;
+                        }
+                        /* Responsive: adjust image size on mobile */
+                        @media (max-width: 700px) {
+                            .slider-card-logo {
+                                max-width: 90px;
+                                max-height: 50px;
+                            }
+                        }
+                    </style>
+            <style>
+                /* Swiper container: center and constrain width */
+                .swiper {
+                    max-width: 600px;
+                    margin: 0 auto 36px auto;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+                /* Swiper slides: responsive and not stretched */
+                .swiper-slide {
+                    display: flex;
+                    align-items: stretch;
+                    justify-content: center;
+                    height: auto;
+                }
+                .slider-card-inner {
+                    width: 100%;
+                    max-width: 520px;
+                    min-height: 180px;
+                    box-sizing: border-box;
+                    background: #fff;
+                    border-radius: 16px;
+                    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+                    padding: 32px 24px 32px 24px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                }
+                /* Hide Swiper overflow */
+                .swiper {
+                    overflow: hidden;
+                }
+                /* Responsive for mobile */
+                @media (max-width: 700px) {
+                    .swiper {
+                        max-width: 98vw;
+                    }
+                    .slider-card-inner {
+                        padding: 18px 8px;
+                    }
+                }
+            </style>
+    <!-- Swiper.js CSS for animated carousel -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- ...existing code... -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="EcoPower Solutions - Maryland Home Energy & Safety Audits. Professional home energy audits with rebate assistance and 0% CEA financing options.">
     <title>EcoPower Solutions | Maryland Home Energy & Safety Audits</title>
+   
+    <link rel="icon" href="/favicon.ico?v=1" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=1">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=1">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1">
 </head>
+    <!-- Swiper.js library for animated carousel -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+    
+
+<!-- =================== BODY: Main Page Content =================== -->
 <body>
 
 
+<!-- =================== GLOBAL STYLES =================== -->
 <style>
                 /* Show/hide nav items for desktop/mobile */
                 .desktop-only { display: none !important; }
@@ -174,40 +432,67 @@
     .announcement-icon { width: 18px; height: 18px; border-radius: 999px; border: 2px solid var(--ecp-danger); display: flex; align-items: center; justify-content: center; font-size: 0.65rem; flex-shrink: 0; }
     .announcement-text strong { font-weight: 700; }
 
-    .hero { position: relative; min-height: calc(100vh - 104px); display: flex; align-items: center; overflow: hidden; padding: 60px 0; background-color: #0f2847; background-image: url('https://freedomconstructiongrp.com/wp-content/uploads/2024/07/tour-of-baltimores-inner-harbor-skyline.webp'); background-size: cover; background-position: center center; }
+    .hero {
+        position: relative;
+        min-height: calc(100vh - 104px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        padding: 60px 0;
+        background-color: #0f2847;
+        background-image: url('https://freedomconstructiongrp.com/wp-content/uploads/2024/07/tour-of-baltimores-inner-harbor-skyline.webp');
+        background-size: cover;
+        background-position: center center;
+    }
     .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(26, 77, 143, 0.85) 0%, rgba(15, 40, 71, 0.92) 100%); }
     .hero-container {
         position: relative;
         z-index: 2;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         gap: 40px;
-        max-width: 1200px;
+        max-width: 100vw;
         margin: 0 auto;
         padding: 0 20px;
+        width: 100%;
+        text-align: center;
     }
     @media (min-width: 1024px) {
         .hero-container {
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
+            text-align: center;
         }
         .hero-content, .hero-card {
-            width: 50%;
-            max-width: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
         }
     }
     @media (max-width: 1023px) {
         .hero-content, .hero-card {
             width: 100%;
             max-width: 100%;
+            margin: 0 auto;
         }
     }
 
-    .hero-logo { height: 336px !important; width: auto !important; margin-bottom: 16px; }
+    .hero-logo { height: 336px !important; width: auto !important; margin-bottom: 16px; display: block; margin-left: auto; margin-right: auto; }
     .hero-kicker { display: inline-block; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(148, 163, 184, 0.7); background: rgba(15, 23, 42, 0.7); color: #e5e7eb; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
     .hero-title { font-size: clamp(2.1rem, 3.4vw, 2.8rem); font-weight: 700; color: #f9fafb; margin-bottom: 14px; }
     .hero-description { font-size: 0.98rem; color: #e5e7eb; max-width: 36rem; margin-bottom: 20px; }
-    .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; }
+    .hero-buttons {
+        /* alignment and flex rules removed */
+    }
     .hero-contact-line { font-size: 0.9rem; color: #e5e7eb; }
     .hero-contact-line a { color: #bbf7d0; text-decoration: underline; text-underline-offset: 3px; }
 
@@ -373,9 +658,28 @@
     @media (prefers-reduced-motion: reduce) { html.js-ready .animate-on-scroll { opacity: 1; transform: none; transition: none; } }
 
     @media (max-width: 767px) {
-        .hero { min-height: auto; padding: 60px 0 50px; width: 100%; margin: 0; }
-        .hero-container { width: 100%; max-width: 100%; margin: 0; padding: 0 10px; }
-        .hero-content { width: 100%; max-width: 100%; margin: 0; }
+        .hero {
+            min-height: auto;
+            padding: 60px 0 50px;
+            width: 100%;
+            margin: 0;
+            justify-content: center;
+        }
+        .hero-container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 0 10px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero-content {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
         .announcement-inner { flex-direction: column; align-items: flex-start; }
         .hero-card { margin-top: -10px; }
         /* Remove max-width and center alignment for hero section on mobile */
@@ -420,6 +724,7 @@
 </style>
 
     
+    <!-- =================== TOP NAVIGATION BAR =================== -->
     <nav class="top-nav" id="topNav">
         <div class="top-nav-inner">
             <div class="nav-left">
@@ -488,18 +793,19 @@
         </div>
     </nav>
 
+    <!-- =================== ANNOUNCEMENT BAR =================== -->
     <div class="announcement-bar">
         <div class="announcement-inner">
             <div class="announcement-icon">!</div>
             <div class="announcement-text">
                 <strong>Important:</strong> MEA grant funding is currently fully subscribed through 2026, but
-                <strong>Clean Energy Advantage (CEA) loans with 0% interest for up to 24 months</strong> are still available for qualifying projects.
+                    <strong>Clean Energy Advantage (CEA) loans with 0% interest for up to 24 months</strong> are still available for qualifying projects.
                 Contact us to see what options are open for your home.
             </div>
         </div>
     </div>
 
-    <!-- Tabbed Content System -->
+    <!-- =================== TABBED CONTENT SYSTEM (Contact, Team, etc.) =================== -->
     <div id="tabOverlay" class="tab-overlay" style="display:none;"></div>
     <div id="tabContainer" class="tab-container">
         <div id="audits" class="tab-content" style="display: none; min-height: 400px; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 48px 32px;">
@@ -512,8 +818,8 @@
             <h2 style="font-size:2rem; color:#222; margin-bottom:24px;">Our Team</h2>
         </div>
         <div id="contact" class="tab-content contact-bg" style="display: none; min-height: 400px; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 48px 32px; position: relative; overflow: hidden;">
-            <h2 style="font-size:2rem; color:#222; margin-bottom:24px;">Contact Us</h2>
-            <div class="contact-form-wrapper animate-on-scroll">
+            <h2 style="font-size:2rem; color:#222; margin-bottom:24px; margin-top:56px; text-align:center;">Contact Us</h2>
+            <div class="contact-form-wrapper animate-on-scroll" style="display: flex; flex-direction: column; align-items: center;">
                 <h3>Send Us a Message!</h3>
                 <form id="contactForm" action="https://formsubmit.co/info@ecopowersol.com" method="POST">
                     <!-- FormSubmit Configuration -->
@@ -565,14 +871,25 @@
                     <p class="form-note">We'll respond within 1-2 business days to schedule your audit.</p>
                 </form>
             </div>
+            <div class="grid grid-2" style="align-items: center; gap: 18px; margin-top: 40px;">
+                            <!-- Image removed as requested -->
+                            <div style="min-height:300px; display: flex; justify-content: center;">
+                                <iframe src="https://www.google.com/maps?q=1724+Woodlawn+Dr,+Woodlawn,+MD+21207&output=embed" width="400" height="320" style="border:0; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); display: block; margin: 0 auto;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+            </div>
         </div>
     </div>
     <!-- End Tabbed Content System -->
+    <!-- =================== HERO SECTION (Main Banner) =================== -->
     <div class="hero" id="top">
+        <video class="hero-bg-video" autoplay loop muted playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;" poster="" preload="auto">
+            <source src="videos/14246079_3840_2160_30fps (online-video-cutter.com) (1) (1) (1).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         <div class="hero-overlay"></div>
         <div class="hero-container">
             <div class="hero-content animate-on-scroll">
-                <img src="images/ecologo.png" alt="EcoPower Solutions" class="hero-logo">
+                <img src="images/EcoPower_Logo_Shiny_Silver_Upscaled_4x_SHARP.png" alt="EcoPower Solutions" class="hero-logo">
                 <span class="hero-kicker">Maryland Home Energy & Safety Audits</span>
                 <h1 class="hero-title">Make Your Maryland Home Safer & More Efficient</h1>
                 <p class="hero-description">
@@ -604,7 +921,7 @@
         </div>
     </div>
 
-    <!-- Five Step Plan & Video Section -->
+    <!-- =================== FIVE STEP PLAN & VIDEO SECTION =================== -->
     <div class="section" id="process">
         <div class="container">
             <div class="section-header">
@@ -649,6 +966,7 @@
 
  
 
+    <!-- =================== WHAT WE CHECK SECTION =================== -->
     <div class="section" id="scope">
             
         <div class="container">
@@ -660,54 +978,102 @@
                 </p>
             </div>
             <div class="grid grid-3">
-                <div class="info-card animate-on-scroll">
-                    <h3>Safety & Combustion</h3>
-                    <p>Gas sniffers, ambient CO checks, and combustion testing for furnaces, boilers, and water heaters.</p>
-                    <ul class="info-card-list">
-                        <li><span class="info-card-dot"></span>CO monitoring and venting checks</li>
-                        <li><span class="info-card-dot"></span>Appliance backdraft and exhaust verification</li>
-                    </ul>
-                </div>
-                <div class="info-card animate-on-scroll">
-                    <h3>Leaks & Drafts</h3>
-                    <p>Air, water, and gas leaks in attics, basements, crawlspaces, and around doors and windows.</p>
-                    <ul class="info-card-list">
-                        <li><span class="info-card-dot"></span>Blower door testing (where applicable)</li>
-                        <li><span class="info-card-dot"></span>Moisture and leak risk areas</li>
-                    </ul>
-                </div>
-                <div class="info-card animate-on-scroll">
-                    <h3>Insulation & Attic</h3>
-                    <p>Insulation levels, attic conditions, and ventilation that affect comfort and mold risk.</p>
-                    <ul class="info-card-list">
-                        <li><span class="info-card-dot"></span>Attic and knee wall insulation</li>
-                        <li><span class="info-card-dot"></span>Air sealing opportunities</li>
-                    </ul>
-                </div>
-                <div class="info-card animate-on-scroll">
-                    <h3>HVAC & Ventilation</h3>
-                    <p>Heaters, AC units, thermostats, bath fans, and exhaust systems that move air through your home.</p>
-                    <ul class="info-card-list">
-                        <li><span class="info-card-dot"></span>Equipment condition and basic performance</li>
-                        <li><span class="info-card-dot"></span>Exhaust and ventilation checks</li>
-                    </ul>
-                </div>
-                <div class="info-card animate-on-scroll">
-                    <h3>Electrical & Piping</h3>
-                    <p>Visible wiring, panels, and piping issues that may indicate safety or moisture problems.</p>
-                    <ul class="info-card-list">
-                        <li><span class="info-card-dot"></span>Noting visible electrical red flags</li>
-                        <li><span class="info-card-dot"></span>Checking for rust, corrosion, and leaks</li>
-                    </ul>
-                </div>
-                <div class="info-card animate-on-scroll">
-                    <h3>Appliances & Programs</h3>
-                    <p>Major appliances and equipment that may qualify for swap programs or efficiency incentives.</p>
-                    <ul class="info-card-list">
-                        <li><span class="info-card-dot"></span>Appliance efficiency and age review</li>
-                        <li><span class="info-card-dot"></span>Identifying potential rebate-covered upgrades</li>
-                    </ul>
-                </div>
+                                <div class="flipcard animate-on-scroll" tabindex="0">
+                                    <div class="flipcard-inner">
+                                        <div class="flipcard-front info-card bg-safety">
+                                            <div class="flipcard-front-bg"></div>
+                                            <div class="flipcard-front-tint"></div>
+                                            <h3>Safety & Combustion</h3>
+                                        </div>
+                                        <div class="flipcard-back info-card">
+                                            <p>Gas sniffers, ambient CO checks, and combustion testing for furnaces, boilers, and water heaters.</p>
+                                            <ul class="info-card-list">
+                                                <li><span class="info-card-dot"></span>CO monitoring and venting checks</li>
+                                                <li><span class="info-card-dot"></span>Appliance backdraft and exhaust verification</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flipcard animate-on-scroll" tabindex="0">
+                                    <div class="flipcard-inner">
+                                        <div class="flipcard-front info-card bg-leaks">
+                                            <div class="flipcard-front-bg"></div>
+                                            <div class="flipcard-front-tint"></div>
+                                            <h3>Leaks & Drafts</h3>
+                                        </div>
+                                        <div class="flipcard-back info-card">
+                                            <p>Air, water, and gas leaks in attics, basements, crawlspaces, and around doors and windows.</p>
+                                            <ul class="info-card-list">
+                                                <li><span class="info-card-dot"></span>Blower door testing (where applicable)</li>
+                                                <li><span class="info-card-dot"></span>Moisture and leak risk areas</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flipcard animate-on-scroll" tabindex="0">
+                                    <div class="flipcard-inner">
+                                        <div class="flipcard-front info-card bg-insulation">
+                                            <div class="flipcard-front-bg"></div>
+                                            <div class="flipcard-front-tint"></div>
+                                            <h3>Insulation & Attic</h3>
+                                        </div>
+                                        <div class="flipcard-back info-card">
+                                            <p>Insulation levels, attic conditions, and ventilation that affect comfort and mold risk.</p>
+                                            <ul class="info-card-list">
+                                                <li><span class="info-card-dot"></span>Attic and knee wall insulation</li>
+                                                <li><span class="info-card-dot"></span>Air sealing opportunities</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flipcard animate-on-scroll" tabindex="0">
+                                    <div class="flipcard-inner">
+                                        <div class="flipcard-front info-card bg-hvac">
+                                            <div class="flipcard-front-bg"></div>
+                                            <div class="flipcard-front-tint"></div>
+                                            <h3>HVAC & Ventilation</h3>
+                                        </div>
+                                        <div class="flipcard-back info-card">
+                                            <p>Heaters, AC units, thermostats, bath fans, and exhaust systems that move air through your home.</p>
+                                            <ul class="info-card-list">
+                                                <li><span class="info-card-dot"></span>Equipment condition and basic performance</li>
+                                                <li><span class="info-card-dot"></span>Exhaust and ventilation checks</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flipcard animate-on-scroll" tabindex="0">
+                                    <div class="flipcard-inner">
+                                        <div class="flipcard-front info-card bg-electrical">
+                                            <div class="flipcard-front-bg"></div>
+                                            <div class="flipcard-front-tint"></div>
+                                            <h3>Electrical & Piping</h3>
+                                        </div>
+                                        <div class="flipcard-back info-card">
+                                            <p>Visible wiring, panels, and piping issues that may indicate safety or moisture problems.</p>
+                                            <ul class="info-card-list">
+                                                <li><span class="info-card-dot"></span>Noting visible electrical red flags</li>
+                                                <li><span class="info-card-dot"></span>Checking for rust, corrosion, and leaks</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flipcard animate-on-scroll" tabindex="0">
+                                    <div class="flipcard-inner">
+                                        <div class="flipcard-front info-card bg-appliances">
+                                            <div class="flipcard-front-bg"></div>
+                                            <div class="flipcard-front-tint"></div>
+                                            <h3>Appliances & Programs</h3>
+                                        </div>
+                                        <div class="flipcard-back info-card">
+                                            <p>Major appliances and equipment that may qualify for swap programs or efficiency incentives.</p>
+                                            <ul class="info-card-list">
+                                                <li><span class="info-card-dot"></span>Appliance efficiency and age review</li>
+                                                <li><span class="info-card-dot"></span>Identifying potential rebate-covered upgrades</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
             </div>
             <p class="section-subtitle animate-on-scroll" style="margin-top: 24px; font-size: 0.9rem;">
                 <strong>Note:</strong> EcoPower audits are assessment-only. We do not perform on-the-spot repairs during the audit visit. Our job is to test, document, and guide your next steps.
@@ -716,35 +1082,8 @@
     </div>
 
             
-    <div class="section section-grey" id="dangers">
-        <div class="container">
-            <div class="section-header">
-                <span class="kicker animate-on-scroll">Hidden Risks</span>
-                <h2 class="section-title animate-on-scroll">Problems We Aim to Catch Early</h2>
-                <p class="section-subtitle animate-on-scroll">
-                    Our audits are designed to find issues before they turn into costly emergencies or safety hazards.
-                </p>
-            </div>
-            <div class="danger-grid">
-                <div class="danger-card animate-on-scroll">
-                    <h3>CO & Combustion Hazards</h3>
-                    <p>Poor venting, cracked heat exchangers, backdrafting, and other issues that can put your household at risk.</p>
-                    <span class="danger-tag">Ignored: emergency calls, health risks, property damage</span>
-                </div>
-                <div class="danger-card animate-on-scroll">
-                    <h3>Moisture & Water Issues</h3>
-                    <p>Leaks, condensation, and humidity problems that can lead to mold, rot, and structural damage over time.</p>
-                    <span class="danger-tag">Ignored: mold cleanup, drywall & flooring replacement</span>
-                </div>
-                <div class="danger-card animate-on-scroll">
-                    <h3>Drafts & Energy Waste</h3>
-                    <p>Gaps, air leaks, and insulation failures that make your systems work harder and cost you more every month.</p>
-                    <span class="danger-tag">Ignored: higher bills, shorter equipment life</span>
-                </div>
-            </div>
-        </div>
-    </div>
 
+    <!-- =================== REBATES & PROGRAMS SECTION =================== -->
     <div class="section" id="rebates">
         <div class="container">
             <div class="section-header">
@@ -794,6 +1133,9 @@
                             Qualified appliance swaps
                         </li>
                     </ul>
+                    <div style="display: flex; justify-content: center; margin-top: 24px;">
+                        <img src="images/Anonymous_House_1.png" alt="House illustration" style="max-width: 120px; width: 100%; height: auto; opacity: 0.92;" loading="lazy">
+                    </div>
                 </div>
                 <div class="rebates-aside animate-on-scroll">
                     <h3>0% CEA loans and help with the rest</h3>
@@ -814,116 +1156,174 @@
             </div>
         </div>
     </div>
-<!-- Inline Tabs for Upgrades & Programs -->
+<!-- =================== INLINE TABS FOR UPGRADES & PROGRAMS =================== -->
+<!--
+    This section provides a tabbed interface for three upgrade/program categories:
+    1. BGE HVAC Tune-Ups (blue)
+    2. Retrofit Upgrades (green)
+    3. Weatherization (yellow)
+    Each tab displays its own content container below.
+-->
 <div class="inline-tabs-section" style="margin-top:40px;">
+    <!-- Tab navigation buttons. Each button switches the visible content below. -->
     <div class="inline-tabs-nav" style="display:flex; gap:8px; margin-bottom:18px;">
-        <button class="inline-tab-btn active" data-tab="hvac">BGE HVAC Tune-Ups</button>
-        <button class="inline-tab-btn" data-tab="retrofit">Retrofit Upgrades</button>
-        <button class="inline-tab-btn" data-tab="weather">Weatherization</button>
+        <button class="inline-tab-btn active" data-tab="retrofit" style="background:#eafbee; color:#227a3a;">Retrofit Upgrades</button>
+        <button class="inline-tab-btn" data-tab="hvac" style="background:#eaf4fb; color:#1A4D8F;">HVAC Tune-Ups</button>
+        <button class="inline-tab-btn" data-tab="weather" style="background:#fffbe6; color:#b59a00;">Weatherization</button>
     </div>
+    <!-- Tab content: BGE HVAC Tune-Ups (shown by default) -->
     <div class="inline-tab-content" id="tab-hvac" style="display:block;">
-        <!-- BGE HVAC Tune-Ups content (move from original section) -->
-        <div class="section-header">
-            <span class="kicker animate-on-scroll">BGE HVAC Tune-Ups</span>
-            <h2 class="section-title animate-on-scroll">No-Cost HVAC Tune-Ups for BGE Customers</h2>
-            <p class="section-subtitle animate-on-scroll">
-                BGE residential and business customers can receive a professional HVAC tune-up at no additional cost, thanks to the EmPOWER Maryland Energy Efficiency Act. Regular tune-ups help your system run efficiently, save money, and improve comfort and air quality.
-            </p>
-        </div>
-        <div class="grid grid-2">
-            <div class="highlight-box animate-on-scroll">
-                <div class="highlight-title">Why Get a BGE HVAC Tune-Up?</div>
-                <ul class="checklist">
-                    <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span> Prevents costly breakdowns and extends equipment life</li>
-                    <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span> Improves comfort and indoor air quality</li>
-                    <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span> Reduces energy use and helps the environment</li>
-                    <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span> Included with your BGE electric service—no extra cost</li>
-                </ul>
+        <!-- Content container for BGE HVAC Tune-Ups. Light blue background. -->
+        <div style="background:#eaf4fb; border-radius:14px; padding:24px 18px 10px 18px; margin-bottom:18px;">
+            <div class="section-header">
+                <span class="kicker animate-on-scroll">HVAC Tune-Ups</span>
+                <h2 class="section-title animate-on-scroll">Commercial HVAC Performance Starts Here</h2>
+                <p class="section-subtitle animate-on-scroll">
+                    Unlock the full potential of your building’s comfort and efficiency. EcoPower Solutions delivers professional HVAC tune-ups designed to save you money, prevent costly breakdowns, and keep your business running smoothly.<br><br>
+                    <span style="font-size:0.98em; color:#1A4D8F; font-weight:600;">EcoPower Solutions is a BGE Participating Service Provider.</span>
+                </p>
             </div>
-            <div class="highlight-box animate-on-scroll">
-                <div class="highlight-title">Eligibility & How to Schedule</div>
-                <ul class="checklist">
-                    <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span> Available to BGE residential and business electric customers</li>
-                    <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span> Most central AC and heat pump systems qualify</li>
-                    <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span> Tune-up typically includes inspection, cleaning, and efficiency checks</li>
-                    <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span> Schedule by calling <a href="tel:4102200503">410-220-0503</a> or <a href="tel:4105105115">410-510-5115</a></li>
-                </ul>
-                <p style="font-size:0.92rem; color:var(--ecp-grey-dark); margin-top:10px;">Learn more at <a href="https://bgesmartenergy.com/residential/hvac-tune-program-faqs" target="_blank" rel="noopener">BGE Smart Energy</a> or <a href="https://www.acaircare.com/bge-ac-tuneups/" target="_blank" rel="noopener">A-C Air Care</a>.</p>
+            <div class="grid grid-2">
+                <div class="highlight-box animate-on-scroll">
+                    <div class="highlight-title">Why Maintenance Matters</div>
+                    <p><strong>Don’t let your comfort and budget slip away.</strong> Poor HVAC maintenance is the hidden culprit behind rising energy bills, unexpected breakdowns, and uncomfortable workspaces. Over time, dust, wear, and neglect can shorten your system’s lifespan and even impact indoor air quality.</p>
+                    <div class="highlight-title" style="margin-top:18px;">Proactive Tune-Ups: The Smart Solution</div>
+                    <p><strong>Stay ahead of problems—before they cost you.</strong> Our commercial HVAC tune-ups are designed to restore peak efficiency, reduce wasted energy, and improve airflow throughout your building. By catching issues early, you avoid expensive repairs and keep your business running without interruption.</p>
+                    <div class="hvac-image-wrapper" style="text-align:center; margin-top:22px;">
+                        <img src="images/kien-nguyen-994AH40vmVs-unsplash.jpg" alt="Technician servicing commercial HVAC rooftop unit" style="max-width:340px; width:100%; height:auto; border-radius:12px; box-shadow:0 4px 24px rgba(0,0,0,0.10);">
+                    </div>
+                </div>
+                <div class="highlight-box animate-on-scroll">
+                    <div class="highlight-title">What’s Included in Your Service</div>
+                    <div style="background: #f7fbff; border-radius: 12px; padding: 22px 20px 18px 20px; box-shadow: 0 2px 12px rgba(26,77,143,0.06); margin-bottom: 18px;">
+                        <p style="font-size:1.08rem; margin-bottom:18px; color:#23406c;">Our comprehensive tune-up covers every critical aspect of your HVAC system, ensuring reliable performance and long-term savings:</p>
+                        <ul class="checklist" style="margin:0; padding:0 0 0 0; list-style:none;">
+                            <li style="display:flex; align-items:flex-start; gap:10px; margin-bottom:12px;">
+                                <span style="color:#10b981; margin-top:2px;">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+                                </span>
+                                <span><strong>Full system inspection:</strong> We assess all major components for safety and efficiency.</span>
+                            </li>
+                            <li style="display:flex; align-items:flex-start; gap:10px; margin-bottom:12px;">
+                                <span style="color:#10b981; margin-top:2px;">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+                                </span>
+                                <span><strong>Coil cleaning (condenser & evaporator):</strong> Clean coils mean better heat transfer and lower energy use.</span>
+                            </li>
+                            <li style="display:flex; align-items:flex-start; gap:10px; margin-bottom:12px;">
+                                <span style="color:#10b981; margin-top:2px;">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+                                </span>
+                                <span><strong>Airflow and diagnostics:</strong> We check for blockages and optimize system airflow for comfort.</span>
+                            </li>
+                            <li style="display:flex; align-items:flex-start; gap:10px; margin-bottom:12px;">
+                                <span style="color:#10b981; margin-top:2px;">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+                                </span>
+                                <span><strong>Electrical/component checks:</strong> Prevent failures by ensuring all wiring and controls are in top shape.</span>
+                            </li>
+                            <li style="display:flex; align-items:flex-start; gap:10px; margin-bottom:12px;">
+                                <span style="color:#10b981; margin-top:2px;">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+                                </span>
+                                <span><strong>Fault detection:</strong> Early identification of issues saves you from costly downtime.</span>
+                            </li>
+                            <li style="display:flex; align-items:flex-start; gap:10px; margin-bottom:0;">
+                                <span style="color:#10b981; margin-top:2px;">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+                                </span>
+                                <span><strong>On-site HVAC analysis at no additional cost:</strong> Our service is BGE compliant and designed to maximize your eligibility for energy-saving programs.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="highlight-title" style="margin-top:18px;">A Trusted BGE Partner</div>
+                    <p>EcoPower Solutions is a BGE Energy Efficiency Participating Service Provider. As a participating provider, we help connect customers to BGE's energy-saving programs and incentives. Our company is independently owned and operated, and our services are delivered in accordance with BGE Energy Efficiency program guidelines.</p>
+                    <div style="margin-top:24px; text-align:center;">
+                        <div style="display:inline-block;">
+                            <img src="images/Screenshot 2026-05-02 052852.png" alt="BGE Energy Efficiency Logo" style="max-width:340px; width:100%; height:auto; display:block;">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <p class="section-subtitle animate-on-scroll" style="margin-top:24px; font-size:0.95rem;">
             <strong>Tip:</strong> Prepare any questions about your system and clear the area around your equipment before your appointment for a smooth visit.
         </p>
     </div>
+    <!-- Tab content: Retrofit Upgrades (hidden by default) -->
     <div class="inline-tab-content" id="tab-retrofit" style="display:none;">
-        <!-- Retrofit Upgrades content (move from original section) -->
-        <div class="section-header">
-            <span class="kicker animate-on-scroll">Retrofit Upgrades</span>
-            <h2 class="section-title animate-on-scroll">Simple Home Upgrades to Lower Your BGE Electricity Bill</h2>
-            <p class="section-subtitle animate-on-scroll">
-                These practical upgrades can make your home more energy-efficient and help reduce your monthly BGE bill—many are quick, affordable, and eligible for rebates or incentives.
+        <!-- Content container for Retrofit Upgrades. Light green background. -->
+        <div style="background:#eafbee; border-radius:14px; padding:24px 18px 10px 18px; margin-bottom:18px;">
+            <div class="section-header">
+                <span class="kicker animate-on-scroll">Retrofit Upgrades</span>
+                <h2 class="section-title animate-on-scroll">Professional Home Retrofit Services</h2>
+                <p class="section-subtitle animate-on-scroll">
+                    EcoPower Solutions provides expert retrofit upgrades to help you save energy, improve comfort, and qualify for rebates. We specialize in the following replacements and efficiency improvements:
+                </p>
+            </div>
+            <div class="grid grid-2">
+                <div class="info-card animate-on-scroll">
+                    <h3>Insulation Upgrades</h3>
+                    <p>We replace and upgrade attic, wall, and crawlspace insulation to keep your home comfortable and energy efficient year-round.</p>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Heat Pump Replacements</h3>
+                    <p>Modern, high-efficiency heat pumps provide both heating and cooling, reducing your energy bills and carbon footprint.</p>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Water Heater Replacements</h3>
+                    <p>Upgrade to energy-efficient water heaters for reliable hot water and lower utility costs.</p>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>ASHRAE Bathroom Fan Installations</h3>
+                    <p>We install ASHRAE-compliant bathroom fans to improve indoor air quality and meet ventilation standards.</p>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Air Sealing</h3>
+                    <p>Our air sealing services eliminate drafts and leaks, making your home more comfortable and energy efficient.</p>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Residential Efficient HVAC Systems</h3>
+                    <p>We replace outdated HVAC systems with high-efficiency models that deliver better comfort and savings.</p>
+                </div>
+            </div>
+            <p class="section-subtitle animate-on-scroll" style="margin-top:24px; font-size:0.95rem;">
+                <strong>Ask us about available rebates and incentives for your retrofit project!</strong>
             </p>
-        </div>
-        <div class="grid grid-2">
-            <div class="info-card animate-on-scroll">
-                <h3>1. Upgrade to Energy Star Appliances</h3>
-                <p>Replace outdated appliances with Energy Star certified models for long-term savings and possible rebates.</p>
-            </div>
-            <div class="info-card animate-on-scroll">
-                <h3>2. Energy-Proof the Windows</h3>
-                <p>Install double-pane or energy-efficient windows to reduce heating and cooling loss and ease the load on your HVAC.</p>
-            </div>
-            <div class="info-card animate-on-scroll">
-                <h3>3. Renew the Roof and Insulation</h3>
-                <p>Upgrade insulation and repair or replace your roof to prevent energy loss and improve comfort year-round.</p>
-            </div>
-            <div class="info-card animate-on-scroll">
-                <h3>4. Opt for Smart Temperature Controls</h3>
-                <p>Install smart thermostats and light controls to automatically reduce energy use when you’re away or asleep.</p>
-            </div>
-            <div class="info-card animate-on-scroll">
-                <h3>5. Switch to LED Lighting</h3>
-                <p>Swap out incandescent bulbs for LED lighting throughout your home for instant, lasting savings.</p>
-            </div>
-            <div class="info-card animate-on-scroll">
-                <h3>6. Add Ceiling Fans</h3>
-                <p>Ceiling fans help circulate air, reducing the need for constant HVAC use and lowering energy bills.</p>
-            </div>
-            <div class="info-card animate-on-scroll">
-                <h3>7. Invest in Solar Power</h3>
-                <p>Consider solar panels to offset your electricity costs and protect against rising utility rates.</p>
-            </div>
         </div>
         <p class="section-subtitle animate-on-scroll" style="margin-top: 24px; font-size: 0.9rem;">
             <strong>Tip:</strong> Many of these upgrades may qualify for rebates or financing. Consult with a local energy professional to maximize your savings.
         </p>
     </div>
+    <!-- Tab content: Weatherization (hidden by default) -->
     <div class="inline-tab-content" id="tab-weather" style="display:none;">
-        <!-- Weatherization content (move from original section) -->
-        <div class="section-header">
-            <span class="kicker animate-on-scroll">Weatherization</span>
-            <h2 class="section-title animate-on-scroll">Weatherization Assistance for Baltimore City Residents</h2>
-            <p class="section-subtitle animate-on-scroll">
-                The Weatherization Assistance Program (WAP) helps Baltimore City homeowners and renters reduce energy costs and improve home comfort. Eligible residents can receive free energy-saving upgrades such as insulation, air sealing, and heating/cooling system repairs. Priority is given to seniors, families with children, and people with disabilities.
-            </p>
-        </div>
-        <div class="grid grid-2">
-            <div class="info-card animate-on-scroll">
-                <h3>What Services Are Offered?</h3>
-                <ul>
-                    <li>Insulation and air sealing</li>
-                    <li>Heating and cooling system repairs or replacements</li>
-                    <li>Minor home repairs to improve energy efficiency</li>
-                    <li>Energy education and tips</li>
-                </ul>
+        <!-- Content container for Weatherization. Light yellow background. -->
+        <div style="background:#fffbe6; border-radius:14px; padding:24px 18px 10px 18px; margin-bottom:18px;">
+            <div class="section-header">
+                <span class="kicker animate-on-scroll">Weatherization</span>
+                <h2 class="section-title animate-on-scroll">Weatherization Assistance for Baltimore City Residents</h2>
+                <p class="section-subtitle animate-on-scroll">
+                    The Weatherization Assistance Program (WAP) helps Baltimore City homeowners and renters reduce energy costs and improve home comfort. Eligible residents can receive free energy-saving upgrades such as insulation, air sealing, and heating/cooling system repairs. Priority is given to seniors, families with children, and people with disabilities.
+                </p>
             </div>
-            <div class="info-card animate-on-scroll">
-                <h3>Who Is Eligible?</h3>
-                <ul>
-                    <li>Baltimore City residents (homeowners or renters)</li>
-                    <li>Income-qualified households</li>
-                    <li>Priority for seniors, families with children, and people with disabilities</li>
-                </ul>
+            <div class="grid grid-2">
+                <div class="info-card animate-on-scroll">
+                    <h3>What Services Are Offered?</h3>
+                    <ul>
+                        <li>Insulation and air sealing</li>
+                        <li>Heating and cooling system repairs or replacements</li>
+                        <li>Minor home repairs to improve energy efficiency</li>
+                        <li>Energy education and tips</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Who Is Eligible?</h3>
+                    <ul>
+                        <li>Baltimore City residents (homeowners or renters)</li>
+                        <li>Income-qualified households</li>
+                        <li>Priority for seniors, families with children, and people with disabilities</li>
+                    </ul>
+                </div>
             </div>
         </div>
         <p class="section-subtitle animate-on-scroll" style="margin-top: 24px; font-size: 0.9rem;">
@@ -931,7 +1331,11 @@
         </p>
     </div>
 </div>
-<!-- End Inline Tabs for Upgrades & Programs -->
+<!-- =================== END INLINE TABS FOR UPGRADES & PROGRAMS =================== -->
+<!--
+    Only the tabbed versions of these sections remain; extra standalone sections were removed.
+-->
+    <!-- =================== CREDENTIALS & CERTIFICATIONS SECTION =================== -->
     <div class="section section-blue-gradient" id="credentials">
             </div>
 
@@ -945,78 +1349,117 @@
                 </p>
             </div>
             <div class="credentials-wrapper">
-                <div class="slider-wrapper animate-on-scroll">
-                    <div class="slider-header">
-                        <h3>Core Credentials</h3>
-                        <span class="slider-subtext">Swipe or use arrows</span>
+                                <!-- Swiper Carousel for Core Credentials -->
+                                <div class="swiper animate-on-scroll" style="padding-bottom:36px;">
+                                    <div class="slider-header" style="margin-bottom:18px;">
+                                        <h3>Core Credentials</h3>
+                                        <span class="slider-subtext">Swipe or use arrows</span>
+                                    </div>
+                                    <div class="swiper-wrapper">
+                                                        <div class="slider-header" style="margin-bottom:18px;">
+                                                            <h3>Nationally Recognized Institutions</h3>
+                                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slider-card-inner">
+                                                <span class="slider-card-badge">Top Credential</span>
+                                                <img src="images/LISbpi.png" alt="BPI Certified" class="slider-card-logo">
+                                                <h4>BPI Certified Professional</h4>
+                                                <p>Building Performance Institute certification for whole-home energy auditing.</p>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slider-card-inner">
+                                                <span class="slider-card-badge">Maryland Licensed</span>
+                                                <img src="images/LISmhic.png" alt="MHIC Licensed" class="slider-card-logo">
+                                                <h4>MHIC Licensed Contractor</h4>
+                                                <p>Maryland Home Improvement Commission licensed for residential work.</p>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slider-card-inner">
+                                                <span class="slider-card-badge">Lead-Safe</span>
+                                                <img src="images/LISlead.png" alt="EPA Lead-Safe Certified" class="slider-card-logo">
+                                                <h4>EPA Lead-Safe Certified</h4>
+                                                <p>Renovation, Repair and Painting (RRP) certified for pre-1978 homes.</p>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slider-card-inner">
+                                                <span class="slider-card-badge">Safety</span>
+                                                <img src="images/LISosha.png" alt="OSHA Certified" class="slider-card-logo">
+                                                <h4>OSHA Safety Trained</h4>
+                                                <p>Occupational Safety and Health Administration certified for worksite safety.</p>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slider-card-inner">
+                                                <span class="slider-card-badge">Maryland</span>
+                                                <img src="images/LISmbe.png" alt="MBE Certified" class="slider-card-logo">
+                                                <h4>MBE Certified</h4>
+                                                <p>Maryland Minority Business Enterprise certified contractor.</p>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slider-card-inner" style="background:#fff;">
+                                                <span class="slider-card-badge">Federal</span>
+                                                <img src="images/LISdbe.png" alt="DBE Certified" class="slider-card-logo">
+                                                <h4>DBE Certified</h4>
+                                                <p>Disadvantaged Business Enterprise certified for federal and state contracts.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Swiper navigation buttons -->
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                <script>
+                // Initialize Swiper for Core Credentials with constant steady movement and pause on hover
+                document.addEventListener('DOMContentLoaded', function() {
+                    if (window.Swiper) {
+                        var swiper = new Swiper('.swiper', {
+                            loop: true,
+                            slidesPerView: 1,
+                            spaceBetween: 24,
+                            navigation: {
+                                nextEl: '.swiper-button-next',
+                                prevEl: '.swiper-button-prev',
+                            },
+                            pagination: {
+                                el: '.swiper-pagination',
+                                clickable: true,
+                            },
+                            autoplay: {
+                                delay: 0, // No delay between transitions
+                                disableOnInteraction: false,
+                                pauseOnMouseEnter: false // We'll handle pause manually
+                            },
+                            speed: 3500, // Duration of slide transition in ms (controls how steady/slow)
+                            breakpoints: {
+                                768: { slidesPerView: 2 },
+                                1100: { slidesPerView: 3 }
+                            },
+                            effect: 'slide',
+                        });
+
+                        // Pause on hover over any slide
+                        var swiperEl = document.querySelector('.swiper');
+                        if (swiperEl) {
+                            swiperEl.addEventListener('mouseenter', function() {
+                                swiper.autoplay.stop();
+                            });
+                            swiperEl.addEventListener('mouseleave', function() {
+                                swiper.autoplay.start();
+                            });
+                        }
+                    }
+                });
+                </script>
+                <div>
+                    <div class="slider-header" style="margin-bottom:18px;">
+                        <h3>Nationally Recognized Institutions</h3>
                     </div>
-                    <div class="slider-container">
-                        <div class="slider-track" id="sliderTrack">
-                            <div class="slider-card">
-                                <div class="slider-card-inner">
-                                    <span class="slider-card-badge">Top Credential</span>
-                                    <img src="images/LISbpi.png" alt="BPI Certified" class="slider-card-logo">
-                                    <h4>BPI Certified Professional</h4>
-                                    <p>Building Performance Institute certification for whole-home energy auditing.</p>
-                                </div>
-                            </div>
-                            <div class="slider-card">
-                                <div class="slider-card-inner">
-                                    <span class="slider-card-badge">Maryland Licensed</span>
-                                    <img src="images/LISmhic.png" alt="MHIC Licensed" class="slider-card-logo">
-                                    <h4>MHIC Licensed Contractor</h4>
-                                    <p>Maryland Home Improvement Commission licensed for residential work.</p>
-                                </div>
-                            </div>
-                            <div class="slider-card">
-                                <div class="slider-card-inner">
-                                    <span class="slider-card-badge">Lead-Safe</span>
-                                    <img src="images/LISlead.png" alt="EPA Lead-Safe Certified" class="slider-card-logo">
-                                    <h4>EPA Lead-Safe Certified</h4>
-                                    <p>Renovation, Repair and Painting (RRP) certified for pre-1978 homes.</p>
-                                </div>
-                            </div>
-                            <div class="slider-card">
-                                <div class="slider-card-inner">
-                                    <span class="slider-card-badge">Safety</span>
-                                    <img src="images/LISosha.png" alt="OSHA Certified" class="slider-card-logo">
-                                    <h4>OSHA Safety Trained</h4>
-                                    <p>Occupational Safety and Health Administration certified for worksite safety.</p>
-                                </div>
-                            </div>
-                            <div class="slider-card">
-                                <div class="slider-card-inner">
-                                    <span class="slider-card-badge">Maryland</span>
-                                    <img src="images/LISmbe.png" alt="MBE Certified" class="slider-card-logo">
-                                    <h4>MBE Certified</h4>
-                                    <p>Maryland Minority Business Enterprise certified contractor.</p>
-                                </div>
-                            </div>
-                            <div class="slider-card">
-                                <div class="slider-card-inner" style="background:#fff;">
-                                    <span class="slider-card-badge">Federal</span>
-                                    <img src="images/LISdbe.png" alt="DBE Certified" class="slider-card-logo">
-                                    <h4>DBE Certified</h4>
-                                    <p>Disadvantaged Business Enterprise certified for federal and state contracts.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slider-controls">
-                        <button class="slider-btn" id="sliderPrev" aria-label="Previous">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="15 18 9 12 15 6" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                            </svg>
-                        </button>
-                        <div class="slider-dots" id="sliderDots"></div>
-                        <button class="slider-btn" id="sliderNext" aria-label="Next">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="9 18 15 12 9 6" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="credentials-secondary animate-on-scroll">
+                    <div class="credentials-secondary animate-on-scroll">
                     <div class="cred-mini-card">
                         <img src="https://freedomconstructiongrp.com/wp-content/uploads/2025/10/679b9a0473b931dd64dd58b5_everblue_logo_2024.png" alt="Everblue Training" class="cred-mini-logo">
                         <h5>Everblue Training</h5>
@@ -1051,6 +1494,7 @@
 
     
 
+    <!-- =================== WHY CHOOSE ECOPOWER (Benefits) SECTION =================== -->
     <div class="section" id="benefits">
         <div class="container">
             <div class="section-header">
@@ -1115,69 +1559,59 @@
                         </svg>
                     </div>
                     <div>
-                        <strong>No-pressure guidance</strong>
-                        Our role is to assess and advise — you stay in control of every decision.
-                    </div>
-                </div>
-                <div class="benefit-item animate-on-scroll">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <polyline points="20 6 9 17 4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                        </svg>
-                    </div>
-                    <div>
                         <strong>Support beyond the audit</strong>
                         From scheduling work to navigating rebates and financing, we're here to help you follow through.
                     </div>
                 </div>
             </div>
              <!-- Single Review Section: placed after Why Choose Us -->
+            <div style="display: flex; flex-direction: column; align-items: center; margin-top: 36px;">
+                <div style="font-size: 1.18rem; font-weight: 700; color: #059669; display: flex; align-items: center; gap: 10px;">
+                    <span class="money-animate" style="display: inline-block; animation: money-bounce 1.2s infinite alternate cubic-bezier(.6,1.6,.6,1);">💸</span>
+                    We've gotten customers up to <span style="color:#16a34a; font-size:1.25em; font-weight:800;">$15,000</span> in rebates!
+                    <span class="money-animate" style="display: inline-block; animation: money-bounce 1.2s 0.6s infinite alternate cubic-bezier(.6,1.6,.6,1);">💸</span>
+                </div>
+            </div>
+            <style>
+            @keyframes money-bounce {
+                0% { transform: translateY(0) scale(1); }
+                60% { transform: translateY(-10px) scale(1.1); }
+                100% { transform: translateY(0) scale(1); }
+            }
+            </style>
     <div class="section" id="reviews">
         <div class="container">
             <div class="section-header">
                <!--  <span class="kicker animate-on-scroll">Customer Reviews</span>
                 <h2 class="section-title animate-on-scroll">What Our Clients Says</h2> -->
             </div>
-            <div class="grid grid-1">
-                    <div class="info-card animate-on-scroll" style="max-width:500px;margin:32px auto 0;">
-                        <h3 style="font-weight:500;font-size:1.1rem;">"EcoPower gave us great information for us to better understand our home and save energy."</h3>
-                        <div style="margin-top:10px; color:var(--ecp-grey); font-size:0.92rem;">— Ella Browm, Baltimore, MD</div>
-                    </div>
-            </div>
-        </div>
-    </div>
-        </div>
-    </div>
-
-
-    <div><section class="section section-blue-gradient" id="contact">
-        <div class="container">
-            <div class="cta-banner animate-on-scroll">
-                <h2>Ready to Schedule Your Home Energy Audit?</h2>
-                <p>Get a clear picture of your home's safety and efficiency — and see what rebates and 0% CEA loan options may be available for your project.</p>
-                <div class="cta-buttons">
-                    <a href="#" class="btn btn-primary" id="ctaContactBtn">Contact Us</a>
-                <script>
-                // Make CTA Contact Us button open the Contact Us tab
-                document.addEventListener('DOMContentLoaded', function() {
-                    var ctaBtn = document.getElementById('ctaContactBtn');
-                    if (ctaBtn) {
-                        ctaBtn.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            var contactTab = document.querySelector('.tab-link[data-tab="contact"]');
-                            if (contactTab) contactTab.click();
-                        });
-                    }
-                });
-                </script>
+            <div class="grid grid-2" style="gap: 32px;">
+                <div class="info-card" style="box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
+                    <p style="font-size:1.1rem;">"EcoPower gave us great information for us to better understand our home and save energy."</p>
+                    <div style="margin-top: 18px; color: #64748b; font-size: 0.98rem;">— Ella Brown, Baltimore, MD</div>
                 </div>
-                <p class="cta-contact-line">
-                    Prefer another time or method? Reach out and we'll follow up with options that work for you.
-                </p>
+                <div class="info-card" style="box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
+                    <p style="font-size:1.1rem;">"Many places in my house were very cold and I didn't know why. They were very nice and did many tests and found the reason. I am very happy with them!"</p>
+                    <div style="margin-top: 18px; color: #64748b; font-size: 0.98rem;">— Shabana J., Jessup, MD</div>
+                </div>
             </div>
         </div>
-    </section></div>
+    </div>
 
+    <!-- =================== BALTIMORE LOCATION SECTION =================== -->
+    <!-- Section removed as requested -->
+
+    <!-- =================== CONTACT CTA SECTION =================== -->
+    <div id="cta-banner" class="cta-banner" style="max-width: 960px; margin: 0 auto; padding: 26px 20px 24px; border-radius: var(--ecp-radius-lg); background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), transparent 55%), linear-gradient(135deg, var(--ecp-blue), var(--ecp-blue-dark)); color: #f9fafb; box-shadow: var(--ecp-shadow-soft); text-align: center;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 6px;">Ready to Schedule Your Home Energy Audit?</h2>
+        <p style="font-size: 0.95rem; margin-bottom: 14px; color: #e5e7eb;">Get a clear picture of your home's safety and efficiency — and see what rebates and 0% CEA loan options may be available for your project.</p>
+        <div class="cta-buttons" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 8px;">
+            <a href="#" class="btn btn-primary tab-link" data-tab="contact" style="min-width: 150px;">Contact Us</a>
+        </div>
+        <div class="cta-contact-line" style="font-size: 0.85rem; color: #e5e7eb;">Prefer another time or method? Reach out and we'll follow up with options that work for you.</div>
+    </div>
+    <!-- End CTA Banner Section -->
+    <!-- =================== END CONTACT CTA SECTION =================== -->
     <footer class="footer">
         <div class="footer-inner">
             <div class="footer-left">
@@ -1282,21 +1716,30 @@ document.addEventListener('DOMContentLoaded', function() {
   border-bottom: 2px solid #e5e7eb;
 }
 .inline-tab-btn {
-  background: none;
-  border: none;
-  font-size: 1.08rem;
-  font-weight: 600;
-  color: #1A4D8F;
-  padding: 10px 22px 10px 22px;
-  border-radius: 10px 10px 0 0;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-  margin-bottom: -2px;
+    border: none;
+    font-size: 1.08rem;
+    font-weight: 600;
+    padding: 10px 22px 10px 22px;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    margin-bottom: -2px;
 }
-.inline-tab-btn.active, .inline-tab-btn:hover {
-  background: #fff;
-  color: #059669;
-  border-bottom: 2px solid #059669;
+/* Active/hover color for each tab */
+.inline-tab-btn.active[data-tab="hvac"], .inline-tab-btn[data-tab="hvac"]:hover {
+    background: #d2eafd;
+    color: #1A4D8F;
+    border-bottom: 2px solid #1A4D8F;
+}
+.inline-tab-btn.active[data-tab="retrofit"], .inline-tab-btn[data-tab="retrofit"]:hover {
+    background: #d2fbe0;
+    color: #227a3a;
+    border-bottom: 2px solid #227a3a;
+}
+.inline-tab-btn.active[data-tab="weather"], .inline-tab-btn[data-tab="weather"]:hover {
+    background: #fff7cc;
+    color: #b59a00;
+    border-bottom: 2px solid #b59a00;
 }
 .inline-tab-content {
   background: #fff;
