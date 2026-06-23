@@ -2103,11 +2103,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var currentIndex = 0;
     var autoplayTimer = null;
 
-    function getSlidesPerView() {
-        if (window.innerWidth >= 1100) return 3;
-        if (window.innerWidth >= 768) return 2;
-        return 1;
-    }
+function getSlidesPerView() {
+    if (window.innerWidth >= 900) return 2;
+    return 1;
+}
 
     function getMaxIndex() {
         return Math.max(0, slides.length - getSlidesPerView());
