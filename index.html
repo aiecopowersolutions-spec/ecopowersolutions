@@ -1927,12 +1927,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <style>
 /* Customer Reviews Carousel */
-.reviews-carousel {
-     position: relative;
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 56px 42px;
-}
+
 
 .reviews-window {
     overflow: hidden;
@@ -1944,9 +1939,16 @@ document.addEventListener('DOMContentLoaded', function() {
     transition: transform 0.45s ease;
 }
 
+.reviews-carousel {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 72px 42px;
+}
+
 .review-slide {
     flex: 0 0 100%;
-    padding: 0 18px;
+    padding: 0 28px;
 }
 
 .review-card {
@@ -1954,13 +1956,15 @@ document.addEventListener('DOMContentLoaded', function() {
     border-radius: var(--ecp-radius-lg);
     border: 1px solid #e5e7eb;
     box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
-    padding: 24px 28px;
-    min-height: 210px;
-    height: 100%;
+    padding: 22px 32px;
+    min-height: 190px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
+
+
 
 .review-stars {
     color: #f59e0b;
@@ -1970,10 +1974,10 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .review-text {
-    font-size: 1.05rem;
+    font-size: 0.98rem;
     color: var(--ecp-grey-dark);
-    line-height: 1.65;
-    margin-bottom: 22px;
+    line-height: 1.5;
+    margin-bottom: 16px;
 }
 
 .review-author {
