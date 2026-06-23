@@ -1903,5 +1903,283 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 })();
 </script>
+
+<style>
+/* Customer Reviews Carousel */
+.reviews-carousel {
+    position: relative;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 46px 42px;
+}
+
+.reviews-window {
+    overflow: hidden;
+    width: 100%;
+}
+
+.reviews-track {
+    display: flex;
+    transition: transform 0.45s ease;
+}
+
+.review-slide {
+    flex: 0 0 100%;
+    padding: 0 10px;
+}
+
+.review-card {
+    background: #ffffff;
+    border-radius: var(--ecp-radius-lg);
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+    padding: 28px 24px;
+    min-height: 240px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.review-stars {
+    color: #f59e0b;
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+}
+
+.review-text {
+    font-size: 1.05rem;
+    color: var(--ecp-grey-dark);
+    line-height: 1.65;
+    margin-bottom: 22px;
+}
+
+.review-author {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 1rem;
+}
+
+.review-location {
+    color: #64748b;
+    font-size: 0.92rem;
+    margin-top: 2px;
+}
+
+.reviews-btn {
+    position: absolute;
+    top: 42%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    color: var(--ecp-blue);
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+    z-index: 2;
+}
+
+.reviews-btn:hover {
+    background: var(--ecp-blue);
+    color: #ffffff;
+}
+
+.reviews-prev {
+    left: 0;
+}
+
+.reviews-next {
+    right: 0;
+}
+
+.reviews-dots {
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 20px;
+}
+
+.reviews-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    border: none;
+    background: #cbd5e1;
+    cursor: pointer;
+}
+
+.reviews-dot.active {
+    width: 22px;
+    background: var(--ecp-blue);
+}
+
+@media (min-width: 768px) {
+    .review-slide {
+        flex-basis: 50%;
+    }
+}
+
+@media (min-width: 1100px) {
+    .review-slide {
+        flex-basis: 33.3333%;
+    }
+}
+
+@media (max-width: 700px) {
+    .reviews-carousel {
+        padding: 0 12px 38px;
+    }
+
+    .reviews-btn {
+        top: auto;
+        bottom: 0;
+        transform: none;
+        width: 34px;
+        height: 34px;
+        font-size: 1.6rem;
+    }
+
+    .reviews-prev {
+        left: 28%;
+    }
+
+    .reviews-next {
+        right: 28%;
+    }
+
+    .reviews-dots {
+        margin-top: 18px;
+        margin-bottom: 42px;
+    }
+
+    .review-card {
+        min-height: 270px;
+        padding: 24px 20px;
+    }
+
+    .review-text {
+        font-size: 1rem;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var carousel = document.querySelector('.reviews-carousel');
+    if (!carousel) return;
+
+    var track = carousel.querySelector('.reviews-track');
+    var slides = Array.from(carousel.querySelectorAll('.review-slide'));
+    var prevBtn = carousel.querySelector('.reviews-prev');
+    var nextBtn = carousel.querySelector('.reviews-next');
+    var dotsContainer = carousel.querySelector('.reviews-dots');
+
+    var currentIndex = 0;
+    var autoplayTimer = null;
+
+    function getSlidesPerView() {
+        if (window.innerWidth >= 1100) return 3;
+        if (window.innerWidth >= 768) return 2;
+        return 1;
+    }
+
+    function getMaxIndex() {
+        return Math.max(0, slides.length - getSlidesPerView());
+    }
+
+    function buildDots() {
+        dotsContainer.innerHTML = '';
+        var maxIndex = getMaxIndex();
+
+        for (var i = 0; i <= maxIndex; i++) {
+            var dot = document.createElement('button');
+            dot.type = 'button';
+            dot.className = 'reviews-dot' + (i === currentIndex ? ' active' : '');
+            dot.setAttribute('data-index', i);
+            dot.setAttribute('aria-label', 'Go to review set ' + (i + 1));
+
+            dot.addEventListener('click', function() {
+                currentIndex = Number(this.getAttribute('data-index'));
+                updateCarousel();
+                restartAutoplay();
+            });
+
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function updateCarousel() {
+        if (!slides.length) return;
+
+        var slideWidth = slides[0].getBoundingClientRect().width;
+        track.style.transform = 'translateX(' + (-currentIndex * slideWidth) + 'px)';
+
+        var dots = dotsContainer.querySelectorAll('.reviews-dot');
+        dots.forEach(function(dot, index) {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    function goNext() {
+        var maxIndex = getMaxIndex();
+        currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+        updateCarousel();
+    }
+
+    function goPrev() {
+        var maxIndex = getMaxIndex();
+        currentIndex = currentIndex <= 0 ? maxIndex : currentIndex - 1;
+        updateCarousel();
+    }
+
+    function startAutoplay() {
+        stopAutoplay();
+        autoplayTimer = setInterval(goNext, 4500);
+    }
+
+    function stopAutoplay() {
+        if (autoplayTimer) {
+            clearInterval(autoplayTimer);
+        }
+    }
+
+    function restartAutoplay() {
+        stopAutoplay();
+        startAutoplay();
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+            goNext();
+            restartAutoplay();
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+            goPrev();
+            restartAutoplay();
+        });
+    }
+
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    carousel.addEventListener('mouseleave', startAutoplay);
+
+    window.addEventListener('resize', function() {
+        currentIndex = Math.min(currentIndex, getMaxIndex());
+        buildDots();
+        updateCarousel();
+    });
+
+    buildDots();
+    updateCarousel();
+    startAutoplay();
+});
+</script>
 </body>
 </html>
