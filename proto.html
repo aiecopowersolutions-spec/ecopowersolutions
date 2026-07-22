@@ -10,6 +10,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=1">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=1">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
   <style>
     :root {
@@ -491,58 +492,66 @@
       margin-top: -34px;
     }
 
-    .trust-panel {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      align-items: stretch;
+    .credentials-panel {
       overflow: hidden;
+      padding: 16px 22px;
       border: 1px solid var(--line);
       border-radius: var(--radius-md);
       background: #ffffff;
       box-shadow: var(--shadow-md);
     }
 
-    .trust-item {
-      min-height: 136px;
-      display: grid;
-      place-items: center;
-      align-content: center;
-      gap: 10px;
-      padding: 18px 12px;
-      text-align: center;
+    .credentials-swiper {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .credentials-swiper .swiper-wrapper {
+      align-items: center;
+      transition-timing-function: linear !important;
+    }
+
+    .credentials-swiper .swiper-slide {
+      height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .credential-logo-link {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
       border-right: 1px solid var(--line);
     }
 
-    .trust-item:last-child {
+    .credentials-swiper .swiper-slide:last-child .credential-logo-link {
       border-right: 0;
     }
 
-    .trust-item img {
-      max-width: 145px;
-      max-height: 64px;
+    .credential-logo {
+      width: auto;
+      max-width: 150px;
+      max-height: 62px;
       object-fit: contain;
+      filter: saturate(0.94);
+      transition: transform 180ms ease, filter 180ms ease, opacity 180ms ease;
     }
 
-    .trust-item strong {
-      color: #33475c;
-      font-size: 0.76rem;
-      line-height: 1.25;
+    .credential-logo-link:hover .credential-logo,
+    .credential-logo-link:focus-visible .credential-logo {
+      transform: scale(1.045);
+      filter: saturate(1);
     }
 
-    .trust-placeholder {
-      display: grid;
-      width: 128px;
-      min-height: 55px;
-      place-items: center;
-      padding: 8px;
-      border: 2px dashed #9eb4ca;
+    .credential-logo-link:focus-visible {
+      outline: 3px solid rgba(42, 107, 196, 0.18);
+      outline-offset: -3px;
       border-radius: 8px;
-      color: var(--blue);
-      background: var(--blue-pale);
-      font-size: 0.68rem;
-      font-weight: 900;
-      line-height: 1.15;
-      text-transform: uppercase;
     }
 
     .intro-grid {
@@ -1518,17 +1527,6 @@
         display: none;
       }
 
-      .trust-panel {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .trust-item:nth-child(3n) {
-        border-right: 0;
-      }
-
-      .trust-item:nth-child(-n+3) {
-        border-bottom: 1px solid var(--line);
-      }
 
       .service-grid,
       .audit-grid {
@@ -1691,18 +1689,6 @@
         margin-top: -24px;
       }
 
-      .trust-panel {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-      }
-
-      .trust-item {
-        min-width: 185px;
-        border-right: 1px solid var(--line) !important;
-        border-bottom: 0 !important;
-        scroll-snap-align: start;
-      }
 
       .service-grid,
       .audit-grid,
@@ -1825,6 +1811,23 @@
       .form-submit .btn {
         width: 100%;
       }
+
+      .credentials-panel {
+        padding: 12px 10px;
+      }
+
+      .credentials-swiper .swiper-slide {
+        height: 78px;
+      }
+
+      .credential-logo-link {
+        padding: 8px 12px;
+      }
+
+      .credential-logo {
+        max-width: 125px;
+        max-height: 52px;
+      }
     }
 
     @media (max-width: 430px) {
@@ -1849,7 +1852,6 @@
         <a href="#how-it-works">Energy Audits</a>
         <a href="#rebates">Rebates</a>
         <a href="#services">Services</a>
-        <a class="nav-hide-mid" href="#electrification">Electrification</a>
         <a class="nav-hide-mid" href="#reviews">Reviews</a>
         <a href="#service-areas">Service Areas</a>
        
@@ -1860,7 +1862,6 @@
           <span>Call EcoPower</span>
           <a href="tel:4109294254">410-929-4254</a>
         </div>
-        <a class="btn btn-primary open-contact" href="#contact">Schedule an Audit</a>
         <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mainNav">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
             <path d="M4 6h16M4 12h16M4 18h16" stroke-width="2" stroke-linecap="round"></path>
@@ -1922,32 +1923,47 @@
 
     <div class="trust-strip" id="credentials">
       <div class="container">
-        <div class="trust-panel reveal" aria-label="Credentials and program participation">
-          <div class="trust-item">
-            <img src="images/Screenshot 2026-05-02 052852.png" alt="BGE Energy Efficiency Program">
-            <strong>Baltimore Gas and Electric (BGE) participating contractor</strong>
+        <section class="credentials-panel reveal" aria-label="EcoPower professional credentials">
+          <div class="swiper credentials-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a class="credential-logo-link" href="https://www.energystar.gov/saveathome/improvements/how-it-works/home-performance-with-energy-star" target="_blank" rel="noopener noreferrer" aria-label="Home Performance with ENERGY STAR">
+                  <img src="images/bto-hpwes-logo-111021.jpg" alt="Home Performance with ENERGY STAR" class="credential-logo">
+                </a>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="credential-logo-link" role="img" aria-label="BPI Certified Professional">
+                  <img src="images/LISbpi.png" alt="BPI Certified Professional" class="credential-logo">
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="credential-logo-link" role="img" aria-label="Maryland Home Improvement Commission licensed contractor">
+                  <img src="images/LISmhic.png" alt="MHIC Licensed Contractor" class="credential-logo">
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="credential-logo-link" role="img" aria-label="EPA Lead-Safe Certified">
+                  <img src="images/LISlead.png" alt="EPA Lead-Safe Certified" class="credential-logo">
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="credential-logo-link" role="img" aria-label="OSHA safety trained">
+                  <img src="images/LISosha.png" alt="OSHA Safety Trained" class="credential-logo">
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="credential-logo-link" role="img" aria-label="Maryland Minority Business Enterprise certified">
+                  <img src="images/LISmbe.png" alt="Maryland MBE Certified" class="credential-logo">
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="trust-item">
-            <img src="images/bto-hpwes-logo-111021.jpg" alt="Energy Star Certified">
-            <strong>Whole-home performance program</strong>
-          </div>
-          <div class="trust-item">
-            <img src="images/LISbpi.png" alt="BPI Certified">
-            <strong>BPI certified professionals</strong>
-          </div>
-          <div class="trust-item">
-            <img src="images/LISmhic.png" alt="MHIC Licensed">
-            <strong>MHIC #129718</strong>
-          </div>
-          <div class="trust-item">
-            <img src="images/LISlead.png" alt="EPA Lead-Safe Certified">
-            <strong>EPA Lead-Safe Certified</strong>
-          </div>
-          <div class="trust-item">
-            <img src="images/LISmbe.png" alt="Maryland MBE Certified">
-            <strong>Maryland MBE Certified</strong>
-          </div>
-        </div>
+        </section>
       </div>
     </div>
 
@@ -2567,6 +2583,8 @@
     </section>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var menuToggle = document.getElementById('menuToggle');
@@ -2579,6 +2597,52 @@
 
       if (footerYear) {
         footerYear.textContent = new Date().getFullYear();
+      }
+
+
+      var credentialsSwiperElement = document.querySelector('.credentials-swiper');
+      if (credentialsSwiperElement && window.Swiper) {
+        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var credentialsSwiper = new Swiper(credentialsSwiperElement, {
+          loop: true,
+          loopAdditionalSlides: 6,
+          slidesPerView: 2,
+          spaceBetween: 0,
+          allowTouchMove: true,
+          grabCursor: true,
+          speed: reduceMotion ? 450 : 3600,
+          autoplay: reduceMotion ? false : {
+            delay: 0,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true
+          },
+          breakpoints: {
+            620: {
+              slidesPerView: 3
+            },
+            900: {
+              slidesPerView: 4
+            },
+            1120: {
+              slidesPerView: 5
+            }
+          }
+        });
+
+        if (!reduceMotion && credentialsSwiper.autoplay) {
+          credentialsSwiperElement.addEventListener('mouseenter', function () {
+            credentialsSwiper.autoplay.stop();
+          });
+          credentialsSwiperElement.addEventListener('mouseleave', function () {
+            credentialsSwiper.autoplay.start();
+          });
+          credentialsSwiperElement.addEventListener('focusin', function () {
+            credentialsSwiper.autoplay.stop();
+          });
+          credentialsSwiperElement.addEventListener('focusout', function () {
+            credentialsSwiper.autoplay.start();
+          });
+        }
       }
 
       function closeMenu() {
