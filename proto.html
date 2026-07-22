@@ -10,7 +10,6 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=1">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=1">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
   <style>
     :root {
@@ -492,66 +491,71 @@
       margin-top: -34px;
     }
 
-    .credentials-panel {
+    .credential-carousel {
+      position: relative;
       overflow: hidden;
-      padding: 16px 22px;
       border: 1px solid var(--line);
       border-radius: var(--radius-md);
       background: #ffffff;
       box-shadow: var(--shadow-md);
     }
 
-    .credentials-swiper {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
+    .credential-carousel::before,
+    .credential-carousel::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 2;
+      width: 54px;
+      pointer-events: none;
     }
 
-    .credentials-swiper .swiper-wrapper {
-      align-items: center;
-      transition-timing-function: linear !important;
+    .credential-carousel::before {
+      left: 0;
+      background: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0));
     }
 
-    .credentials-swiper .swiper-slide {
-      height: 92px;
+    .credential-carousel::after {
+      right: 0;
+      background: linear-gradient(270deg, #ffffff, rgba(255, 255, 255, 0));
+    }
+
+    .credential-track {
       display: flex;
-      align-items: center;
-      justify-content: center;
+      width: max-content;
+      align-items: stretch;
+      will-change: transform;
     }
 
-    .credential-logo-link {
-      width: 100%;
-      height: 100%;
+    .credential-group {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 16px;
-      border-right: 1px solid var(--line);
-    }
-
-    .credentials-swiper .swiper-slide:last-child .credential-logo-link {
-      border-right: 0;
+      flex: 0 0 auto;
+      align-items: stretch;
     }
 
     .credential-logo {
+      width: 184px;
+      height: 112px;
+      display: grid;
+      flex: 0 0 184px;
+      place-items: center;
+      padding: 17px 22px;
+      border-right: 1px solid var(--line);
+      background: #ffffff;
+    }
+
+    .credential-logo img {
       width: auto;
-      max-width: 150px;
-      max-height: 62px;
+      max-width: 142px;
+      height: auto;
+      max-height: 72px;
       object-fit: contain;
-      filter: saturate(0.94);
-      transition: transform 180ms ease, filter 180ms ease, opacity 180ms ease;
     }
 
-    .credential-logo-link:hover .credential-logo,
-    .credential-logo-link:focus-visible .credential-logo {
-      transform: scale(1.045);
-      filter: saturate(1);
-    }
-
-    .credential-logo-link:focus-visible {
-      outline: 3px solid rgba(42, 107, 196, 0.18);
-      outline-offset: -3px;
-      border-radius: 8px;
+    .credential-carousel:hover .credential-track,
+    .credential-carousel:focus-within .credential-track {
+      cursor: default;
     }
 
     .intro-grid {
@@ -1689,6 +1693,22 @@
         margin-top: -24px;
       }
 
+      .credential-carousel::before,
+      .credential-carousel::after {
+        width: 28px;
+      }
+
+      .credential-logo {
+        width: 146px;
+        height: 92px;
+        flex-basis: 146px;
+        padding: 13px 17px;
+      }
+
+      .credential-logo img {
+        max-width: 116px;
+        max-height: 60px;
+      }
 
       .service-grid,
       .audit-grid,
@@ -1811,23 +1831,6 @@
       .form-submit .btn {
         width: 100%;
       }
-
-      .credentials-panel {
-        padding: 12px 10px;
-      }
-
-      .credentials-swiper .swiper-slide {
-        height: 78px;
-      }
-
-      .credential-logo-link {
-        padding: 8px 12px;
-      }
-
-      .credential-logo {
-        max-width: 125px;
-        max-height: 52px;
-      }
     }
 
     @media (max-width: 430px) {
@@ -1862,6 +1865,7 @@
           <span>Call EcoPower</span>
           <a href="tel:4109294254">410-929-4254</a>
         </div>
+        <a class="btn btn-primary open-contact" href="#contact">Schedule an Audit</a>
         <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mainNav">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
             <path d="M4 6h16M4 12h16M4 18h16" stroke-width="2" stroke-linecap="round"></path>
@@ -1923,47 +1927,51 @@
 
     <div class="trust-strip" id="credentials">
       <div class="container">
-        <section class="credentials-panel reveal" aria-label="EcoPower professional credentials">
-          <div class="swiper credentials-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <a class="credential-logo-link" href="https://www.energystar.gov/saveathome/improvements/how-it-works/home-performance-with-energy-star" target="_blank" rel="noopener noreferrer" aria-label="Home Performance with ENERGY STAR">
-                  <img src="images/bto-hpwes-logo-111021.jpg" alt="Home Performance with ENERGY STAR" class="credential-logo">
-                </a>
+        <div class="credential-carousel reveal" role="region" aria-label="EcoPower credentials and certifications">
+          <div class="credential-track">
+            <div class="credential-group">
+              <div class="credential-logo">
+                <img src="images/bto-hpwes-logo-111021.jpg" alt="Home Performance with ENERGY STAR">
               </div>
-
-              <div class="swiper-slide">
-                <div class="credential-logo-link" role="img" aria-label="BPI Certified Professional">
-                  <img src="images/LISbpi.png" alt="BPI Certified Professional" class="credential-logo">
-                </div>
+              <div class="credential-logo">
+                <img src="images/LISbpi.png" alt="BPI Certified Professional">
               </div>
-
-              <div class="swiper-slide">
-                <div class="credential-logo-link" role="img" aria-label="Maryland Home Improvement Commission licensed contractor">
-                  <img src="images/LISmhic.png" alt="MHIC Licensed Contractor" class="credential-logo">
-                </div>
+              <div class="credential-logo">
+                <img src="images/LISmhic.png" alt="Maryland Home Improvement Commission Licensed Contractor">
               </div>
-
-              <div class="swiper-slide">
-                <div class="credential-logo-link" role="img" aria-label="EPA Lead-Safe Certified">
-                  <img src="images/LISlead.png" alt="EPA Lead-Safe Certified" class="credential-logo">
-                </div>
+              <div class="credential-logo">
+                <img src="images/LISlead.png" alt="EPA Lead-Safe Certified">
               </div>
-
-              <div class="swiper-slide">
-                <div class="credential-logo-link" role="img" aria-label="OSHA safety trained">
-                  <img src="images/LISosha.png" alt="OSHA Safety Trained" class="credential-logo">
-                </div>
+              <div class="credential-logo">
+                <img src="images/LISosha.png" alt="OSHA Safety Trained">
               </div>
+              <div class="credential-logo">
+                <img src="images/LISmbe.png" alt="Maryland Minority Business Enterprise Certified">
+              </div>
+            </div>
 
-              <div class="swiper-slide">
-                <div class="credential-logo-link" role="img" aria-label="Maryland Minority Business Enterprise certified">
-                  <img src="images/LISmbe.png" alt="Maryland MBE Certified" class="credential-logo">
-                </div>
+            <div class="credential-group" aria-hidden="true">
+              <div class="credential-logo">
+                <img src="images/bto-hpwes-logo-111021.jpg" alt="">
+              </div>
+              <div class="credential-logo">
+                <img src="images/LISbpi.png" alt="">
+              </div>
+              <div class="credential-logo">
+                <img src="images/LISmhic.png" alt="">
+              </div>
+              <div class="credential-logo">
+                <img src="images/LISlead.png" alt="">
+              </div>
+              <div class="credential-logo">
+                <img src="images/LISosha.png" alt="">
+              </div>
+              <div class="credential-logo">
+                <img src="images/LISmbe.png" alt="">
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </div>
 
@@ -2583,8 +2591,6 @@
     </section>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var menuToggle = document.getElementById('menuToggle');
@@ -2597,52 +2603,6 @@
 
       if (footerYear) {
         footerYear.textContent = new Date().getFullYear();
-      }
-
-
-      var credentialsSwiperElement = document.querySelector('.credentials-swiper');
-      if (credentialsSwiperElement && window.Swiper) {
-        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        var credentialsSwiper = new Swiper(credentialsSwiperElement, {
-          loop: true,
-          loopAdditionalSlides: 6,
-          slidesPerView: 2,
-          spaceBetween: 0,
-          allowTouchMove: true,
-          grabCursor: true,
-          speed: reduceMotion ? 450 : 3600,
-          autoplay: reduceMotion ? false : {
-            delay: 0,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true
-          },
-          breakpoints: {
-            620: {
-              slidesPerView: 3
-            },
-            900: {
-              slidesPerView: 4
-            },
-            1120: {
-              slidesPerView: 5
-            }
-          }
-        });
-
-        if (!reduceMotion && credentialsSwiper.autoplay) {
-          credentialsSwiperElement.addEventListener('mouseenter', function () {
-            credentialsSwiper.autoplay.stop();
-          });
-          credentialsSwiperElement.addEventListener('mouseleave', function () {
-            credentialsSwiper.autoplay.start();
-          });
-          credentialsSwiperElement.addEventListener('focusin', function () {
-            credentialsSwiper.autoplay.stop();
-          });
-          credentialsSwiperElement.addEventListener('focusout', function () {
-            credentialsSwiper.autoplay.start();
-          });
-        }
       }
 
       function closeMenu() {
@@ -2722,6 +2682,63 @@
         revealElements.forEach(function (element) {
           element.classList.add('in-view');
         });
+      }
+
+
+      var credentialCarousel = document.querySelector('.credential-carousel');
+      if (credentialCarousel) {
+        var credentialTrack = credentialCarousel.querySelector('.credential-track');
+        var credentialGroup = credentialCarousel.querySelector('.credential-group');
+        var credentialPosition = 0;
+        var credentialLastFrame = performance.now();
+        var credentialPaused = false;
+        var credentialSpeed = 34;
+
+        function moveCredentials(frameTime) {
+          var elapsedSeconds = Math.min((frameTime - credentialLastFrame) / 1000, 0.05);
+          credentialLastFrame = frameTime;
+
+          if (!credentialPaused && credentialTrack && credentialGroup) {
+            var loopWidth = credentialGroup.getBoundingClientRect().width;
+
+            if (loopWidth > 0) {
+              credentialPosition += credentialSpeed * elapsedSeconds;
+
+              if (credentialPosition >= loopWidth) {
+                credentialPosition -= loopWidth;
+              }
+
+              credentialTrack.style.transform = 'translate3d(' + (-credentialPosition) + 'px, 0, 0)';
+            }
+          }
+
+          window.requestAnimationFrame(moveCredentials);
+        }
+
+        credentialCarousel.addEventListener('mouseenter', function () {
+          credentialPaused = true;
+        });
+
+        credentialCarousel.addEventListener('mouseleave', function () {
+          credentialPaused = false;
+          credentialLastFrame = performance.now();
+        });
+
+        credentialCarousel.addEventListener('focusin', function () {
+          credentialPaused = true;
+        });
+
+        credentialCarousel.addEventListener('focusout', function () {
+          credentialPaused = false;
+          credentialLastFrame = performance.now();
+        });
+
+        document.addEventListener('visibilitychange', function () {
+          credentialPaused = document.hidden;
+          credentialLastFrame = performance.now();
+        });
+
+        window.requestAnimationFrame(moveCredentials);
       }
 
       var reviewsShell = document.querySelector('.reviews-shell');
