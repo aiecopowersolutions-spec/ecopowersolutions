@@ -635,6 +635,222 @@
       font-size: 0.94rem;
     }
 
+    .rebate-explainer {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+
+    .rebate-summary,
+    .rebate-process {
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .rebate-summary {
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(16, 185, 129, 0.32), transparent 34%),
+        linear-gradient(135deg, var(--blue), var(--navy));
+      border-color: transparent;
+    }
+
+    .rebate-summary h3,
+    .rebate-process h3 {
+      margin-bottom: 10px;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      line-height: 1.18;
+    }
+
+    .rebate-summary > p {
+      color: #dce8f3;
+    }
+
+    .rebate-figures {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .rebate-figure {
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .rebate-figure strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #ffffff;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      line-height: 1;
+    }
+
+    .rebate-figure span {
+      color: #d7e4ef;
+      font-size: 0.84rem;
+      line-height: 1.4;
+    }
+
+    .rebate-process ol {
+      display: grid;
+      gap: 14px;
+      margin: 18px 0 0;
+      list-style: none;
+      counter-reset: rebate-step;
+    }
+
+    .rebate-process li {
+      position: relative;
+      padding-left: 43px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .rebate-process li::before {
+      counter-increment: rebate-step;
+      content: counter(rebate-step);
+      position: absolute;
+      top: 1px;
+      left: 0;
+      display: grid;
+      width: 29px;
+      height: 29px;
+      place-items: center;
+      border-radius: 50%;
+      color: #ffffff;
+      background: var(--green-dark);
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+
+    .rebate-pathways {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin: 34px 0;
+    }
+
+    .rebate-pathway {
+      display: flex;
+      min-height: 245px;
+      flex-direction: column;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: #ffffff;
+    }
+
+    .rebate-pathway-tag {
+      display: inline-flex;
+      align-self: flex-start;
+      margin-bottom: 14px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      color: var(--blue);
+      background: var(--blue-pale);
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .rebate-pathway h3 {
+      margin-bottom: 8px;
+      font-size: 1.13rem;
+      line-height: 1.25;
+    }
+
+    .rebate-pathway p {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .rebate-pathway a {
+      display: inline-flex;
+      margin-top: auto;
+      align-items: center;
+      gap: 6px;
+      color: var(--blue);
+      font-size: 0.84rem;
+      font-weight: 850;
+    }
+
+    .rebate-reference-link {
+      display: inline-flex;
+      margin-top: 20px;
+      color: #8af0ca;
+      font-size: 0.86rem;
+      font-weight: 850;
+    }
+
+    .rebate-program-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin: -8px 0 24px;
+      padding: 16px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: #ffffff;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .rebate-program-link a {
+      color: var(--blue);
+      font-weight: 850;
+    }
+
+    .rebate-requirements {
+      margin: 0 0 34px;
+      padding: 24px 26px;
+      border: 1px solid #cfe4f8;
+      border-radius: var(--radius-md);
+      background: #eff7ff;
+    }
+
+    .rebate-requirements h3 {
+      margin-bottom: 10px;
+      color: var(--navy);
+      font-size: 1.12rem;
+    }
+
+    .rebate-requirements ul {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 26px;
+      list-style: none;
+    }
+
+    .rebate-requirements li {
+      display: flex;
+      gap: 9px;
+      color: #3e5063;
+      font-size: 0.88rem;
+    }
+
+    .rebate-requirements li::before {
+      content: "✓";
+      color: var(--green-dark);
+      font-weight: 900;
+    }
+
+    .rebate-disclaimer {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
     .service-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1319,6 +1535,10 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .rebate-pathways {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .benefit-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -1390,7 +1610,8 @@
 
       .hero-grid,
       .intro-grid,
-      .electrification-grid {
+      .electrification-grid,
+      .rebate-explainer {
         grid-template-columns: 1fr;
       }
 
@@ -1485,7 +1706,23 @@
 
       .service-grid,
       .audit-grid,
-      .benefit-grid {
+      .benefit-grid,
+      .rebate-pathways,
+      .rebate-requirements ul {
+        grid-template-columns: 1fr;
+      }
+
+      .rebate-summary,
+      .rebate-process {
+        padding: 25px 22px;
+      }
+
+      .rebate-program-link {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .rebate-figures {
         grid-template-columns: 1fr;
       }
 
@@ -1615,6 +1852,7 @@
         <a class="nav-hide-mid" href="#electrification">Electrification</a>
         <a class="nav-hide-mid" href="#reviews">Reviews</a>
         <a href="#service-areas">Service Areas</a>
+        <a class="btn btn-primary open-contact" href="#contact">Schedule an Audit</a>
       </nav>
 
       <div class="header-contact">
@@ -1668,7 +1906,7 @@
         <aside class="rebate-card reveal" aria-label="BGE rebate overview">
           <span class="rebate-card-label">Why homeowners start here</span>
           <h2>Up to $15,000</h2>
-          <p>in qualifying BGE Home Performance rebates when eligible electrification measures are included.</p>
+          <p>or up to 75% of qualifying project cost through BGE Home Performance when eligible electrification measures are included.</p>
           <ul>
             <li>Audit and diagnostic testing</li>
             <li>Customized improvement recommendations</li>
@@ -1691,7 +1929,7 @@
           </div>
           <div class="trust-item">
             <!-- Replace the placeholder below with the official approved program logo file. -->
-            <img src="images/bto-hpwes-logo-111021.jpg" alt="Energy Star Certified">
+            <div class="trust-placeholder">Home Performance with ENERGY STAR® logo</div>
             <strong>Whole-home performance program</strong>
           </div>
           <div class="trust-item">
@@ -1763,10 +2001,98 @@
     <section class="section section-soft" id="rebates">
       <div class="container">
         <div class="section-heading reveal">
-          <span class="eyebrow">Rebate-eligible improvements</span>
+          <span class="eyebrow">BGE rebates and savings pathways</span>
           <h2>Turn audit findings into a more comfortable, efficient home.</h2>
           <p>
-            Your energy model determines which measures qualify and how much assistance may be available. EcoPower helps connect the diagnosis, project scope, installation, and rebate process.
+            BGE offers several residential efficiency pathways. EcoPower helps homeowners understand which pathway fits the property, what work may qualify, and what documentation is required before installation begins.
+          </p>
+        </div>
+
+        <div class="rebate-explainer">
+          <article class="rebate-summary reveal">
+            <span class="eyebrow eyebrow-light">Home Performance rebate snapshot</span>
+            <h3>Rebates are based on modeled savings—not a one-size-fits-all coupon.</h3>
+            <p>
+              After the qualifying audit, BGE-approved modeling is used to estimate savings from eligible measures. Your final scope, rebate, and out-of-pocket cost are reviewed before work begins.
+            </p>
+            <div class="rebate-figures" aria-label="BGE Home Performance rebate examples">
+              <div class="rebate-figure">
+                <strong>Up to $10,000</strong>
+                <span>or 75% of project cost for qualifying modeled Home Performance improvements.</span>
+              </div>
+              <div class="rebate-figure">
+                <strong>Up to $15,000</strong>
+                <span>or 75% of project cost when a qualifying project includes switching eligible combustion equipment to an electric heat pump.</span>
+              </div>
+              <div class="rebate-figure">
+                <strong>$500–$750</strong>
+                <span>for qualifying duct sealing, with the higher amount when combined with air sealing and insulation.</span>
+              </div>
+              <div class="rebate-figure">
+                <strong>$100 each</strong>
+                <span>for professional installation of up to three qualifying ENERGY STAR certified smart thermostats.</span>
+              </div>
+            </div>
+            <a class="rebate-reference-link" href="https://bgesmartenergy.com/residential/help-me-save/home-performance/rebates" target="_blank" rel="noopener noreferrer">View BGE's full Home Performance rebate table ↗</a>
+          </article>
+
+          <article class="rebate-process reveal">
+            <span class="eyebrow">How the process works</span>
+            <h3>Your rebate plan is built before the improvement work starts.</h3>
+            <ol>
+              <li><strong>Complete the home energy audit.</strong> BGE currently lists the customer cost at $100, described as a $400 value, when scheduled through the program.</li>
+              <li><strong>Review modeled recommendations.</strong> EcoPower prioritizes improvements and explains estimated rebates, project cost, comfort benefits, and required supporting measures.</li>
+              <li><strong>Select the work that fits your goals.</strong> You choose which eligible recommendations to complete; you are not required to complete every item in the report.</li>
+              <li><strong>Install, test, and document.</strong> Qualifying work must meet program standards and may require ventilation, final testing, and submission of program documentation.</li>
+            </ol>
+          </article>
+        </div>
+
+        <div class="rebate-pathways" aria-label="BGE residential savings pathways">
+          <article class="rebate-pathway reveal">
+            <span class="rebate-pathway-tag">Whole-home</span>
+            <h3>Home Performance with ENERGY STAR</h3>
+            <p>Best for drafts, uneven temperatures, high bills, insulation gaps, duct leakage, and projects that combine multiple improvements.</p>
+            <a href="https://bgesmartenergy.com/residential/help-me-save/home-performance" target="_blank" rel="noopener noreferrer">Review the BGE program ↗</a>
+          </article>
+
+          <article class="rebate-pathway reveal">
+            <span class="rebate-pathway-tag">Equipment</span>
+            <h3>Heating & Cooling Rebates</h3>
+            <p>High-efficiency heat pumps, ductless systems, geothermal equipment, and smart controls may qualify through a participating HVAC contractor, including possible fuel-switch incentives.</p>
+            <a href="https://bgesmartenergy.com/residential/help-me-save/heating-cooling" target="_blank" rel="noopener noreferrer">See BGE HVAC options ↗</a>
+          </article>
+
+          <article class="rebate-pathway reveal">
+            <span class="rebate-pathway-tag">Maintenance</span>
+            <h3>Residential HVAC Tune-Up</h3>
+            <p>BGE describes a separate tune-up pathway at no additional cost. It may include system checks, cleaning, safety testing, and a smart thermostat for eligible customers.</p>
+            <a href="https://bgesmartenergy.com/residential/help-me-save/schedule-hvac-tune" target="_blank" rel="noopener noreferrer">Check tune-up availability ↗</a>
+          </article>
+
+          <article class="rebate-pathway reveal">
+            <span class="rebate-pathway-tag">Income-qualified</span>
+            <h3>Limited Income Assistance</h3>
+            <p>Qualifying households may receive energy-saving and limited health-and-safety improvements at no additional cost through a program administered by Maryland DHCD.</p>
+            <a href="https://bgesmartenergy.com/residential/help-me-save/limited-income" target="_blank" rel="noopener noreferrer">Review assistance options ↗</a>
+          </article>
+        </div>
+
+        <div class="rebate-program-link reveal">
+          <span>Not sure which BGE option applies?</span>
+          <a href="https://bgesmartenergy.com/residential/help-me-save" target="_blank" rel="noopener noreferrer">Explore all residential savings programs ↗</a>
+        </div>
+
+        <div class="rebate-requirements reveal">
+          <h3>Important Home Performance requirements</h3>
+          <ul>
+            <li>The applicant must be an eligible BGE residential distribution customer with a BGE account number.</li>
+            <li>The audit and qualifying work must be completed through participating contractors and meet current program standards.</li>
+            <li>Air sealing is completed before insulation, and many projects require mechanical ventilation for indoor-air-quality compliance.</li>
+            <li>Within the Home Performance rebate table, heating and cooling equipment, ENERGY STAR windows and doors, and heat pump water heaters are listed with an attic air-sealing and R-49 attic-insulation requirement.</li>
+          </ul>
+          <p class="rebate-disclaimer">
+            Program amounts, qualifying equipment, income guidelines, availability, and technical requirements can change. Figures above summarize BGE information available in July 2026 and are not a guarantee of eligibility or payment. EcoPower will verify the current program pathway for your property and proposed scope.
           </p>
         </div>
 
