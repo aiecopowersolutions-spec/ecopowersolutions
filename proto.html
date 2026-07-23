@@ -258,22 +258,32 @@
       flex-shrink: 0;
     }
 
-    .phone-block {
+    .header-company-info {
       display: grid;
-      line-height: 1.2;
+      flex-shrink: 0;
+      gap: 2px;
+      margin: 0;
+      color: #d7e0ea;
+      font-size: 0.66rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 1.25;
       text-align: right;
+      white-space: nowrap;
     }
 
-    .phone-block span {
-      color: #9fb0c4;
-      font-size: 0.73rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+    .header-company-info a,
+    .header-company-info span {
+      display: block;
     }
 
-    .phone-block a {
+    .header-company-info a {
       color: #ffffff;
-      font-weight: 800;
+      transition: color 150ms ease;
+    }
+
+    .header-company-info a:hover {
+      color: #6ee7b7;
     }
 
     .menu-toggle {
@@ -1895,6 +1905,18 @@
     }
 
     @media (max-width: 1100px) {
+      .header-inner {
+        gap: 16px;
+      }
+
+      .header-contact {
+        gap: 11px;
+      }
+
+      .header-company-info {
+        font-size: 0.62rem;
+      }
+
       .main-nav {
         gap: 16px;
       }
@@ -1935,7 +1957,7 @@
         display: inline-flex;
       }
 
-      .header-contact .phone-block,
+      .header-contact .header-company-info,
       .header-contact .btn {
         display: none;
       }
@@ -2249,11 +2271,13 @@
 <a href="#service-areas">Service Areas</a>
 </nav>
 <div class="header-contact">
-<div class="phone-block">
-<span>Call EcoPower</span>
-<a href="tel:4109294254">410-929-4254</a>
-</div>
 <a class="btn btn-primary open-contact" href="#contact">Schedule an Audit</a>
+<address class="header-company-info" aria-label="EcoPower Solutions contact information">
+<a href="tel:4109294254">410-929-4254</a>
+<a href="mailto:info@ecopowersol.com">info@ecopowersol.com</a>
+<span>MHIC #129718</span>
+<span>1724 Woodlawn Dr, Ste 12B</span>
+</address>
 <button aria-controls="mainNav" aria-expanded="false" aria-label="Open navigation" class="menu-toggle" id="menuToggle" type="button">
 <svg aria-hidden="true" fill="none" stroke="currentColor" viewbox="0 0 24 24">
 <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-width="2"></path>
