@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +10,7 @@
   <link href="/apple-touch-icon.png?v=1" rel="apple-touch-icon" sizes="180x180">
   <style>
     :root{--navy:#0c2748;--navy-deep:#071a30;--blue:#1a4d8f;--blue-light:#2a6bc4;--blue-pale:#eaf2fb;--green:#10b981;--green-dark:#047857;--green-pale:#e9fbf4;--ink:#102033;--muted:#5f6f82;--line:#dfe7ef;--soft:#f5f8fb;--white:#fff;--shadow:0 18px 50px rgba(15,40,71,.15);--container:1180px}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{min-width:320px;color:var(--ink);background:#fff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit}.container{width:min(100% - 40px,var(--container));margin-inline:auto}.section{padding:88px 0}.section-soft{background:var(--soft)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{min-width:320px;color:var(--ink);background:#fff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65}body.modal-open{overflow:hidden}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{cursor:pointer}.container{width:min(100% - 40px,var(--container));margin-inline:auto}.section{padding:88px 0}.section-soft{background:var(--soft)}
     .site-header{position:sticky;top:0;z-index:20;color:#fff;background:rgba(7,26,48,.96);border-bottom:1px solid rgba(255,255,255,.1);box-shadow:0 4px 20px rgba(7,26,48,.16);backdrop-filter:blur(12px)}.header-inner{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:inline-flex;flex-shrink:0}.brand img{width:auto;height:42px}.main-nav{display:flex;align-items:center;gap:24px;font-size:.92rem;font-weight:750}.main-nav a:not(.btn){color:#e8eef5}.main-nav a:hover,.main-nav a[aria-current="page"]{color:#6ee7b7}.menu-toggle{display:none;color:#fff;background:transparent;border:0;font-size:1.7rem;line-height:1}
     .btn{display:inline-flex;min-height:48px;align-items:center;justify-content:center;gap:8px;padding:12px 21px;border:1px solid transparent;border-radius:999px;font-weight:800;transition:transform .16s ease,background .16s ease,box-shadow .16s ease}.btn:hover{transform:translateY(-2px)}.btn-primary{color:#052e22;background:var(--green);box-shadow:0 12px 28px rgba(16,185,129,.3)}.btn-primary:hover{background:#20c997}.btn-secondary{color:#fff;border-color:rgba(255,255,255,.5);background:rgba(7,26,48,.32)}.btn-blue{color:#fff;background:var(--blue);box-shadow:0 12px 28px rgba(26,77,143,.24)}.btn-blue:hover{background:var(--blue-light)}
     .hero{position:relative;isolation:isolate;min-height:680px;display:grid;align-items:center;color:#fff;background:var(--navy-deep);overflow:hidden}.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url("images/erik-mclean-aCshJn3y93s-unsplash.jpg") center/cover no-repeat}.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,26,48,.97) 0%,rgba(7,26,48,.88) 43%,rgba(7,26,48,.46) 75%,rgba(7,26,48,.3) 100%)}.hero-content{max-width:720px;padding:94px 0}.eyebrow{display:inline-flex;margin-bottom:15px;padding:7px 13px;border-radius:999px;color:var(--blue);background:var(--blue-pale);font-size:.78rem;font-weight:850;letter-spacing:.09em;text-transform:uppercase}.eyebrow-light{color:#d8f7eb;background:rgba(16,185,129,.16);border:1px solid rgba(110,231,183,.28)}.hero h1{max-width:700px;font-size:clamp(2.75rem,6vw,5.2rem);line-height:1.01;letter-spacing:-.05em}.hero p{max-width:650px;margin-top:22px;color:#dce7f1;font-size:clamp(1.05rem,2vw,1.22rem)}.hero-actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:31px}.hero-proof{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:31px;color:#d8e4ef;font-size:.91rem;font-weight:700}.hero-proof span::before{content:"✓";margin-right:7px;color:#6ee7b7}
@@ -23,8 +22,9 @@
     .faq-list{max-width:850px;margin:0 auto;display:grid;gap:13px}.faq-item{border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden}.faq-item summary{cursor:pointer;list-style:none;padding:21px 58px 21px 22px;color:var(--navy);font-weight:800;position:relative}.faq-item summary::-webkit-details-marker{display:none}.faq-item summary::after{content:"+";position:absolute;right:22px;top:15px;color:var(--green-dark);font-size:1.65rem}.faq-item[open] summary::after{content:"−"}.faq-item p{padding:0 22px 22px;color:var(--muted)}.faq-visual{margin:0 22px 22px;overflow:hidden;border:1px solid var(--line);border-radius:14px;background:var(--soft)}.faq-visual a{display:block}.faq-visual img{width:100%;height:auto}.faq-visual figcaption{padding:11px 14px;color:var(--muted);font-size:.8rem}.faq-visual figcaption a{display:inline;color:var(--blue);font-weight:750}.faq-visual figcaption a:hover{text-decoration:underline}
     .credit-note{display:grid;grid-template-columns:1fr auto;align-items:center;gap:30px;margin-top:42px;padding:30px;border-left:5px solid var(--green);border-radius:0 18px 18px 0;background:var(--green-pale);box-shadow:0 10px 28px rgba(15,40,71,.08)}.credit-note h3{color:var(--navy);font-size:1.25rem}.credit-note p{margin-top:7px;color:var(--muted)}.credit-note small{display:block;margin-top:8px;color:var(--muted)}.cta-wrap{padding:0 0 88px}.cta{display:grid;grid-template-columns:1fr auto;align-items:center;gap:30px;padding:42px;border-radius:25px;color:#fff;background:linear-gradient(135deg,var(--blue),var(--navy));box-shadow:var(--shadow)}.cta h2{font-size:clamp(1.8rem,4vw,2.75rem);line-height:1.12}.cta p{margin-top:8px;color:#dce7f1}
     .site-footer{padding:52px 0 24px;color:#d5dfeb;background:var(--navy-deep)}.footer-main{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:48px}.footer-brand img{width:180px;margin-bottom:15px}.footer-col{display:flex;flex-direction:column;gap:7px}.footer-col h2{margin-bottom:5px;color:#fff;font-size:1rem}.footer-col a:hover{color:#6ee7b7}.footer-bottom{margin-top:34px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem}
+    .modal-overlay{position:fixed;inset:0;z-index:2000;display:none;place-items:center;padding:20px;background:rgba(4,16,29,.76);backdrop-filter:blur(7px)}.modal-overlay.open{display:grid}.contact-modal{position:relative;width:min(100%,820px);max-height:92vh;overflow-y:auto;padding:38px;border-radius:28px;background:#fff;box-shadow:0 24px 75px rgba(0,0,0,.34)}.modal-close{position:absolute;top:14px;right:14px;display:grid;width:39px;height:39px;place-items:center;border:1px solid var(--line);border-radius:50%;color:var(--ink);background:#fff;font-size:1.25rem}.contact-modal h2{margin-bottom:6px;font-size:2rem;line-height:1.15}.contact-modal>p{margin-bottom:24px;color:var(--muted)}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.form-group{display:grid;gap:6px}.form-group-full{grid-column:1/-1}.form-group label{color:#33475c;font-size:.86rem;font-weight:750}.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 13px;border:1px solid #ced9e4;border-radius:10px;color:var(--ink);background:#fff}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:3px solid rgba(42,107,196,.13);border-color:var(--blue-light)}.form-group textarea{min-height:115px;resize:vertical}.form-submit{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;margin-top:22px}.form-note{max-width:390px;color:var(--muted);font-size:.77rem}
     @media(max-width:980px){.main-nav{position:absolute;left:0;right:0;top:76px;display:none;padding:20px;flex-direction:column;align-items:stretch;background:var(--navy-deep);box-shadow:0 18px 30px rgba(7,26,48,.25)}.main-nav.is-open{display:flex}.menu-toggle{display:block}.intro-grid,.audit-grid,.rebate-grid{grid-template-columns:1fr}.type-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.why-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-main{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}.hero::after{background:rgba(7,26,48,.83)}}
-    @media(max-width:620px){.container{width:min(100% - 28px,var(--container))}.section{padding:68px 0}.hero{min-height:620px}.hero-content{padding:76px 0}.hero-actions .btn{width:100%}.signal-list,.type-grid,.why-grid,.footer-main{grid-template-columns:1fr}.footer-brand{grid-column:auto}.audit-panel img{height:320px}.choice-note,.credit-note,.cta{grid-template-columns:1fr;padding:25px 22px}.choice-note a{white-space:normal}.credit-note .btn,.cta .btn{width:100%}}
+    @media(max-width:620px){.container{width:min(100% - 28px,var(--container))}.section{padding:68px 0}.hero{min-height:620px}.hero-content{padding:76px 0}.hero-actions .btn{width:100%}.signal-list,.type-grid,.why-grid,.footer-main{grid-template-columns:1fr}.footer-brand{grid-column:auto}.audit-panel img{height:320px}.choice-note,.credit-note,.cta{grid-template-columns:1fr;padding:25px 22px}.choice-note a{white-space:normal}.credit-note .btn,.cta .btn{width:100%}.contact-modal{padding:34px 20px 24px}.form-grid{grid-template-columns:1fr}.form-group-full{grid-column:auto}.form-submit .btn{width:100%}}
   </style>
 </head>
 <body>
@@ -37,7 +37,7 @@
         <a href="insulation.html" aria-current="page">Insulation</a>
         <a href="/our-team">Our Team</a>
         <a href="gallery.html">Gallery</a>
-        <a class="btn btn-primary" href="contact-us.html">Request an Assessment</a>
+        <a class="btn btn-primary open-contact" href="#contact">Request an Assessment</a>
       </nav>
       <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-controls="mainNav" aria-expanded="false">☰</button>
     </div>
@@ -167,7 +167,7 @@
             <li>Roof ice dams caused partly by heat escaping into the attic.</li>
             <li>Wet insulation, odors, and damage to nearby materials.</li>
           </ul>
-          <a class="btn btn-primary" href="contact-us.html">Have Your Home Evaluated</a>
+          <a class="btn btn-primary open-contact" href="#contact">Have Your Home Evaluated</a>
         </div>
       </div>
     </section>
@@ -218,7 +218,7 @@
       <div class="container">
         <div class="cta">
           <div><h2>Not sure if your home has enough insulation?</h2><p>EcoPower can check your home and explain where insulation, air leaks, or moisture may be causing problems.</p></div>
-          <a class="btn btn-primary" href="contact-us.html">Request a Home Assessment</a>
+          <a class="btn btn-primary open-contact" href="#contact">Request a Home Assessment</a>
         </div>
       </div>
     </section>
@@ -228,15 +228,49 @@
     <div class="container footer-main">
       <div class="footer-brand"><img src="images/ecologoborderpartial.png" alt="EcoPower Solutions"><p>Maryland home energy audits, rebate guidance, and whole-home efficiency improvements.</p></div>
       <div class="footer-col"><h2>Contact</h2><a href="tel:4109294254">410-929-4254</a><a href="mailto:info@ecopowersol.com">info@ecopowersol.com</a><span>1724 Woodlawn Drive, Suite 12B</span><span>Baltimore, MD 21207</span><span>MHIC #129718</span></div>
-      <div class="footer-col"><h2>Explore</h2><a href="index.html">Home</a><a href="index.html#how-it-works">Energy Audits</a><a href="index.html#rebates">Rebates</a><a href="/our-team">Our Team</a><a href="gallery.html">Project Gallery</a><a href="contact-us.html">Contact Us</a></div>
+      <div class="footer-col"><h2>Explore</h2><a href="index.html">Home</a><a href="index.html#how-it-works">Energy Audits</a><a href="index.html#rebates">Rebates</a><a href="/our-team">Our Team</a><a href="gallery.html">Project Gallery</a><a class="open-contact" href="#contact">Contact Us</a></div>
     </div>
     <div class="container footer-bottom">© <span id="year">2026</span> EcoPower Solutions. All rights reserved. Incentives and program rules may change.</div>
   </footer>
+  <div class="modal-overlay" id="contactModal" aria-hidden="true">
+    <section class="contact-modal" id="contact" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close contact form">×</button>
+      <span class="eyebrow">Request an assessment</span>
+      <h2 id="contactTitle">Tell us about your Maryland home.</h2>
+      <p>EcoPower will follow up to discuss your insulation concerns, property, utility, service area, and next steps.</p>
+      <form action="https://formsubmit.co/info@ecopowersol.com" method="POST">
+        <input name="_subject" type="hidden" value="New EcoPower Solutions Insulation Assessment Request">
+        <input name="_captcha" type="hidden" value="false">
+        <input name="_template" type="hidden" value="table">
+        <div class="form-grid">
+          <div class="form-group"><label for="firstName">First name *</label><input autocomplete="given-name" id="firstName" name="firstName" required type="text"></div>
+          <div class="form-group"><label for="lastName">Last name *</label><input autocomplete="family-name" id="lastName" name="lastName" required type="text"></div>
+          <div class="form-group"><label for="email">Email address *</label><input autocomplete="email" id="email" name="email" required type="email"></div>
+          <div class="form-group"><label for="phone">Phone number *</label><input autocomplete="tel" id="phone" name="phone" required type="tel"></div>
+          <div class="form-group form-group-full"><label for="address">Property address *</label><input autocomplete="street-address" id="address" name="address" required type="text"></div>
+          <div class="form-group"><label for="utility">Utility</label><select id="utility" name="utility"><option value="">Select utility</option><option value="BGE">BGE</option><option value="Pepco">Pepco</option><option value="Potomac Edison">Potomac Edison</option><option value="Delmarva Power">Delmarva Power</option><option value="SMECO">SMECO</option><option value="Other / Unsure">Other / Unsure</option></select></div>
+          <div class="form-group"><label for="interest">Primary interest</label><select id="interest" name="interest"><option value="Rebates and insulation" selected>Insulation and air sealing</option><option value="Home energy audit">Home energy audit</option><option value="Heat pump HVAC">Heat pump HVAC</option><option value="Heat pump water heater">Heat pump water heater</option><option value="Weatherization">Weatherization</option><option value="Commercial HVAC tune-up">Commercial HVAC tune-up</option></select></div>
+          <div class="form-group form-group-full"><label for="message">How can we help? *</label><textarea id="message" name="message" placeholder="Tell us about hot or cold rooms, drafts, high bills, or insulation concerns." required></textarea></div>
+        </div>
+        <div class="form-submit"><p class="form-note">Submitting this form does not guarantee program or rebate eligibility. EcoPower will verify the available pathway with you.</p><button class="btn btn-primary" type="submit">Request Your Assessment</button></div>
+      </form>
+    </section>
+  </div>
   <script>
     const menuToggle=document.getElementById('menuToggle');
     const mainNav=document.getElementById('mainNav');
+    const contactModal=document.getElementById('contactModal');
+    const modalClose=document.getElementById('modalClose');
+    let lastFocusedElement=null;
+    function closeMenu(){mainNav.classList.remove('is-open');menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Open navigation');}
     menuToggle.addEventListener('click',()=>{const open=mainNav.classList.toggle('is-open');menuToggle.setAttribute('aria-expanded',String(open));menuToggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');});
-    mainNav.addEventListener('click',event=>{if(event.target.matches('a')){mainNav.classList.remove('is-open');menuToggle.setAttribute('aria-expanded','false');}});
+    mainNav.addEventListener('click',event=>{if(event.target.matches('a'))closeMenu();});
+    function openModal(event){event.preventDefault();lastFocusedElement=document.activeElement;contactModal.classList.add('open');contactModal.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');closeMenu();setTimeout(()=>{const firstField=contactModal.querySelector('input,select,textarea,button');if(firstField)firstField.focus();},20);}
+    function closeModal(){contactModal.classList.remove('open');contactModal.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');if(lastFocusedElement)lastFocusedElement.focus();}
+    document.querySelectorAll('.open-contact').forEach(button=>button.addEventListener('click',openModal));
+    modalClose.addEventListener('click',closeModal);
+    contactModal.addEventListener('click',event=>{if(event.target===contactModal)closeModal();});
+    document.addEventListener('keydown',event=>{if(event.key==='Escape'&&contactModal.classList.contains('open'))closeModal();});
     document.getElementById('year').textContent=new Date().getFullYear();
   </script>
 </body>
