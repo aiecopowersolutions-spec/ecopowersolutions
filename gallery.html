@@ -9,7 +9,7 @@
   <link href="/apple-touch-icon.png?v=1" rel="apple-touch-icon" sizes="180x180">
   <style>
     :root{--navy:#0c2748;--navy-deep:#071a30;--blue:#1a4d8f;--blue-pale:#eaf2fb;--green:#10b981;--ink:#102033;--muted:#5f6f82;--line:#dfe7ef;--soft:#f5f8fb;--shadow:0 18px 50px rgba(15,40,71,.15);--container:1180px}
-    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{min-width:320px;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}body.modal-open{overflow:hidden}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}.container{width:min(100% - 40px,var(--container));margin-inline:auto}
+    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{min-width:320px;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}body.modal-open{overflow:hidden}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{cursor:pointer}.container{width:min(100% - 40px,var(--container));margin-inline:auto}
     .site-header{position:sticky;top:0;z-index:20;background:rgba(7,26,48,.96);box-shadow:0 4px 20px rgba(7,26,48,.16);backdrop-filter:blur(12px)}.header-inner{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:28px}.brand img{width:175px;max-height:54px;object-fit:contain}.main-nav{display:flex;align-items:center;gap:25px;color:#fff;font-size:.92rem;font-weight:700}.main-nav a:hover,.main-nav a[aria-current="page"]{color:#6ee7b7}.btn{display:inline-flex;min-height:48px;align-items:center;justify-content:center;padding:12px 21px;border-radius:999px;font-weight:800}.btn-primary{color:#052e22;background:var(--green);box-shadow:0 12px 28px rgba(16,185,129,.3)}
     .hero{padding:88px 0 80px;color:#fff;background:radial-gradient(circle at 12% 20%,rgba(42,107,196,.5),transparent 32%),linear-gradient(135deg,var(--navy),var(--navy-deep))}.hero-copy{max-width:800px}.eyebrow{display:inline-flex;margin-bottom:15px;padding:7px 13px;border-radius:999px;color:#d8f7eb;background:rgba(16,185,129,.16);border:1px solid rgba(110,231,183,.28);font-size:.78rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}.hero h1{font-size:clamp(2.6rem,6vw,5rem);line-height:1.02;letter-spacing:-.045em}.hero p{max-width:700px;margin-top:20px;color:#d5dfeb;font-size:1.12rem}
     .gallery-section{padding:82px 0 94px;background:var(--soft)}.gallery-intro{margin-bottom:32px}.gallery-intro h2{font-size:clamp(2rem,4vw,3.1rem);line-height:1.12;letter-spacing:-.035em}.gallery-intro p{max-width:590px;margin-top:11px;color:var(--muted)}
@@ -17,8 +17,9 @@
     .cta{padding:78px 0;text-align:center;color:#fff;background:var(--navy)}.cta h2{font-size:clamp(2rem,4vw,3.15rem);line-height:1.12}.cta p{max-width:620px;margin:14px auto 25px;color:#d5dfeb}.cta .btn{color:#052e22;background:var(--green)}
     .lightbox{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:30px;background:rgba(3,13,25,.92)}.lightbox.open{display:grid}.lightbox-content{position:relative;width:min(100%,1000px)}.lightbox img{width:100%;max-height:78vh;object-fit:contain;border-radius:14px;background:#071a30}.lightbox-close{position:absolute;top:-18px;right:-18px;width:44px;height:44px;border:0;border-radius:50%;color:#fff;background:var(--green);font-size:1.7rem;line-height:1}.lightbox-close:focus-visible,.photo-button:focus-visible{outline:3px solid #6ee7b7;outline-offset:3px}
     .site-footer{padding:44px 0 24px;color:#d5dfeb;background:var(--navy-deep)}.footer-main{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:44px}.footer-brand img{width:180px;margin-bottom:16px}.footer-col{display:flex;flex-direction:column;gap:7px}.footer-col h2{margin-bottom:5px;color:#fff;font-size:1rem}.footer-col a:hover{color:#6ee7b7}.footer-bottom{margin-top:34px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem}
+    .modal-overlay{position:fixed;inset:0;z-index:2000;display:none;place-items:center;padding:20px;background:rgba(4,16,29,.76);backdrop-filter:blur(7px)}.modal-overlay.open{display:grid}.contact-modal{position:relative;width:min(100%,820px);max-height:92vh;overflow-y:auto;padding:38px;border-radius:28px;background:#fff;box-shadow:0 24px 75px rgba(0,0,0,.34)}.modal-close{position:absolute;top:14px;right:14px;display:grid;width:39px;height:39px;place-items:center;border:1px solid var(--line);border-radius:50%;color:var(--ink);background:#fff;font-size:1.25rem}.contact-modal .eyebrow{color:var(--blue);background:var(--blue-pale);border:0}.contact-modal h2{margin-bottom:6px;font-size:2rem;line-height:1.15}.contact-modal>p{margin-bottom:24px;color:var(--muted)}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.form-group{display:grid;gap:6px}.form-group-full{grid-column:1/-1}.form-group label{color:#33475c;font-size:.86rem;font-weight:750}.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 13px;border:1px solid #ced9e4;border-radius:10px;color:var(--ink);background:#fff}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:3px solid rgba(42,107,196,.13);border-color:var(--blue)}.form-group textarea{min-height:115px;resize:vertical}.form-submit{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;margin-top:22px}.form-note{max-width:390px;color:var(--muted);font-size:.77rem}
     @media(max-width:900px){.main-nav a:not(.btn){display:none}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-main{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
-    @media(max-width:580px){.container{width:min(100% - 28px,var(--container))}.brand img{width:145px}.main-nav .btn{padding:10px 14px;font-size:.82rem}.hero{padding:68px 0 62px}.gallery-section{padding:64px 0 72px}.gallery-grid,.footer-main{grid-template-columns:1fr}.footer-brand{grid-column:auto}.lightbox{padding:16px}.lightbox-close{top:-12px;right:-6px}}
+    @media(max-width:580px){.container{width:min(100% - 28px,var(--container))}.brand img{width:145px}.main-nav .btn{padding:10px 14px;font-size:.82rem}.hero{padding:68px 0 62px}.gallery-section{padding:64px 0 72px}.gallery-grid,.footer-main{grid-template-columns:1fr}.footer-brand{grid-column:auto}.lightbox{padding:16px}.lightbox-close{top:-12px;right:-6px}.contact-modal{padding:34px 20px 24px}.form-grid{grid-template-columns:1fr}.form-group-full{grid-column:auto}.form-submit .btn{width:100%}}
   </style>
 </head>
 <body>
@@ -26,7 +27,7 @@
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="EcoPower Solutions home"><img src="images/ecologoborderpartial.png" alt="EcoPower Solutions"></a>
       <nav class="main-nav" aria-label="Primary navigation">
-        <a href="index.html#services">Services</a><a href="index.html#rebates">Rebates</a><a href="about-us.html">About Us</a><a href="gallery.html" aria-current="page">Gallery</a><a class="btn btn-primary" href="contact-us.html">Schedule an Audit</a>
+        <a href="index.html#services">Services</a><a href="index.html#rebates">Rebates</a><a href="about-us.html">About Us</a><a href="gallery.html" aria-current="page">Gallery</a><a class="btn btn-primary open-contact" href="#contact">Schedule an Audit</a>
       </nav>
     </div>
   </header>
@@ -63,16 +64,45 @@
         </div>
       </div>
     </section>
-    <section class="cta"><div class="container"><h2>Ready to understand your home?</h2><p>Start with a comprehensive home energy audit and get a clear plan for improving comfort, efficiency, health, and safety.</p><a class="btn" href="contact-us.html">Schedule an Audit</a></div></section>
+    <section class="cta"><div class="container"><h2>Ready to understand your home?</h2><p>Start with a comprehensive home energy audit and get a clear plan for improving comfort, efficiency, health, and safety.</p><a class="btn open-contact" href="#contact">Schedule an Audit</a></div></section>
   </main>
   <footer class="site-footer"><div class="container footer-main"><div class="footer-brand"><img src="images/ecologoborderpartial.png" alt="EcoPower Solutions"><p>Maryland home energy audits, rebate guidance, and whole-home efficiency improvements.</p></div><div class="footer-col"><h2>Contact</h2><a href="tel:4109294254">410-929-4254</a><a href="mailto:info@ecopowersol.com">info@ecopowersol.com</a><span>MHIC #129718</span></div><div class="footer-col"><h2>Explore</h2><a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="gallery.html">Project Gallery</a><a href="index.html#service-areas">Service Areas</a></div></div><div class="container footer-bottom">© <span id="year">2026</span> EcoPower Solutions. All rights reserved.</div></footer>
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Expanded project photo"><div class="lightbox-content"><button class="lightbox-close" type="button" aria-label="Close image viewer">×</button><img src="" alt=""></div></div>
+  <div class="modal-overlay" id="contactModal" aria-hidden="true">
+    <section class="contact-modal" id="contact" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close contact form">×</button>
+      <span class="eyebrow">Schedule your audit</span>
+      <h2 id="contactTitle">Tell us about your Maryland home.</h2>
+      <p>EcoPower will follow up to confirm the property, utility account, service area, audit availability, and next steps.</p>
+      <form action="https://formsubmit.co/info@ecopowersol.com" method="POST">
+        <input name="_subject" type="hidden" value="New EcoPower Solutions Energy Audit Request">
+        <input name="_captcha" type="hidden" value="false">
+        <input name="_template" type="hidden" value="table">
+        <div class="form-grid">
+          <div class="form-group"><label for="firstName">First name *</label><input autocomplete="given-name" id="firstName" name="firstName" required type="text"></div>
+          <div class="form-group"><label for="lastName">Last name *</label><input autocomplete="family-name" id="lastName" name="lastName" required type="text"></div>
+          <div class="form-group"><label for="email">Email address *</label><input autocomplete="email" id="email" name="email" required type="email"></div>
+          <div class="form-group"><label for="phone">Phone number *</label><input autocomplete="tel" id="phone" name="phone" required type="tel"></div>
+          <div class="form-group form-group-full"><label for="address">Property address *</label><input autocomplete="street-address" id="address" name="address" required type="text"></div>
+          <div class="form-group"><label for="utility">Utility</label><select id="utility" name="utility"><option value="">Select utility</option><option value="BGE">BGE</option><option value="Pepco">Pepco</option><option value="Potomac Edison">Potomac Edison</option><option value="Delmarva Power">Delmarva Power</option><option value="SMECO">SMECO</option><option value="Other / Unsure">Other / Unsure</option></select></div>
+          <div class="form-group"><label for="interest">Primary interest</label><select id="interest" name="interest"><option value="Home energy audit">Home energy audit</option><option value="Rebates and insulation">Rebates and insulation</option><option value="Air sealing">Air sealing</option><option value="Heat pump HVAC">Heat pump HVAC</option><option value="Heat pump water heater">Heat pump water heater</option><option value="Weatherization">Weatherization</option><option value="Commercial HVAC tune-up">Commercial HVAC tune-up</option></select></div>
+          <div class="form-group form-group-full"><label for="message">How can we help? *</label><textarea id="message" name="message" placeholder="Tell us about comfort problems, high bills, planned upgrades, or rebates you want to explore." required></textarea></div>
+        </div>
+        <div class="form-submit"><p class="form-note">Submitting this form does not guarantee program or rebate eligibility. EcoPower will verify the applicable pathway with you.</p><button class="btn btn-primary" type="submit">Request Your Audit</button></div>
+      </form>
+    </section>
+  </div>
   <script>
     document.getElementById('year').textContent=new Date().getFullYear();
     document.querySelectorAll('.photo-button img').forEach(img=>{const ready=()=>img.parentElement.classList.add('has-image');if(img.complete&&img.naturalWidth)ready();else img.addEventListener('load',ready);img.addEventListener('error',()=>{img.hidden=true;img.parentElement.querySelector('.zoom-label').hidden=true;img.parentElement.disabled=true;});});
     const lightbox=document.getElementById('lightbox'),largeImage=lightbox.querySelector('img'),closeButton=lightbox.querySelector('.lightbox-close');
     document.querySelectorAll('.photo-button').forEach(button=>button.addEventListener('click',()=>{const img=button.querySelector('img');largeImage.src=img.src;lightbox.classList.add('open');document.body.classList.add('modal-open');closeButton.focus();}));
-    function closeLightbox(){lightbox.classList.remove('open');document.body.classList.remove('modal-open');largeImage.src='';}closeButton.addEventListener('click',closeLightbox);lightbox.addEventListener('click',event=>{if(event.target===lightbox)closeLightbox();});document.addEventListener('keydown',event=>{if(event.key==='Escape')closeLightbox();});
+    function closeLightbox(){lightbox.classList.remove('open');document.body.classList.remove('modal-open');largeImage.src='';}closeButton.addEventListener('click',closeLightbox);lightbox.addEventListener('click',event=>{if(event.target===lightbox)closeLightbox();});
+    const contactModal=document.getElementById('contactModal'),modalClose=document.getElementById('modalClose');let lastFocusedElement=null;
+    function openModal(event){event.preventDefault();lastFocusedElement=document.activeElement;contactModal.classList.add('open');contactModal.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');setTimeout(()=>{const firstField=contactModal.querySelector('input,select,textarea,button');if(firstField)firstField.focus();},20);}
+    function closeModal(){contactModal.classList.remove('open');contactModal.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');if(lastFocusedElement)lastFocusedElement.focus();}
+    document.querySelectorAll('.open-contact').forEach(button=>button.addEventListener('click',openModal));modalClose.addEventListener('click',closeModal);contactModal.addEventListener('click',event=>{if(event.target===contactModal)closeModal();});
+    document.addEventListener('keydown',event=>{if(event.key==='Escape'){if(contactModal.classList.contains('open'))closeModal();else if(lightbox.classList.contains('open'))closeLightbox();}});
   </script>
 </body>
 </html>
