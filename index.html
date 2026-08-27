@@ -251,6 +251,68 @@
       color: #6ee7b7;
     }
 
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .nav-dropdown summary {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #e8eef5;
+      cursor: pointer;
+      list-style: none;
+      transition: color 150ms ease;
+    }
+
+    .nav-dropdown summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .nav-dropdown summary::after {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform 150ms ease;
+    }
+
+    .nav-dropdown[open] summary,
+    .nav-dropdown summary:hover {
+      color: #6ee7b7;
+    }
+
+    .nav-dropdown[open] summary::after {
+      transform: translateY(2px) rotate(225deg);
+    }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: -18px;
+      z-index: 30;
+      min-width: 190px;
+      padding: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      background: rgba(7, 26, 48, 0.99);
+      box-shadow: 0 16px 36px rgba(4, 16, 29, 0.3);
+    }
+
+    .main-nav .nav-dropdown-menu a:not(.btn) {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+
+    .main-nav .nav-dropdown-menu a:not(.btn):hover {
+      color: #6ee7b7;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
     .header-contact {
       display: flex;
       align-items: center;
@@ -2006,6 +2068,27 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
 
+      .nav-dropdown summary {
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .nav-dropdown-menu {
+        position: static;
+        min-width: 0;
+        padding: 2px 0 2px 16px;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .main-nav .nav-dropdown-menu a:not(.btn) {
+        padding: 10px 0;
+        border-radius: 0;
+      }
+
       .main-nav .btn {
         margin-top: 12px;
       }
@@ -2381,7 +2464,13 @@
 <nav aria-label="Primary navigation" class="main-nav" id="mainNav">
 <a href="#how-it-works">Energy Audits</a>
 <a href="#rebates">Rebates</a>
-<a href="#services">Services</a>
+<details class="nav-dropdown">
+<summary>Services</summary>
+<div class="nav-dropdown-menu">
+<a href="#services">All Services</a>
+<a href="why-insulate.html">Insulation</a>
+</div>
+</details>
 <a href="/our-team">Our Team</a>
 <a class="nav-hide-mid" href="#reviews">Reviews</a>
 <a href="#service-areas">Service Areas</a>
@@ -2560,7 +2649,7 @@
 <span class="service-card-tag">Core home performance</span>
 <h3>Insulation Upgrades</h3>
 <p>Attic, wall, basement, knee-wall, and crawlspace insulation designed around your audit findings.</p>
-<a class="open-contact" href="#contact">Discuss insulation improvements →</a>
+<a href="why-insulate.html">Discuss insulation improvements →</a>
 </div>
 </article>
 <article class="service-card reveal">
