@@ -2457,7 +2457,48 @@
 </head>
 <body>
 <div id="site-header-include"></div>
-<script type="module" src="/header-include.js"></script>
+<script>
+  (function () {
+    var mount = document.getElementById('site-header-include');
+    fetch('/header')
+      .then(function (response) {
+        if (!response.ok) throw new Error('Header request failed: ' + response.status);
+        return response.text();
+      })
+      .then(function (html) {
+        mount.outerHTML = html;
+        var menuToggle = document.getElementById('menuToggle');
+        var mainNav = document.getElementById('mainNav');
+        if (menuToggle && mainNav) {
+          menuToggle.addEventListener('click', function () {
+            var open = mainNav.classList.toggle('open');
+            menuToggle.setAttribute('aria-expanded', String(open));
+          });
+          mainNav.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+              mainNav.classList.remove('open');
+              menuToggle.setAttribute('aria-expanded', 'false');
+            });
+          });
+        }
+        var contactButton = document.querySelector('.site-header .open-contact');
+        if (contactButton) {
+          contactButton.addEventListener('click', function (event) {
+            var modal = document.getElementById('contactModal');
+            if (!modal) return;
+            event.preventDefault();
+            modal.classList.add('open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('modal-open');
+          });
+        }
+        document.dispatchEvent(new Event('ecopower:header-ready'));
+      })
+      .catch(function (error) {
+        console.error('EcoPower shared header could not be loaded.', error);
+      });
+  }());
+</script>
 <div class="announcement">
 <div class="container announcement-inner">
 <span aria-hidden="true" class="announcement-dot"></span>
