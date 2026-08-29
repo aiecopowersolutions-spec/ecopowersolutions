@@ -54,37 +54,48 @@
   </style>
 </head>
 <body>
-  <header class="site-header" id="siteHeader">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="EcoPower Solutions home"><img src="images/ecologoborderpartial.png" alt="EcoPower Solutions"></a>
-      <nav class="main-nav" id="mainNav" aria-label="Primary navigation">
-        <a href="index.html#how-it-works">Energy Audits</a>
-        <a href="index.html#rebates">Rebates</a>
-        <details class="nav-dropdown">
-          <summary>Services</summary>
-          <div class="nav-dropdown-menu">
-            <a href="index.html#services">All Services</a>
-            <a href="why-insulate.html" aria-current="page">Insulation</a>
-          </div>
-        </details>
-        <a href="/our-team">Our Team</a>
-        <a class="nav-hide-mid" href="index.html#reviews">Reviews</a>
-        <a href="index.html#service-areas">Service Areas</a>
-      </nav>
-      <div class="header-contact">
-        <a class="btn btn-primary open-contact" href="#contact">Schedule an Audit</a>
-        <address class="header-company-info" aria-label="EcoPower Solutions contact information">
-          <a href="tel:4109294254">410-929-4254</a>
-          <a href="mailto:info@ecopowersol.com">info@ecopowersol.com</a>
-          <span>MHIC #129718</span>
-          <span>1724 Woodlawn Dr, Ste 12B</span>
-        </address>
-        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-controls="mainNav" aria-expanded="false">
-          <svg aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-width="2"></path></svg>
-        </button>
-      </div>
-    </div>
-  </header>
+  <div id="site-header-include"></div>
+  <script>
+    (function () {
+      var mount = document.getElementById('site-header-include');
+      fetch('/header')
+        .then(function (response) {
+          if (!response.ok) throw new Error('Header request failed: ' + response.status);
+          return response.text();
+        })
+        .then(function (html) {
+          mount.outerHTML = html;
+          var menuToggle = document.getElementById('menuToggle');
+          var mainNav = document.getElementById('mainNav');
+          if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', function () {
+              var open = mainNav.classList.toggle('open');
+              menuToggle.setAttribute('aria-expanded', String(open));
+            });
+            mainNav.querySelectorAll('a').forEach(function (link) {
+              link.addEventListener('click', function () {
+                mainNav.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+              });
+            });
+          }
+          var contactButton = document.querySelector('.site-header .open-contact');
+          if (contactButton) {
+            contactButton.addEventListener('click', function (event) {
+              var modal = document.getElementById('contactModal');
+              if (!modal) return;
+              event.preventDefault();
+              modal.classList.add('open');
+              modal.setAttribute('aria-hidden', 'false');
+              document.body.classList.add('modal-open');
+            });
+          }
+        })
+        .catch(function (error) {
+          console.error('EcoPower shared header could not be loaded.', error);
+        });
+    }());
+  </script>
 
   <main>
     <section class="hero">
@@ -305,9 +316,8 @@
     const contactModal=document.getElementById('contactModal');
     const modalClose=document.getElementById('modalClose');
     let lastFocusedElement=null;
-    function closeMenu(){mainNav.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Open navigation');}
-    menuToggle.addEventListener('click',()=>{const open=mainNav.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));menuToggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');});
-    mainNav.addEventListener('click',event=>{if(event.target.matches('a'))closeMenu();});
+    function closeMenu(){if(!mainNav||!menuToggle)return;mainNav.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Open navigation');}
+    if(menuToggle&&mainNav){menuToggle.addEventListener('click',()=>{const open=mainNav.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));menuToggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');});mainNav.addEventListener('click',event=>{if(event.target.matches('a'))closeMenu();});}
     function openModal(event){event.preventDefault();lastFocusedElement=document.activeElement;contactModal.classList.add('open');contactModal.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');closeMenu();setTimeout(()=>{const firstField=contactModal.querySelector('input,select,textarea,button');if(firstField)firstField.focus();},20);}
     function closeModal(){contactModal.classList.remove('open');contactModal.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');if(lastFocusedElement)lastFocusedElement.focus();}
     document.querySelectorAll('.open-contact').forEach(button=>button.addEventListener('click',openModal));
