@@ -1,12 +1,11 @@
-<!-- EcoPower shared site header. Load with: <div id="site-header-include"></div><script type="module" src="/header-include.js"></script> -->
+<!-- EcoPower shared site header. Loaded from /header by each page's embedded loader. -->
 <header class="site-header" id="siteHeader">
   <div class="container header-inner">
     <a aria-label="EcoPower Solutions home" class="brand" href="/#top">
       <img alt="EcoPower Solutions" src="/images/ecologoborderpartial.png"/>
     </a>
     <nav aria-label="Primary navigation" class="main-nav" id="mainNav">
-      <a href="/#how-it-works">Energy Audits</a>
-      <a href="/#rebates">Rebates</a>
+      <a href="/#how-it-works" aria-label="Auditing Process"><span style="display:block">Auditing</span><span style="display:block">Process</span></a>
       <details class="nav-dropdown">
         <summary>Services</summary>
         <div class="nav-dropdown-menu">
@@ -14,9 +13,14 @@
           <a href="/why-insulate.html">Insulation</a>
         </div>
       </details>
-      <a href="/our-team">Our Team</a>
-      <a class="nav-hide-mid" href="/#reviews">Reviews</a>
-      <a href="/#service-areas">Service Areas</a>
+      <details class="nav-dropdown">
+        <summary>About Us</summary>
+        <div class="nav-dropdown-menu">
+          <a href="/our-team">Our Team</a>
+          <a href="/gallery.html">Gallery</a>
+          <a href="/#reviews">Reviews</a>
+        </div>
+      </details>
     </nav>
     <div class="header-contact">
       <a class="btn btn-primary open-contact" href="/#contact">Schedule an Audit</a>
