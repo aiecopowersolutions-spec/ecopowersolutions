@@ -20,20 +20,77 @@
     .modal-overlay{position:fixed;inset:0;z-index:2000;display:none;place-items:center;padding:20px;background:rgba(4,16,29,.76);backdrop-filter:blur(7px)}.modal-overlay.open{display:grid}.contact-modal{position:relative;width:min(100%,820px);max-height:92vh;overflow-y:auto;padding:38px;border-radius:28px;background:#fff;box-shadow:0 24px 75px rgba(0,0,0,.34)}.modal-close{position:absolute;top:14px;right:14px;display:grid;width:39px;height:39px;place-items:center;border:1px solid var(--line);border-radius:50%;color:var(--ink);background:#fff;font-size:1.25rem}.contact-modal .eyebrow{color:var(--blue);background:var(--blue-pale);border:0}.contact-modal h2{margin-bottom:6px;font-size:2rem;line-height:1.15}.contact-modal>p{margin-bottom:24px;color:var(--muted)}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.form-group{display:grid;gap:6px}.form-group-full{grid-column:1/-1}.form-group label{color:#33475c;font-size:.86rem;font-weight:750}.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 13px;border:1px solid #ced9e4;border-radius:10px;color:var(--ink);background:#fff}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:3px solid rgba(42,107,196,.13);border-color:var(--blue)}.form-group textarea{min-height:115px;resize:vertical}.form-submit{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:15px;margin-top:22px}.form-note{max-width:390px;color:var(--muted);font-size:.77rem}
     @media(max-width:900px){.main-nav a:not(.btn){display:none}.story-grid,.office-grid{grid-template-columns:1fr}.team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.office-photo{width:min(100%,360px);margin:auto}.footer-main{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
     @media(max-width:580px){.container{width:min(100% - 28px,var(--container))}.main-nav .btn{padding:10px 14px;font-size:.82rem}.brand img{width:145px}.about-hero{padding:70px 0 64px}.bpi-callout{align-items:flex-start}.bpi-logo-link{flex-basis:68px}.bpi-logo{width:68px;height:68px}.section{padding:68px 0}.values,.team-grid,.footer-main{grid-template-columns:1fr}.footer-brand{grid-column:auto}.team-card{width:min(100%,430px);margin-inline:auto}.contact-modal{padding:34px 20px 24px}.form-grid{grid-template-columns:1fr}.form-group-full{grid-column:auto}.form-submit .btn{width:100%}}
+
+    /* Header shared with index.html */
+    :root{--header-height:76px}
+    body{padding-top:var(--header-height)}
+    .site-header{position:fixed;inset:0 0 auto 0;min-height:var(--header-height);z-index:1000;color:#fff;background:rgba(7,26,48,.94);border-bottom:1px solid rgba(255,255,255,.1)}
+    .header-inner{min-height:var(--header-height);gap:24px}
+    .brand{display:inline-flex;align-items:center;flex-shrink:0}
+    .brand img{width:auto;height:42px;max-height:none}
+    .main-nav{gap:24px}
+    .main-nav a:not(.btn){color:#e8eef5;transition:color 150ms ease}
+    .nav-dropdown{position:relative}
+    .nav-dropdown summary{display:flex;align-items:center;gap:6px;color:#e8eef5;cursor:pointer;list-style:none;transition:color 150ms ease}
+    .nav-dropdown summary::-webkit-details-marker{display:none}
+    .nav-dropdown summary::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform 150ms ease}
+    .nav-dropdown[open] summary,.nav-dropdown summary:hover{color:#6ee7b7}
+    .nav-dropdown[open] summary::after{transform:translateY(2px) rotate(225deg)}
+    .nav-dropdown-menu{position:absolute;top:calc(100% + 14px);left:-18px;z-index:30;min-width:190px;padding:8px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(7,26,48,.99);box-shadow:0 16px 36px rgba(4,16,29,.3)}
+    .main-nav .nav-dropdown-menu a:not(.btn){display:block;padding:10px 12px;border-radius:8px;white-space:nowrap}
+    .main-nav .nav-dropdown-menu a:not(.btn):hover{color:#6ee7b7;background:rgba(255,255,255,.07)}
+    .header-contact{display:flex;align-items:center;gap:15px;flex-shrink:0}
+    .header-company-info{display:grid;flex-shrink:0;gap:2px;margin:0;color:#d7e0ea;font-size:.66rem;font-style:normal;font-weight:700;line-height:1.25;text-align:right;white-space:nowrap}
+    .header-company-info a,.header-company-info span{display:block}.header-company-info a{color:#fff}.header-company-info a:hover{color:#6ee7b7}
+    .menu-toggle{display:none;width:44px;height:44px;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.32);border-radius:50%;color:#fff;background:transparent}
+    .menu-toggle svg{width:21px;height:21px}
+    @media(max-width:1100px){.header-inner{gap:16px}.header-contact{gap:11px}.header-company-info{font-size:.62rem}.main-nav{gap:16px}.main-nav .nav-hide-mid{display:none}}
+    @media(max-width:900px){:root{--header-height:68px}.header-inner{min-height:var(--header-height)}.brand img{height:38px;width:auto}.menu-toggle{display:inline-flex}.header-contact .header-company-info,.header-contact .btn{display:none}.main-nav{position:absolute;top:var(--header-height);left:0;right:0;display:grid;max-height:0;overflow:hidden;gap:0;padding:0 20px;opacity:0;background:rgba(7,26,48,.99);border-top:1px solid rgba(255,255,255,.08);transition:max-height 250ms ease,opacity 180ms ease,padding 250ms ease}.main-nav.open{display:grid;max-height:520px;padding:12px 20px 20px;opacity:1}.main-nav a:not(.btn),.main-nav .nav-hide-mid{display:block;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)}.nav-dropdown summary{justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)}.nav-dropdown-menu{position:static;min-width:0;padding:2px 0 2px 16px;border:0;border-radius:0;background:transparent;box-shadow:none}.main-nav .nav-dropdown-menu a:not(.btn){padding:10px 0;border-radius:0}}
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="EcoPower Solutions home"><img src="images/ecologoborderpartial.png" alt="EcoPower Solutions"></a>
-      <nav class="main-nav" aria-label="Primary navigation">
-        <a href="index.html#services">Services</a>
-        <a href="index.html#rebates">Rebates</a>
-        <a href="about-us.html" aria-current="page">About Us</a>
-        <a class="btn btn-primary open-contact" href="#contact">Schedule an Audit</a>
-      </nav>
-    </div>
-  </header>
+  <div id="site-header-include"></div>
+  <script>
+    (function () {
+      var mount = document.getElementById('site-header-include');
+      fetch('/header')
+        .then(function (response) {
+          if (!response.ok) throw new Error('Header request failed: ' + response.status);
+          return response.text();
+        })
+        .then(function (html) {
+          mount.outerHTML = html;
+          var menuToggle = document.getElementById('menuToggle');
+          var mainNav = document.getElementById('mainNav');
+          if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', function () {
+              var open = mainNav.classList.toggle('open');
+              menuToggle.setAttribute('aria-expanded', String(open));
+            });
+            mainNav.querySelectorAll('a').forEach(function (link) {
+              link.addEventListener('click', function () {
+                mainNav.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+              });
+            });
+          }
+          var contactButton = document.querySelector('.site-header .open-contact');
+          if (contactButton) {
+            contactButton.addEventListener('click', function (event) {
+              var modal = document.getElementById('contactModal');
+              if (!modal) return;
+              event.preventDefault();
+              modal.classList.add('open');
+              modal.setAttribute('aria-hidden', 'false');
+              document.body.classList.add('modal-open');
+            });
+          }
+        })
+        .catch(function (error) {
+          console.error('EcoPower shared header could not be loaded.', error);
+        });
+    }());
+  </script>
   <main>
     <section class="about-hero">
       <div class="container hero-copy">
