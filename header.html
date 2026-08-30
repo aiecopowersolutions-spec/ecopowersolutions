@@ -1,4 +1,10 @@
 <!-- EcoPower shared site header. Loaded from /header by each page's embedded loader. -->
+<style>
+  .site-header .main-nav { gap: 44px; }
+  @media (max-width: 900px) {
+    .site-header .main-nav { gap: 0; }
+  }
+</style>
 <header class="site-header" id="siteHeader">
   <div class="container header-inner">
     <a aria-label="EcoPower Solutions home" class="brand" href="/#top">
@@ -7,7 +13,7 @@
     <nav aria-label="Primary navigation" class="main-nav" id="mainNav">
       <a href="/#how-it-works" aria-label="Auditing Process"><span style="display:block">Auditing</span><span style="display:block">Process</span></a>
       <details class="nav-dropdown">
-        <summary>Services</summary>
+        <summary>Additional Services</summary>
         <div class="nav-dropdown-menu">
           <a href="/#services">All Services</a>
           <a href="/why-insulate.html">Insulation</a>
