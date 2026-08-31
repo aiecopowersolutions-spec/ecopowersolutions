@@ -6,10 +6,10 @@
 
   <meta
     name="description"
-    content="Professional attic, wall, basement, and crawlspace insulation services in Maryland, with guidance on eligible BGE Home Performance rebates and incentives."
+    content="Professional attic, wall, basement, and crawlspace insulation services in Maryland, including insulation inspection, adding insulation, replacement, air sealing, and guidance on eligible BGE Home Performance rebates and incentives."
   >
 
-  <title>Types of Home Insulation &amp; Why Insulation Matters | EcoPower Solutions</title>
+  <title>Home Insulation Services in Maryland | EcoPower Solutions</title>
 
   <link href="/favicon.ico?v=1" rel="icon" sizes="any">
   <link href="/favicon-32.png?v=1" rel="icon" sizes="32x32" type="image/png">
@@ -175,7 +175,7 @@
     }
 
     .hero-content {
-      max-width: 720px;
+      max-width: 760px;
       padding: 94px 0;
     }
 
@@ -199,14 +199,14 @@
     }
 
     .hero h1 {
-      max-width: 700px;
+      max-width: 720px;
       font-size: clamp(2.75rem,6vw,5.2rem);
       line-height: 1.01;
       letter-spacing: -.05em;
     }
 
     .hero p {
-      max-width: 650px;
+      max-width: 690px;
       margin-top: 22px;
       color: #dce7f1;
       font-size: clamp(1.05rem,2vw,1.22rem);
@@ -452,19 +452,6 @@
 
     .type-card:hover .type-card-image img {
       transform: scale(1.035);
-    }
-
-    .type-card-image a {
-      position: absolute;
-      right: 9px;
-      bottom: 9px;
-      padding: 4px 8px;
-      border-radius: 999px;
-      color: #fff;
-      background: rgba(7,26,48,.78);
-      font-size: .68rem;
-      font-weight: 750;
-      backdrop-filter: blur(5px);
     }
 
     .type-card-content {
@@ -1256,8 +1243,6 @@
 
 <body>
 
-  <!-- Shared header -->
-
   <div id="site-header-include"></div>
 
   <script>
@@ -1267,9 +1252,7 @@
       fetch("/header")
         .then(function (response) {
           if (!response.ok) {
-            throw new Error(
-              "Header request failed: " + response.status
-            );
+            throw new Error("Header request failed: " + response.status);
           }
 
           return response.text();
@@ -1277,58 +1260,44 @@
         .then(function (html) {
           mount.outerHTML = html;
 
-          var menuToggle =
-            document.getElementById("menuToggle");
-
-          var mainNav =
-            document.getElementById("mainNav");
+          var menuToggle = document.getElementById("menuToggle");
+          var mainNav = document.getElementById("mainNav");
 
           if (menuToggle && mainNav) {
-            menuToggle.addEventListener(
-              "click",
-              function () {
-                var open =
-                  mainNav.classList.toggle("open");
+            menuToggle.addEventListener("click", function () {
+              var open = mainNav.classList.toggle("open");
 
-                menuToggle.setAttribute(
-                  "aria-expanded",
-                  String(open)
-                );
+              menuToggle.setAttribute(
+                "aria-expanded",
+                String(open)
+              );
 
-                menuToggle.setAttribute(
-                  "aria-label",
-                  open
-                    ? "Close navigation"
-                    : "Open navigation"
-                );
-              }
-            );
+              menuToggle.setAttribute(
+                "aria-label",
+                open
+                  ? "Close navigation"
+                  : "Open navigation"
+              );
+            });
 
             mainNav
               .querySelectorAll("a")
               .forEach(function (link) {
-                link.addEventListener(
-                  "click",
-                  function () {
-                    mainNav.classList.remove("open");
+                link.addEventListener("click", function () {
+                  mainNav.classList.remove("open");
 
-                    menuToggle.setAttribute(
-                      "aria-expanded",
-                      "false"
-                    );
+                  menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                  );
 
-                    menuToggle.setAttribute(
-                      "aria-label",
-                      "Open navigation"
-                    );
-                  }
-                );
+                  menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation"
+                  );
+                });
               });
           }
-
-          document.dispatchEvent(
-            new Event("ecopower:header-ready")
-          );
         })
         .catch(function (error) {
           console.error(
@@ -1346,30 +1315,38 @@
         <div class="hero-content">
 
           <span class="eyebrow eyebrow-light">
-            Maryland home insulation
+            Maryland insulation services
           </span>
 
           <h1>
-            Insulation That Keeps Your Home Comfortable Year-Round.
+            Insulation Services That Make Your Home More Comfortable Year-Round.
           </h1>
 
           <p>
-            Proper insulation is one of the most effective ways to improve your home’s comfort and energy efficiency. In winter, insulation helps keep heated air inside. In summer, it helps slow heat from entering your living space—reducing strain on your heating and cooling systems. Eco Power Solutions provides professional <strong>attic, wall, basement and crawlspace services in Maryland</strong>. We identify areas where insulation is missing, damaged, or underperforming and recommend improvements that can help reduce drafts, uneven temperatures, and high energy bills. Eligible homeowners may also qualify for <strong>BGE Home Performance rebates and incentives</strong> that can help lower the cost of insulation upgrades.
+            Proper insulation is one of the most effective ways to improve comfort and reduce wasted energy. EcoPower Solutions provides professional insulation inspection, installation, supplemental insulation, and replacement services for attics, walls, basements, crawlspaces, knee walls, rim joists, and other problem areas throughout Maryland.
+          </p>
+
+          <p>
+            We inspect what is already in your home, identify insulation that is missing, thin, settled, damaged, compressed, contaminated, or poorly installed, and recommend whether it should be added to, repaired, or replaced. Many older Maryland homes—especially homes built before 2013—may have insulation levels that fall short of today’s energy-code expectations because insulation and energy-efficiency requirements have changed over time.
+          </p>
+
+          <p>
+            Eligible homeowners may also qualify for BGE Home Performance rebates and incentives that can help reduce the cost of insulation and air-sealing improvements.
           </p>
 
           <div class="hero-actions">
             <a
-              class="btn btn-primary"
-              href="#insulation-types"
+              class="btn btn-primary open-contact"
+              href="#contact"
             >
-              Explore Insulation Types
+              Request an Insulation Assessment
             </a>
 
             <a
               class="btn btn-secondary"
-              href="#warning-signs"
+              href="#insulation-types"
             >
-              Check the Warning Signs
+              Explore Insulation Types
             </a>
           </div>
 
@@ -1377,9 +1354,9 @@
             class="hero-proof"
             aria-label="EcoPower insulation service highlights"
           >
-            <span>More comfort</span>
-            <span>Less wasted energy</span>
-            <span>Year-round protection</span>
+            <span>Inspect existing insulation</span>
+            <span>Add insulation where needed</span>
+            <span>Replace damaged material</span>
           </div>
 
         </div>
@@ -1391,21 +1368,31 @@
       <div class="container intro-grid">
 
         <div class="copy">
+
           <span class="eyebrow">
             Why insulation matters
           </span>
 
           <h2>
-            Insulation helps protect your home from outdoor temperatures.
+            Insulation protects your home—and it needs to be complete, dry, and properly installed.
           </h2>
 
           <p>
-            In winter, heat tries to escape from your home. In summer, outdoor heat tries to enter. Insulation slows this movement and helps indoor temperatures stay more comfortable.
+            In winter, heat naturally moves toward colder areas and can escape through attics, walls, floors, foundations, and other weak points. In summer, outdoor heat moves into the home. Proper insulation slows that heat movement and helps indoor temperatures stay more stable.
           </p>
 
           <p>
-            Good insulation can reduce hot and cold rooms, help your heating and cooling system work less, and make the whole home feel more even.
+            Insulation can also lose effectiveness over time. It may settle, compress, become wet, be disturbed during repairs, suffer pest damage, or simply be too thin for the home’s current needs.
           </p>
+
+          <p>
+            EcoPower can evaluate existing insulation throughout the home and determine whether the right solution is to keep it, add more, correct installation problems, or remove and replace damaged material.
+          </p>
+
+          <p>
+            Many homes built before 2013 were constructed under older insulation and energy-efficiency requirements. Even when the original insulation was acceptable at the time, the home may not have the insulation levels or air-sealing performance expected under newer standards.
+          </p>
+
         </div>
 
 
@@ -1441,19 +1428,28 @@
             class="signal-list"
             aria-label="Benefits of effective home insulation"
           >
+
             <div class="signal">
-              <strong>More even comfort</strong>
+              <strong>
+                More even comfort
+              </strong>
+
               <span>
-                Rooms stay closer to the temperature you choose.
+                Proper insulation helps reduce hot rooms, cold rooms, and large temperature differences between floors.
               </span>
             </div>
 
+
             <div class="signal">
-              <strong>Less HVAC work</strong>
+              <strong>
+                Less HVAC work
+              </strong>
+
               <span>
-                Your heating and cooling system may not need to run as often.
+                Better insulation can reduce how hard your heating and cooling system has to work.
               </span>
             </div>
+
           </div>
 
         </div>
@@ -1502,17 +1498,19 @@
       <div class="container">
 
         <div class="section-heading">
+
           <span class="eyebrow">
-            Common insulation materials
+            Insulation services and materials
           </span>
 
           <h2>
-            Common types of home insulation.
+            Insulation materials we inspect, add, install, and replace.
           </h2>
 
           <p>
-            The right type depends on where it will be installed, how easy the area is to reach, and the condition of your home.
+            The right insulation depends on where it is being installed, what is already there, moisture conditions, access, air leakage, and the R-value the home needs. EcoPower can evaluate existing insulation and determine whether it should remain in place, be supplemented, corrected, or replaced.
           </p>
+
         </div>
 
 
@@ -1526,7 +1524,7 @@
             </strong>
 
             <p>
-              Good results depend on choosing the right material, installing it correctly, sealing air leaks, and reaching the needed R-value.
+              Good results depend on the material, location, installation quality, air sealing, moisture control, and whether the finished assembly reaches the needed insulation level.
             </p>
           </div>
 
@@ -1543,6 +1541,7 @@
         <div class="type-grid">
 
           <article class="type-card">
+
             <figure class="type-card-image">
               <img
                 src="https://images.squarespace-cdn.com/content/v1/6595bd6543803c42537b9a2a/5e0a3f39-c36c-42d6-93b5-b18a237304df/norm6502_close_up_of_white_fiberglass_blown_in_insulation_loose_b95b3718-6f3d-4719-b9e3-0fc1baca9cc2.png"
@@ -1552,16 +1551,20 @@
             </figure>
 
             <div class="type-card-content">
-              <h3>Blown-In Fiberglass</h3>
+              <h3>
+                Blown-In Fiberglass
+              </h3>
 
               <p>
-                Loose glass fibers spread evenly across an area. This form of fiberglass is often used to add insulation to attic floors.
+                Loose glass fibers can be blown across attic floors and other open areas. EcoPower can inspect existing fiberglass, add material where levels are low, or replace material that has become wet, contaminated, disturbed, or ineffective.
               </p>
             </div>
+
           </article>
 
 
           <article class="type-card">
+
             <figure class="type-card-image">
               <img
                 src="images/1787843952727.png"
@@ -1571,16 +1574,20 @@
             </figure>
 
             <div class="type-card-content">
-              <h3>Blown-In Cellulose</h3>
+              <h3>
+                Blown-In Cellulose
+              </h3>
 
               <p>
-                Loose insulation made mostly from recycled paper fiber and treated for fire resistance. It fills around framing and works well in many attics and walls.
+                Cellulose is commonly used in attics and wall cavities and can conform well around framing and irregular spaces. We can evaluate existing cellulose, add additional depth, install new material, or remove and replace damaged insulation when appropriate.
               </p>
             </div>
+
           </article>
 
 
           <article class="type-card">
+
             <figure class="type-card-image">
               <img
                 src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https%3A/assets.cdn.filesafe.space/zpX8932DzwFcxk8elHPh/media/687fa553023a38071f9421e6.webp"
@@ -1590,16 +1597,20 @@
             </figure>
 
             <div class="type-card-content">
-              <h3>Fiberglass Batts</h3>
+              <h3>
+                Fiberglass Batts
+              </h3>
 
               <p>
-                Pre-cut or rolled glass-fiber insulation placed between wall, floor, or ceiling framing. It must fit correctly without gaps.
+                Batts are installed between wall, floor, and ceiling framing. Their performance depends heavily on fit and installation quality. EcoPower can identify gaps, compression, missing sections, or damaged batts and recommend correction or replacement.
               </p>
             </div>
+
           </article>
 
 
           <article class="type-card">
+
             <figure class="type-card-image">
               <img
                 src="images/1787844028298.png"
@@ -1609,16 +1620,20 @@
             </figure>
 
             <div class="type-card-content">
-              <h3>Dense-Pack</h3>
+              <h3>
+                Dense-Pack Insulation
+              </h3>
 
               <p>
-                Dense-pack insulation is blown under pressure into enclosed wall, floor, and ceiling cavities to fill gaps and improve thermal performance. It’s especially useful in older Maryland homes with little or no insulation because it can often be installed through small access holes without removing large areas of drywall or plaster.
+                Dense-pack insulation is blown under pressure into enclosed wall, floor, and ceiling cavities. It can be especially useful in older Maryland homes with little or no wall insulation because it can often be installed through small access holes without removing large areas of drywall or plaster.
               </p>
             </div>
+
           </article>
 
 
           <article class="type-card">
+
             <figure class="type-card-image">
               <img
                 src="images/1787843906382.png"
@@ -1628,16 +1643,20 @@
             </figure>
 
             <div class="type-card-content">
-              <h3>Spray Foam</h3>
+              <h3>
+                Spray Foam
+              </h3>
 
               <p>
-                Foam mixed and sprayed at the home. Open-cell and closed-cell foam have different uses, and careful installation is important.
+                Spray foam can provide both insulation and air control in appropriate applications. EcoPower can assess where foam may be useful and whether existing foam is properly installed and performing as intended.
               </p>
             </div>
+
           </article>
 
 
           <article class="type-card">
+
             <figure class="type-card-image">
               <img
                 src="https://basc.pnnl.gov/sites/default/files/images/Rigid%20foam.jpg"
@@ -1647,15 +1666,19 @@
             </figure>
 
             <div class="type-card-content">
-              <h3>Rigid Foam Board</h3>
+              <h3>
+                Rigid Foam Board
+              </h3>
 
               <p>
-                Firm insulation panels used in some walls, foundations, basements, and rim joists.
+                Rigid insulation panels can be used in basements, foundations, rim joists, walls, and other specialty applications. We evaluate the assembly and determine whether foam board is appropriate for the specific area.
               </p>
             </div>
+
           </article>
 
         </div>
+
       </div>
     </section>
 
@@ -1676,52 +1699,75 @@
 
 
         <div class="copy">
+
           <span class="eyebrow">
             Warning signs
           </span>
 
           <h2>
-            Signs your home may need more insulation.
+            Signs it may be time to inspect, add, or replace insulation.
           </h2>
+
+          <p>
+            Insulation does not have to be completely missing to cause problems. Material can settle, become compressed, get wet, be disturbed by contractors or pests, or simply be too thin to provide the performance your home needs.
+          </p>
+
+          <p>
+            EcoPower can inspect these areas and determine whether additional insulation, removal and replacement, air sealing, or another corrective measure is appropriate.
+          </p>
 
           <div
             class="process"
             style="margin-top:25px"
           >
+
             <div class="process-step">
-              <h3>Hot or cold rooms</h3>
+              <h3>
+                Hot or cold rooms
+              </h3>
 
               <p>
-                Upstairs rooms, additions, or rooms above garages may feel different from the rest of the home.
+                Upstairs rooms, additions, rooms over garages, and finished attic spaces may feel noticeably different when insulation is missing or uneven.
               </p>
             </div>
 
+
             <div class="process-step">
-              <h3>Cold walls or floors</h3>
+              <h3>
+                Cold walls or floors
+              </h3>
 
               <p>
-                Cold surfaces and large temperature changes between floors can be signs of missing insulation.
+                Cold surfaces and large temperature changes between floors may point to under-insulated walls, floors, rim joists, basements, or crawlspaces.
               </p>
             </div>
 
+
             <div class="process-step">
-              <h3>Heating or cooling runs often</h3>
+              <h3>
+                Heating or cooling runs often
+              </h3>
 
               <p>
-                Your system may be working harder because heat is entering or leaving too quickly.
+                Your HVAC system may have to run longer because heat is entering or leaving the home too quickly.
               </p>
             </div>
 
+
             <div class="process-step">
-              <h3>Insulation looks thin or damaged</h3>
+              <h3>
+                Insulation looks thin or damaged
+              </h3>
 
               <p>
-                Gaps, flattened material, water stains, or pest damage can make insulation less effective.
+                Gaps, low depth, compression, water stains, contamination, or pest damage can all reduce insulation performance and may require adding material or replacement.
               </p>
             </div>
+
           </div>
 
         </div>
+
       </div>
     </section>
 
@@ -1733,21 +1779,24 @@
       <div class="container rebate-grid">
 
         <div class="copy">
+
           <span class="eyebrow">
             Risks of poor insulation
           </span>
 
           <h2>
-            Poor insulation can lead to bigger home problems.
+            Poor or damaged insulation can lead to bigger home problems.
           </h2>
 
           <p>
-            Missing or damaged insulation can affect comfort, energy bills, moisture, and the life of your heating and cooling system.
+            Missing, thin, wet, compressed, or damaged insulation can affect comfort, energy use, moisture conditions, and how hard your heating and cooling system has to work.
           </p>
+
         </div>
 
 
         <div class="rebate-card">
+
           <h3>
             Problems to take seriously
           </h3>
@@ -1766,15 +1815,15 @@
             </li>
 
             <li>
-              Condensation when warm, damp air touches a cold surface.
+              Condensation when warm, damp air reaches cold surfaces.
             </li>
 
             <li>
-              Roof ice dams caused partly by heat escaping into the attic.
+              Roof ice dams influenced by excess heat escaping into the attic.
             </li>
 
             <li>
-              Wet insulation, odors, and damage to nearby materials.
+              Wet insulation, odors, pest contamination, and damage to nearby materials.
             </li>
           </ul>
 
@@ -1782,8 +1831,9 @@
             class="btn btn-primary open-contact"
             href="#contact"
           >
-            Have Your Home Evaluated
+            Have Your Insulation Checked
           </a>
+
         </div>
 
       </div>
@@ -1794,55 +1844,69 @@
       <div class="container">
 
         <div class="section-heading">
+
           <span class="eyebrow">
-            Where insulation belongs
+            Where we inspect and improve insulation
           </span>
 
           <h2>
-            Insulation should surround the living areas of your home.
+            Insulation should form a continuous thermal boundary around the living areas of your home.
           </h2>
 
           <p>
-            It works best when there are no missing sections or weak spots.
+            EcoPower can inspect the major areas of the home where missing, insufficient, or damaged insulation commonly affects comfort and efficiency.
           </p>
+
         </div>
 
 
         <div class="why-grid">
 
           <article class="why-card">
-            <h3>Attics and rooflines</h3>
+            <h3>
+              Attics and rooflines
+            </h3>
 
             <p>
-              Heat can move quickly through the top of a home when insulation is missing or uneven.
+              We inspect insulation depth, coverage, air leakage, damaged material, access areas, and other attic conditions that may reduce performance.
             </p>
           </article>
 
+
           <article class="why-card">
-            <h3>Exterior walls</h3>
+            <h3>
+              Exterior walls
+            </h3>
 
             <p>
-              Empty or poorly insulated walls can cause cold surfaces and uncomfortable rooms.
+              Older wall cavities may have little insulation, settled material, or missing sections. Dense-pack and other approaches may be available depending on the home.
             </p>
           </article>
 
+
           <article class="why-card">
-            <h3>Floors and foundations</h3>
+            <h3>
+              Floors and foundations
+            </h3>
 
             <p>
-              Basements, crawlspaces, rim joists, and garages can make the floors above them uncomfortable.
+              Basements, crawlspaces, rim joists, and floors over garages are common areas for missing insulation, drafts, and cold-floor complaints.
             </p>
           </article>
 
+
           <article class="why-card">
-            <h3>Knee walls</h3>
+            <h3>
+              Knee walls and attic rooms
+            </h3>
 
             <p>
-              Short walls beside finished attic rooms often have gaps or missing insulation.
+              Finished attic spaces often have complicated insulation boundaries. We can identify gaps, missing coverage, and areas that need correction.
             </p>
           </article>
 
         </div>
+
       </div>
     </section>
 
@@ -1851,6 +1915,7 @@
       <div class="container">
 
         <div class="section-heading">
+
           <span class="eyebrow">
             Insulation basics
           </span>
@@ -1858,21 +1923,24 @@
           <h2>
             Common homeowner questions.
           </h2>
+
         </div>
 
 
         <div class="faq-list">
 
           <details class="faq-item">
+
             <summary>
               What is R-value?
             </summary>
 
             <p>
-              R-value tells you how well insulation slows heat. A higher number means more insulating power. Good results also depend on correct installation, full coverage, and keeping the insulation dry. The ENERGY STAR chart below shows general recommendations by climate area.
+              R-value measures resistance to heat flow. A higher R-value generally means greater insulating ability. However, actual performance also depends on correct installation, complete coverage, air sealing, and keeping the insulation dry and undisturbed.
             </p>
 
             <figure class="faq-visual">
+
               <a
                 href="https://energystar.gov/sites/default/files/styles/asset_image_full/public/assets/images/EPA_Does%20Your%20Insulation%20Measure%20Up.jpg?itok=8Ra68qqY"
                 target="_blank"
@@ -1895,51 +1963,74 @@
                   ENERGY STAR
                 </a>.
               </figcaption>
+
             </figure>
+
           </details>
 
 
           <details class="faq-item">
+
             <summary>
-              Why should air leaks be sealed first?
+              Why should air leaks be sealed before adding insulation?
             </summary>
 
             <p>
-              Insulation slows heat, but air sealing stops drafts through cracks and holes. Sealing those leaks first helps the insulation work better.
+              Insulation slows heat movement, while air sealing blocks uncontrolled airflow through cracks and openings. Sealing major leaks before adding insulation helps the finished insulation system perform better.
             </p>
+
           </details>
 
 
           <details class="faq-item">
+
             <summary>
-              Can new insulation go over old insulation?
+              Can new insulation be added over existing insulation?
             </summary>
 
             <p>
-              Often, yes. The old insulation should be checked first for water, pests, dirt, damage, and poor installation.
+              Often, yes. Existing insulation should first be checked for moisture, pests, contamination, compression, air-leakage paths, and other problems. If the existing material is clean and suitable, additional insulation can often be installed over it.
             </p>
+
           </details>
 
 
           <details class="faq-item">
+
+            <summary>
+              When should insulation be removed and replaced?
+            </summary>
+
+            <p>
+              Replacement may be appropriate when insulation has been heavily damaged by water, pests, contamination, construction work, or other conditions that make it impractical or unsafe to leave in place. EcoPower can inspect the area and recommend whether removal is actually necessary.
+            </p>
+
+          </details>
+
+
+          <details class="faq-item">
+
+            <summary>
+              Are older homes usually under-insulated?
+            </summary>
+
+            <p>
+              Many older homes have less insulation than would typically be expected in a newer energy-efficient home. Building and energy codes have changed over time, and insulation may also settle, be disturbed, become damaged, or have been installed inconsistently. Homes built before 2013 are especially worth evaluating if the insulation has never been upgraded.
+            </p>
+
+          </details>
+
+
+          <details class="faq-item">
+
             <summary>
               Does insulation stop drafts?
             </summary>
 
             <p>
-              Not always. Air sealing is usually needed to close the cracks and holes that cause drafts.
+              Not by itself. Drafts are caused by air movement through cracks, gaps, and penetrations. Air sealing and insulation often work best as a coordinated improvement.
             </p>
-          </details>
 
-
-          <details class="faq-item">
-            <summary>
-              Can insulation get damaged?
-            </summary>
-
-            <p>
-              Yes. Water, pests, storage, foot traffic, and repair work can move or damage insulation and make it work less effectively.
-            </p>
           </details>
 
         </div>
@@ -1949,28 +2040,31 @@
           class="credit-note"
           aria-labelledby="credit-title"
         >
+
           <div>
+
             <h3 id="credit-title">
-              Check for possible federal tax savings.
+              Insulation upgrades may qualify for incentives.
             </h3>
 
             <p>
-              The U.S. Department of Energy explains how qualifying insulation and air-sealing improvements may be considered under the Energy Efficient Home Improvement Credit.
+              Eligible homeowners may be able to reduce the cost of insulation and air-sealing improvements through BGE Home Performance incentives and other available programs.
             </p>
 
             <small>
-              Tax rules, dates, product requirements, and personal eligibility can change. Check the official guidance and speak with a tax professional before making a purchase based on a credit.
+              Eligibility, incentive amounts, project requirements, and available programs can change. EcoPower can help identify the pathway that may apply to your home.
             </small>
+
           </div>
 
+
           <a
-            class="btn btn-blue"
-            href="https://www.energy.gov/cmei/buildings/articles/energy-efficient-home-improvement-credit-insulation-and-air-sealing"
-            target="_blank"
-            rel="noopener noreferrer"
+            class="btn btn-primary open-contact"
+            href="#contact"
           >
-            Read the DOE Guide →
+            Check Your Options →
           </a>
+
         </aside>
 
       </div>
@@ -1981,22 +2075,27 @@
       <div class="container">
 
         <div class="cta">
+
           <div>
+
             <h2>
-              Not sure if your home has enough insulation?
+              Not sure whether your insulation is adequate?
             </h2>
 
             <p>
-              EcoPower can check your home and explain where insulation, air leaks, or moisture may be causing problems.
+              EcoPower can inspect the insulation already in your home, identify missing or underperforming areas, and recommend whether it should be added to, corrected, or replaced. This is especially worthwhile in older Maryland homes where insulation levels may predate newer energy-code requirements.
             </p>
+
           </div>
+
 
           <a
             class="btn btn-primary open-contact"
             href="#contact"
           >
-            Request a Home Assessment
+            Request an Insulation Assessment
           </a>
+
         </div>
 
       </div>
@@ -2010,19 +2109,24 @@
     <div class="container footer-main">
 
       <div class="footer-brand">
+
         <img
           src="images/ecologoborderpartial.png"
           alt="EcoPower Solutions"
         >
 
         <p>
-          Maryland home energy audits, rebate guidance, and whole-home efficiency improvements.
+          Maryland home energy audits, insulation services, air sealing, rebate guidance, and whole-home efficiency improvements.
         </p>
+
       </div>
 
 
       <div class="footer-col">
-        <h2>Contact</h2>
+
+        <h2>
+          Contact
+        </h2>
 
         <a href="tel:4109294254">
           410-929-4254
@@ -2043,11 +2147,15 @@
         <span>
           MHIC #129718
         </span>
+
       </div>
 
 
       <div class="footer-col">
-        <h2>Explore</h2>
+
+        <h2>
+          Explore
+        </h2>
 
         <a href="index.html">
           Home
@@ -2075,6 +2183,7 @@
         >
           Contact Us
         </a>
+
       </div>
 
     </div>
@@ -2094,14 +2203,11 @@
   <script src="/js/contact-modal.js"></script>
 
 
-  <!-- Page-specific JavaScript -->
   <script>
-    var year =
-      document.getElementById("year");
+    var year = document.getElementById("year");
 
     if (year) {
-      year.textContent =
-        new Date().getFullYear();
+      year.textContent = new Date().getFullYear();
     }
   </script>
 
