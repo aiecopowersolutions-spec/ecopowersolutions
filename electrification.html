@@ -1,69 +1,1862 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home Electrification in Maryland | EcoPower Solutions</title>
-  <meta name="description" content="Plan a practical home electrification project with EcoPower Solutions—from a whole-home energy audit through heat pumps, electrical readiness, qualifying BGE rebates, installation, and testing.">
-  <style>
-    :root{--ink:#142b32;--navy:#0d2932;--green:#78bc43;--green-dark:#4e8d27;--lime:#dff2a7;--cream:#f5f4ec;--paper:#fff;--line:#d9dfd7;--muted:#5c6d70;--shadow:0 18px 60px rgba(13,41,50,.12)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}a{color:inherit}img{display:block;max-width:100%}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}.eyebrow{margin:0 0 12px;color:var(--green-dark);font-size:.78rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:12px 20px;border:1px solid transparent;border-radius:5px;font-weight:800;text-decoration:none;transition:.2s}.btn:hover{transform:translateY(-2px)}.btn-primary{background:var(--green);color:#09231a}.btn-primary:hover{background:#8bca55}.btn-outline{border-color:rgba(255,255,255,.55);color:#fff}.btn-dark{background:var(--navy);color:#fff}header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}.topbar{background:var(--navy);color:#dce8e7;font-size:.78rem}.topbar .wrap{display:flex;justify-content:space-between;padding:7px 0}.nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{width:170px}.links{display:flex;align-items:center;gap:26px;font-size:.91rem;font-weight:750}.links a{text-decoration:none}.hero{background:var(--navy);color:#fff;overflow:hidden}.hero-grid{min-height:660px;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch}.hero-copy{display:flex;flex-direction:column;justify-content:center;padding:85px 70px 85px max(0px,calc((100vw - 1160px)/2))}.hero .eyebrow{color:#bce780}.hero h1{font-size:clamp(2.8rem,5vw,5.1rem);line-height:.98;letter-spacing:-.055em;max-width:700px;margin:0}.hero p{font-size:1.1rem;color:#d8e5e3;max-width:650px;margin:25px 0}.actions{display:flex;gap:12px;flex-wrap:wrap}.hero-media{position:relative;min-height:520px}.hero-media img{width:100%;height:100%;object-fit:cover}.hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy),transparent 35%)}.hero-note{position:absolute;z-index:2;left:46px;bottom:42px;width:min(330px,calc(100% - 80px));padding:23px;background:rgba(255,255,255,.94);color:var(--ink);box-shadow:var(--shadow)}.hero-note strong{font-size:1.7rem;display:block;line-height:1.1}.hero-note span{font-size:.87rem;color:var(--muted)}.proof{background:var(--cream);border-bottom:1px solid var(--line)}.proof-row{display:grid;grid-template-columns:repeat(3,1fr)}.proof-item{padding:25px 28px;border-right:1px solid var(--line);display:flex;gap:13px}.proof-item:last-child{border-right:0}.check{width:27px;height:27px;border-radius:50%;background:var(--green);display:grid;place-items:center;flex:none;font-weight:900}.section{padding:100px 0}.intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px;align-items:start}.intro h2,.section-head h2,.rebate h2,.cta h2{font-size:clamp(2.2rem,4vw,3.8rem);line-height:1.06;letter-spacing:-.045em;margin:0}.intro-copy{font-size:1.06rem;color:var(--muted)}.intro-copy strong{color:var(--ink)}.stages{margin-top:55px;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line)}.stage{padding:28px;min-height:210px;border-right:1px solid var(--line)}.stage:last-child{border:0}.stage-num{color:var(--green-dark);font-weight:900;font-size:.76rem;letter-spacing:.12em}.stage h3{font-size:1.15rem;line-height:1.2;margin:28px 0 10px}.stage p{margin:0;color:var(--muted);font-size:.9rem}.options{background:var(--cream)}.section-head{max-width:780px;margin-bottom:45px}.section-head p{color:var(--muted);font-size:1.05rem}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.card{background:#fff;padding:34px;border:1px solid var(--line);display:grid;grid-template-columns:56px 1fr;gap:20px;transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.icon{width:56px;height:56px;border-radius:50%;background:var(--lime);display:grid;place-items:center;font-size:1.45rem}.card h3{margin:0 0 8px;font-size:1.25rem}.card p{margin:0;color:var(--muted);font-size:.93rem}.rebate{background:#dff2a7;padding:90px 0}.rebate-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}.rebate-panel{background:var(--navy);color:#fff;padding:40px}.rebate-panel .amount{font-size:clamp(3.8rem,8vw,6.6rem);line-height:.9;font-weight:900;letter-spacing:-.06em;color:#bce780}.rebate-panel p{color:#d4e3e1}.fine{font-size:.76rem!important;opacity:.78}.steps{counter-reset:steps;display:grid;grid-template-columns:repeat(5,1fr);margin-top:48px}.step{position:relative;padding:0 25px 0 0}.step:before{counter-increment:steps;content:counter(steps);display:grid;place-items:center;width:42px;height:42px;border:1px solid var(--green);border-radius:50%;font-weight:900;color:var(--green-dark);margin-bottom:20px}.step:not(:last-child):after{content:"";position:absolute;top:21px;left:52px;right:12px;height:1px;background:var(--line)}.step h3{font-size:1rem;line-height:1.2}.step p{color:var(--muted);font-size:.86rem}.faq{background:var(--cream)}details{background:#fff;border-top:1px solid var(--line);padding:24px 4px}details:last-child{border-bottom:1px solid var(--line)}summary{cursor:pointer;font-weight:800;font-size:1.08rem;list-style:none;display:flex;justify-content:space-between}summary:after{content:"+";color:var(--green-dark);font-size:1.5rem}details[open] summary:after{content:"−"}details p{max-width:800px;color:var(--muted)}.cta{background:var(--navy);color:#fff;padding:90px 0}.cta-grid{display:flex;justify-content:space-between;align-items:center;gap:50px}.cta p{color:#d5e1df;max-width:680px}.footer{background:#071c22;color:#b9c6c7;padding:55px 0 30px}.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:60px}.footer a{color:#dce6e5;text-decoration:none}.footer small{display:block;margin-top:45px;border-top:1px solid #294047;padding-top:22px}.source-note{font-size:.75rem;color:var(--muted);margin-top:18px}
-    @media(max-width:900px){.links a:not(.nav-cta){display:none}.hero-grid,.intro,.rebate-grid{grid-template-columns:1fr}.hero-copy{padding:70px 24px}.hero-media{height:460px}.proof-row{grid-template-columns:1fr}.proof-item{border-right:0;border-bottom:1px solid var(--line)}.stages{grid-template-columns:1fr 1fr}.stage:nth-child(2){border-right:0}.stage:nth-child(-n+2){border-bottom:1px solid var(--line)}.cards{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr;gap:28px}.step:after{display:none}.cta-grid{align-items:flex-start;flex-direction:column}.footer-grid{grid-template-columns:1fr 1fr}}@media(max-width:580px){.wrap{width:min(100% - 28px,1160px)}.topbar .wrap span:last-child{display:none}.nav{height:70px}.logo{width:145px}.btn{width:100%}.nav .btn{width:auto;min-height:42px;padding:8px 12px}.hero h1{font-size:3rem}.hero-note{left:20px;bottom:20px;width:calc(100% - 40px)}.section{padding:72px 0}.stages,.steps{grid-template-columns:1fr}.stage{border-right:0;border-bottom:1px solid var(--line)}.stage:last-child{border-bottom:0}.card{grid-template-columns:1fr}.rebate{padding:70px 0}.rebate-panel{padding:28px}.footer-grid{grid-template-columns:1fr}.cta{padding:70px 0}}
 
-    /* Shared EcoPower header */
-    :root{--header-height:76px}body{padding-top:var(--header-height)}.site-header{position:fixed;inset:0 0 auto 0;z-index:1000;min-height:var(--header-height);color:#fff;background:rgba(7,26,48,.96);border-bottom:1px solid rgba(255,255,255,.1);box-shadow:0 4px 20px rgba(7,26,48,.16)}.site-header .container{width:min(100% - 40px,1180px);margin-inline:auto}.header-inner{display:flex;min-height:var(--header-height);align-items:center;justify-content:space-between;gap:24px}.brand{display:inline-flex;align-items:center;flex-shrink:0}.brand img{width:auto;height:42px}.main-nav{display:flex;align-items:center;gap:44px;font-size:.92rem;font-weight:700}.main-nav a{text-decoration:none}.main-nav a:not(.btn){color:#e8eef5}.nav-dropdown{position:relative;background:transparent;border:0;padding:0}.nav-dropdown:last-child{border:0}.nav-dropdown summary{display:flex;align-items:center;justify-content:flex-start;gap:6px;padding:0;border:0;color:#e8eef5;font-size:.92rem;cursor:pointer;list-style:none}.nav-dropdown summary::-webkit-details-marker{display:none}.nav-dropdown summary:after{content:"";width:7px;height:7px;border:0;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg)}.nav-dropdown[open] summary:after{content:"";transform:translateY(2px) rotate(225deg)}.nav-dropdown-menu{position:absolute;top:calc(100% + 14px);left:-18px;z-index:30;min-width:190px;padding:8px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(7,26,48,.99);box-shadow:0 16px 36px rgba(4,16,29,.3)}.main-nav .nav-dropdown-menu a{display:block;padding:10px 12px;border-radius:8px;color:#e8eef5;white-space:nowrap}.header-contact{display:flex;align-items:center;gap:15px;flex-shrink:0}.header-contact .btn-primary{min-height:48px;border-radius:999px;background:#10b981;color:#052e22}.header-company-info{display:grid;gap:2px;margin:0;color:#d7e0ea;font-size:.66rem;font-style:normal;font-weight:700;line-height:1.25;text-align:right;white-space:nowrap}.header-company-info a{color:#fff;text-decoration:none}.menu-toggle{display:none;width:44px;height:44px;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.32);border-radius:50%;color:#fff;background:transparent}.menu-toggle svg{width:21px;height:21px}@media(max-width:1100px){.main-nav{gap:30px}.header-company-info{font-size:.62rem}}@media(max-width:900px){:root{--header-height:68px}.brand img{height:38px}.menu-toggle{display:inline-flex}.header-contact .header-company-info,.header-contact .btn{display:none}.main-nav{position:absolute;top:var(--header-height);left:0;right:0;display:grid;max-height:0;overflow:hidden;gap:0;padding:0 20px;opacity:0;background:rgba(7,26,48,.99);transition:max-height .25s ease,opacity .18s ease,padding .25s ease}.main-nav.open{max-height:520px;padding:12px 20px 20px;opacity:1}.main-nav>a,.nav-dropdown summary{display:block;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)}.nav-dropdown summary{display:flex;justify-content:space-between}.nav-dropdown-menu{position:static;min-width:0;padding:2px 0 2px 16px;border:0;background:transparent;box-shadow:none}}
+  <title>Home Electrification in Maryland | EcoPower Solutions</title>
+
+  <meta
+    name="description"
+    content="Plan a practical home electrification project with EcoPower Solutions—from a whole-home energy audit through heat pumps, electrical readiness, qualifying BGE rebates, installation, and testing."
+  >
+
+  <style>
+    :root {
+      --ink: #142b32;
+      --navy: #0d2932;
+      --green: #78bc43;
+      --green-dark: #4e8d27;
+      --lime: #dff2a7;
+      --cream: #f5f4ec;
+      --paper: #fff;
+      --line: #d9dfd7;
+      --muted: #5c6d70;
+      --shadow: 0 18px 60px rgba(13, 41, 50, .12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .wrap {
+      width: min(1160px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--green-dark);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 50px;
+      padding: 12px 20px;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #09231a;
+    }
+
+    .btn-primary:hover {
+      background: #8bca55;
+    }
+
+    .btn-outline {
+      border-color: rgba(255, 255, 255, .55);
+      color: #fff;
+    }
+
+    .btn-dark {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .topbar {
+      background: var(--navy);
+      color: #dce8e7;
+      font-size: .78rem;
+    }
+
+    .topbar .wrap {
+      display: flex;
+      justify-content: space-between;
+      padding: 7px 0;
+    }
+
+    .nav {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      width: 170px;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: .91rem;
+      font-weight: 750;
+    }
+
+    .links a {
+      text-decoration: none;
+    }
+
+    .hero {
+      background: var(--navy);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      min-height: 660px;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 85px 70px 85px max(0px, calc((100vw - 1160px) / 2));
+    }
+
+    .hero .eyebrow {
+      color: #bce780;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 5vw, 5.1rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+      max-width: 700px;
+      margin: 0;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #d8e5e3;
+      max-width: 650px;
+      margin: 25px 0;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-media {
+      position: relative;
+      min-height: 520px;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, var(--navy), transparent 35%);
+    }
+
+    .hero-note {
+      position: absolute;
+      z-index: 2;
+      left: 46px;
+      bottom: 42px;
+      width: min(330px, calc(100% - 80px));
+      padding: 23px;
+      background: rgba(255, 255, 255, .94);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-note strong {
+      font-size: 1.7rem;
+      display: block;
+      line-height: 1.1;
+    }
+
+    .hero-note span {
+      font-size: .87rem;
+      color: var(--muted);
+    }
+
+    .proof {
+      background: var(--cream);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .proof-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .proof-item {
+      padding: 25px 28px;
+      border-right: 1px solid var(--line);
+      display: flex;
+      gap: 13px;
+    }
+
+    .proof-item:last-child {
+      border-right: 0;
+    }
+
+    .check {
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      background: var(--green);
+      display: grid;
+      place-items: center;
+      flex: none;
+      font-weight: 900;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .intro h2,
+    .section-head h2,
+    .rebate h2,
+    .cta h2 {
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      line-height: 1.06;
+      letter-spacing: -.045em;
+      margin: 0;
+    }
+
+    .intro-copy {
+      font-size: 1.06rem;
+      color: var(--muted);
+    }
+
+    .intro-copy strong {
+      color: var(--ink);
+    }
+
+    .stages {
+      margin-top: 55px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--line);
+    }
+
+    .stage {
+      padding: 28px;
+      min-height: 210px;
+      border-right: 1px solid var(--line);
+    }
+
+    .stage:last-child {
+      border: 0;
+    }
+
+    .stage-num {
+      color: var(--green-dark);
+      font-weight: 900;
+      font-size: .76rem;
+      letter-spacing: .12em;
+    }
+
+    .stage h3 {
+      font-size: 1.15rem;
+      line-height: 1.2;
+      margin: 28px 0 10px;
+    }
+
+    .stage p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .options {
+      background: var(--cream);
+    }
+
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 45px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 34px;
+      border: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 20px;
+      transition: .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--lime);
+      display: grid;
+      place-items: center;
+      font-size: 1.45rem;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .93rem;
+    }
+
+    .rebate {
+      background: #dff2a7;
+      padding: 90px 0;
+    }
+
+    .rebate-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 90px;
+      align-items: center;
+    }
+
+    .rebate-panel {
+      background: var(--navy);
+      color: #fff;
+      padding: 40px;
+    }
+
+    .rebate-panel .amount {
+      font-size: clamp(3.8rem, 8vw, 6.6rem);
+      line-height: .9;
+      font-weight: 900;
+      letter-spacing: -.06em;
+      color: #bce780;
+    }
+
+    .rebate-panel p {
+      color: #d4e3e1;
+    }
+
+    .fine {
+      font-size: .76rem !important;
+      opacity: .78;
+    }
+
+    .steps {
+      counter-reset: steps;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      margin-top: 48px;
+    }
+
+    .step {
+      position: relative;
+      padding: 0 25px 0 0;
+    }
+
+    .step::before {
+      counter-increment: steps;
+      content: counter(steps);
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--green);
+      border-radius: 50%;
+      font-weight: 900;
+      color: var(--green-dark);
+      margin-bottom: 20px;
+    }
+
+    .step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 21px;
+      left: 52px;
+      right: 12px;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .step h3 {
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    .faq {
+      background: var(--cream);
+    }
+
+    details {
+      background: #fff;
+      border-top: 1px solid var(--line);
+      padding: 24px 4px;
+    }
+
+    details:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 1.08rem;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    summary::after {
+      content: "+";
+      color: var(--green-dark);
+      font-size: 1.5rem;
+    }
+
+    details[open] summary::after {
+      content: "−";
+    }
+
+    details p {
+      max-width: 800px;
+      color: var(--muted);
+    }
+
+    .cta {
+      background: var(--navy);
+      color: #fff;
+      padding: 90px 0;
+    }
+
+    .cta-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .cta p {
+      color: #d5e1df;
+      max-width: 680px;
+    }
+
+    .footer {
+      background: #071c22;
+      color: #b9c6c7;
+      padding: 55px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 60px;
+    }
+
+    .footer a {
+      color: #dce6e5;
+      text-decoration: none;
+    }
+
+    .footer small {
+      display: block;
+      margin-top: 45px;
+      border-top: 1px solid #294047;
+      padding-top: 22px;
+    }
+
+    .source-note {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-top: 18px;
+    }
+
+
+    /* =========================================================
+       SHARED CONTACT MODAL
+       Required because /contact-modal contains markup only.
+       /js/contact-modal.js controls opening and closing.
+       ========================================================= */
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: none;
+      place-items: center;
+      padding: 20px;
+      background: rgba(4, 16, 29, .76);
+      backdrop-filter: blur(7px);
+    }
+
+    .modal-overlay.open {
+      display: grid;
+    }
+
+    .contact-modal {
+      position: relative;
+      width: min(100%, 820px);
+      max-height: 92vh;
+      overflow-y: auto;
+      padding: 38px;
+      border-radius: 18px;
+      background: #fff;
+      color: var(--ink);
+      box-shadow: 0 24px 75px rgba(0, 0, 0, .34);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      display: grid;
+      width: 39px;
+      height: 39px;
+      place-items: center;
+      border: 1px solid #dfe7ef;
+      border-radius: 50%;
+      color: var(--ink);
+      background: #fff;
+      font-size: 1.25rem;
+    }
+
+    .contact-modal h2 {
+      margin: 0 0 6px;
+      color: var(--ink);
+      font-size: 2rem;
+      line-height: 1.15;
+    }
+
+    .contact-modal > p {
+      margin: 0 0 24px;
+      color: var(--muted);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .form-group {
+      display: grid;
+      gap: 6px;
+    }
+
+    .form-group-full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      color: #33475c;
+      font-size: .86rem;
+      font-weight: 750;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 13px;
+      border: 1px solid #ced9e4;
+      border-radius: 10px;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: 3px solid rgba(42, 107, 196, .13);
+      border-color: #2a6bc4;
+    }
+
+    .form-group textarea {
+      min-height: 115px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 22px;
+    }
+
+    .form-note {
+      max-width: 390px;
+      color: var(--muted);
+      font-size: .77rem;
+    }
+
+
+    /* =========================================================
+       SHARED ECOPOWER HEADER
+       ========================================================= */
+
+    :root {
+      --header-height: 76px;
+    }
+
+    body {
+      padding-top: var(--header-height);
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+      min-height: var(--header-height);
+      color: #fff;
+      background: rgba(7, 26, 48, .96);
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+      box-shadow: 0 4px 20px rgba(7, 26, 48, .16);
+    }
+
+    .site-header .container {
+      width: min(100% - 40px, 1180px);
+      margin-inline: auto;
+    }
+
+    .header-inner {
+      display: flex;
+      min-height: var(--header-height);
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .brand img {
+      width: auto;
+      height: 42px;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 44px;
+      font-size: .92rem;
+      font-weight: 700;
+    }
+
+    .main-nav a {
+      text-decoration: none;
+    }
+
+    .main-nav a:not(.btn) {
+      color: #e8eef5;
+    }
+
+    .nav-dropdown {
+      position: relative;
+      background: transparent;
+      border: 0;
+      padding: 0;
+    }
+
+    .nav-dropdown:last-child {
+      border: 0;
+    }
+
+    .nav-dropdown summary {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 6px;
+      padding: 0;
+      border: 0;
+      color: #e8eef5;
+      font-size: .92rem;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .nav-dropdown summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .nav-dropdown summary::after {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border: 0;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+    }
+
+    .nav-dropdown[open] summary::after {
+      content: "";
+      transform: translateY(2px) rotate(225deg);
+    }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: -18px;
+      z-index: 30;
+      min-width: 190px;
+      padding: 8px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 12px;
+      background: rgba(7, 26, 48, .99);
+      box-shadow: 0 16px 36px rgba(4, 16, 29, .3);
+    }
+
+    .main-nav .nav-dropdown-menu a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: #e8eef5;
+      white-space: nowrap;
+    }
+
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-shrink: 0;
+    }
+
+    .header-contact .btn-primary {
+      min-height: 48px;
+      border-radius: 999px;
+      background: #10b981;
+      color: #052e22;
+    }
+
+    .header-company-info {
+      display: grid;
+      gap: 2px;
+      margin: 0;
+      color: #d7e0ea;
+      font-size: .66rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 1.25;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .header-company-info a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, .32);
+      border-radius: 50%;
+      color: #fff;
+      background: transparent;
+    }
+
+    .menu-toggle svg {
+      width: 21px;
+      height: 21px;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 1100px) {
+      .main-nav {
+        gap: 30px;
+      }
+
+      .header-company-info {
+        font-size: .62rem;
+      }
+    }
+
+    @media (max-width: 900px) {
+      :root {
+        --header-height: 68px;
+      }
+
+      .links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .hero-grid,
+      .intro,
+      .rebate-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        padding: 70px 24px;
+      }
+
+      .hero-media {
+        height: 460px;
+      }
+
+      .proof-row {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-item {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .stages {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stage:nth-child(2) {
+        border-right: 0;
+      }
+
+      .stage:nth-child(-n+2) {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+
+      .step::after {
+        display: none;
+      }
+
+      .cta-grid {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .brand img {
+        height: 38px;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .header-contact .header-company-info,
+      .header-contact .btn {
+        display: none;
+      }
+
+      .main-nav {
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        display: grid;
+        max-height: 0;
+        overflow: hidden;
+        gap: 0;
+        padding: 0 20px;
+        opacity: 0;
+        background: rgba(7, 26, 48, .99);
+        transition:
+          max-height .25s ease,
+          opacity .18s ease,
+          padding .25s ease;
+      }
+
+      .main-nav.open {
+        max-height: 520px;
+        padding: 12px 20px 20px;
+        opacity: 1;
+      }
+
+      .main-nav > a,
+      .nav-dropdown summary {
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, .08);
+      }
+
+      .nav-dropdown summary {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .nav-dropdown-menu {
+        position: static;
+        min-width: 0;
+        padding: 2px 0 2px 16px;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .wrap {
+        width: min(100% - 28px, 1160px);
+      }
+
+      .topbar .wrap span:last-child {
+        display: none;
+      }
+
+      .nav {
+        height: 70px;
+      }
+
+      .logo {
+        width: 145px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .nav .btn {
+        width: auto;
+        min-height: 42px;
+        padding: 8px 12px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .hero-note {
+        left: 20px;
+        bottom: 20px;
+        width: calc(100% - 40px);
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .stages,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .stage {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .stage:last-child {
+        border-bottom: 0;
+      }
+
+      .card {
+        grid-template-columns: 1fr;
+      }
+
+      .rebate {
+        padding: 70px 0;
+      }
+
+      .rebate-panel {
+        padding: 28px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta {
+        padding: 70px 0;
+      }
+
+      .contact-modal {
+        padding: 34px 20px 24px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group-full {
+        grid-column: auto;
+      }
+
+      .form-submit {
+        align-items: stretch;
+      }
+
+      .form-submit .btn {
+        width: 100%;
+      }
+    }
   </style>
 </head>
+
 <body>
+
+  <!-- Shared EcoPower header -->
   <div id="site-header-include"></div>
+
   <script>
-    (function(){var mount=document.getElementById('site-header-include');fetch('/header').then(function(response){if(!response.ok)throw new Error('Header request failed: '+response.status);return response.text();}).then(function(html){mount.outerHTML=html;var menuToggle=document.getElementById('menuToggle'),mainNav=document.getElementById('mainNav');if(menuToggle&&mainNav){menuToggle.addEventListener('click',function(){var open=mainNav.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));});mainNav.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){mainNav.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');});});}var contactButton=document.querySelector('.site-header .open-contact');if(contactButton)contactButton.addEventListener('click',function(){window.location.href='/#contact';});}).catch(function(error){console.error('EcoPower shared header could not be loaded.',error);});}());
+    (function () {
+      var mount = document.getElementById("site-header-include");
+
+      fetch("/header")
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error(
+              "Header request failed: " + response.status
+            );
+          }
+
+          return response.text();
+        })
+        .then(function (html) {
+          mount.outerHTML = html;
+
+          var menuToggle =
+            document.getElementById("menuToggle");
+
+          var mainNav =
+            document.getElementById("mainNav");
+
+          if (menuToggle && mainNav) {
+            menuToggle.addEventListener(
+              "click",
+              function () {
+                var open =
+                  mainNav.classList.toggle("open");
+
+                menuToggle.setAttribute(
+                  "aria-expanded",
+                  String(open)
+                );
+              }
+            );
+
+            mainNav
+              .querySelectorAll("a")
+              .forEach(function (link) {
+                link.addEventListener(
+                  "click",
+                  function () {
+                    mainNav.classList.remove("open");
+
+                    menuToggle.setAttribute(
+                      "aria-expanded",
+                      "false"
+                    );
+                  }
+                );
+              });
+          }
+
+          document.dispatchEvent(
+            new Event("ecopower:header-ready")
+          );
+        })
+        .catch(function (error) {
+          console.error(
+            "EcoPower shared header could not be loaded.",
+            error
+          );
+        });
+    })();
   </script>
+
+
   <main>
+
+    <!-- HERO -->
+
     <section class="hero">
       <div class="hero-grid">
+
         <div class="hero-copy">
-          <p class="eyebrow">Whole-home electrification</p>
-          <h1>Make the switch to efficient electric.</h1>
-          <p>Replace qualifying fossil-fuel equipment with high-efficiency electric systems—planned around your home, your comfort, and the incentives that may be available to you.</p>
-          <div class="actions"><a class="btn btn-primary" href="https://ecopowersol.com/#contact">Start With an Energy Audit <span>→</span></a><a class="btn btn-outline" href="#how-it-works">See How It Works</a></div>
+          <p class="eyebrow">
+            Whole-home electrification
+          </p>
+
+          <h1>
+            Make the switch to efficient electric.
+          </h1>
+
+          <p>
+            Replace qualifying fossil-fuel equipment with
+            high-efficiency electric systems—planned
+            around your home, your comfort, and the
+            incentives that may be available to you.
+          </p>
+
+          <div class="actions">
+            <a
+              class="btn btn-primary open-contact"
+              href="#contact"
+            >
+              Start With an Energy Audit
+              <span>→</span>
+            </a>
+
+            <a
+              class="btn btn-outline"
+              href="#how-it-works"
+            >
+              See How It Works
+            </a>
+          </div>
         </div>
+
+
         <div class="hero-media">
-          <img src="https://ecopowersol.com/images/Contractor-Installing-Heat-Pump.jpg" alt="Technician installing efficient heat pump equipment">
-          <div class="hero-note"><strong>One coordinated plan.</strong><span>Audit, modeling, equipment, electrical readiness, installation, testing, and rebate support.</span></div>
+          <img
+            src="/images/Contractor-Installing-Heat-Pump.jpg"
+            alt="Technician installing efficient heat pump equipment"
+          >
+
+          <div class="hero-note">
+            <strong>
+              One coordinated plan.
+            </strong>
+
+            <span>
+              Audit, modeling, equipment, electrical
+              readiness, installation, testing, and
+              rebate support.
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PROOF -->
+
+    <section class="proof">
+      <div class="wrap proof-row">
+
+        <div class="proof-item">
+          <span class="check">✓</span>
+
+          <div>
+            <strong>BPI-led diagnosis</strong>
+            <br>
+            <small>Start with the whole home</small>
+          </div>
+        </div>
+
+
+        <div class="proof-item">
+          <span class="check">✓</span>
+
+          <div>
+            <strong>BGE program guidance</strong>
+            <br>
+            <small>Model qualifying opportunities</small>
+          </div>
+        </div>
+
+
+        <div class="proof-item">
+          <span class="check">✓</span>
+
+          <div>
+            <strong>Audit-to-upgrade support</strong>
+            <br>
+            <small>One team through completion</small>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PRACTICAL TRANSITION -->
+
+    <section class="section">
+      <div class="wrap">
+
+        <div class="intro">
+
+          <div>
+            <p class="eyebrow">
+              A practical transition
+            </p>
+
+            <h2>
+              Electrification works best as a whole-home
+              project.
+            </h2>
+          </div>
+
+
+          <div class="intro-copy">
+            <p>
+              Electrification means replacing—or partially
+              replacing—equipment that burns natural gas,
+              oil, or propane with efficient electric
+              technology.
+              <strong>
+                It is not simply an equipment swap.
+              </strong>
+            </p>
+
+            <p>
+              The best plan considers heat loss,
+              insulation, air leakage, ductwork,
+              ventilation, electrical capacity, equipment
+              sizing, and the way each system affects the
+              rest of your home. EcoPower begins with the
+              data, then builds a prioritized path around
+              your needs.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="stages">
+
+          <article class="stage">
+            <span class="stage-num">
+              01 / REDUCE LOAD
+            </span>
+
+            <h3>Seal and insulate</h3>
+
+            <p>
+              Address avoidable energy loss so new
+              equipment can perform efficiently.
+            </p>
+          </article>
+
+
+          <article class="stage">
+            <span class="stage-num">
+              02 / RIGHT-SIZE
+            </span>
+
+            <h3>Use audit data</h3>
+
+            <p>
+              Plan around the home’s actual heating,
+              cooling, and hot-water needs.
+            </p>
+          </article>
+
+
+          <article class="stage">
+            <span class="stage-num">
+              03 / PREPARE
+            </span>
+
+            <h3>Check readiness</h3>
+
+            <p>
+              Review panels, circuits, controls,
+              ductwork, and installation conditions.
+            </p>
+          </article>
+
+
+          <article class="stage">
+            <span class="stage-num">
+              04 / VERIFY
+            </span>
+
+            <h3>Test the result</h3>
+
+            <p>
+              Commission equipment and complete required
+              program documentation.
+            </p>
+          </article>
+
         </div>
       </div>
     </section>
-    <section class="proof"><div class="wrap proof-row"><div class="proof-item"><span class="check">✓</span><div><strong>BPI-led diagnosis</strong><br><small>Start with the whole home</small></div></div><div class="proof-item"><span class="check">✓</span><div><strong>BGE program guidance</strong><br><small>Model qualifying opportunities</small></div></div><div class="proof-item"><span class="check">✓</span><div><strong>Audit-to-upgrade support</strong><br><small>One team through completion</small></div></div></div></section>
 
-    <section class="section"><div class="wrap">
-      <div class="intro"><div><p class="eyebrow">A practical transition</p><h2>Electrification works best as a whole-home project.</h2></div><div class="intro-copy"><p>Electrification means replacing—or partially replacing—equipment that burns natural gas, oil, or propane with efficient electric technology. <strong>It is not simply an equipment swap.</strong></p><p>The best plan considers heat loss, insulation, air leakage, ductwork, ventilation, electrical capacity, equipment sizing, and the way each system affects the rest of your home. EcoPower begins with the data, then builds a prioritized path around your needs.</p></div></div>
-      <div class="stages"><article class="stage"><span class="stage-num">01 / REDUCE LOAD</span><h3>Seal and insulate</h3><p>Address avoidable energy loss so new equipment can perform efficiently.</p></article><article class="stage"><span class="stage-num">02 / RIGHT-SIZE</span><h3>Use audit data</h3><p>Plan around the home’s actual heating, cooling, and hot-water needs.</p></article><article class="stage"><span class="stage-num">03 / PREPARE</span><h3>Check readiness</h3><p>Review panels, circuits, controls, ductwork, and installation conditions.</p></article><article class="stage"><span class="stage-num">04 / VERIFY</span><h3>Test the result</h3><p>Commission equipment and complete required program documentation.</p></article></div>
-    </div></section>
 
-    <section class="section options"><div class="wrap"><div class="section-head"><p class="eyebrow">Your electrification options</p><h2>Upgrade the systems that use the most energy.</h2><p>EcoPower can help coordinate qualifying improvements as one integrated scope or as a phased plan timed around equipment replacement.</p></div><div class="cards">
-      <article class="card"><div class="icon">↕</div><div><h3>Heat-pump heating &amp; cooling</h3><p>High-efficiency air-source heat pumps provide heating and cooling in one system. Options may include central, ducted, ductless, or hybrid configurations.</p></div></article>
-      <article class="card"><div class="icon">♨</div><div><h3>Heat-pump water heating</h3><p>Move heat instead of creating it directly. We assess location, clearances, condensate, airflow, electrical needs, and household demand.</p></div></article>
-      <article class="card"><div class="icon">⚡</div><div><h3>Electrical readiness</h3><p>Plan panel, circuit, wiring, control, and other supporting improvements connected to qualifying electric equipment.</p></div></article>
-      <article class="card"><div class="icon">⌂</div><div><h3>Building-envelope improvements</h3><p>Pair equipment with insulation, air sealing, duct sealing, and ventilation measures identified by the audit.</p></div></article>
-    </div></div></section>
+    <!-- OPTIONS -->
 
-    <section class="rebate"><div class="wrap rebate-grid"><div><p class="eyebrow">BGE Home Performance</p><h2>Electrification may unlock additional rebate value.</h2><p>Eligible BGE customers who pair qualifying electrification measures with air sealing and insulation may be able to access enhanced Home Performance incentives.</p><a class="btn btn-dark" href="https://ecopowersol.com/#contact">Check Your Pathway →</a></div><div class="rebate-panel"><span class="amount">Up to<br>$15,000</span><p>or up to 75% of qualifying project cost when eligible electrification measures are included.</p><p class="fine">Rebates depend on modeled energy savings, eligible measures, project cost, utility account status, installation requirements, available funding, and current BGE program rules. Maximums are not guaranteed.</p></div></div></section>
+    <section class="section options">
+      <div class="wrap">
 
-    <section class="section" id="how-it-works"><div class="wrap"><div class="section-head"><p class="eyebrow">One team, start to finish</p><h2>Your path from audit to upgrade.</h2></div><div class="steps"><article class="step"><h3>Schedule</h3><p>Tell us about your home, comfort concerns, utility, and existing equipment.</p></article><article class="step"><h3>Diagnose</h3><p>Complete whole-home testing and evaluate the building shell and systems.</p></article><article class="step"><h3>Model</h3><p>Compare measures, modeled savings, project costs, and potential incentives.</p></article><article class="step"><h3>Install</h3><p>Coordinate selected envelope, equipment, controls, and supporting work.</p></article><article class="step"><h3>Verify</h3><p>Complete testing, commissioning, and required rebate documentation.</p></article></div></div></section>
+        <div class="section-head">
+          <p class="eyebrow">
+            Your electrification options
+          </p>
 
-    <section class="section faq"><div class="wrap"><div class="section-head"><p class="eyebrow">Common questions</p><h2>Electrification, explained.</h2></div>
-      <details><summary>Do I need to electrify my entire home at once?</summary><p>No. A plan may be full, partial, or phased. Many homeowners begin with an audit, improve the envelope, and time equipment changes around condition, budget, comfort needs, and incentive eligibility.</p></details>
-      <details><summary>Why start with an energy audit?</summary><p>An audit reveals air leakage, insulation gaps, duct conditions, safety concerns, and the home’s energy profile. That information helps create a better scope and supports BGE-approved energy modeling when pursuing Home Performance rebates.</p></details>
-      <details><summary>Will a heat pump keep my home comfortable in winter?</summary><p>Modern heat pumps are designed for year-round heating and cooling. The right answer depends on equipment selection, design temperature, sizing, the building envelope, ductwork, and whether a full-electric or hybrid approach best fits the home.</p></details>
-      <details><summary>Are incentives guaranteed?</summary><p>No. Eligibility and amounts depend on the customer account, property, selected measures, modeled savings, project cost, installation requirements, available funding, and current program rules. EcoPower helps verify the applicable pathway before work proceeds.</p></details>
-      <p class="source-note">Program information informed by current BGE Smart Energy Home Performance and electrification guidance. ENERGY STAR equipment benefits are described conservatively; eligibility should always be verified for the specific home and equipment.</p>
-    </div></section>
+          <h2>
+            Upgrade the systems that use the most energy.
+          </h2>
 
-    <section class="cta"><div class="wrap cta-grid"><div><p class="eyebrow">Start with the right first step</p><h2>Build an electrification plan around your home.</h2><p>Schedule a qualifying home energy audit. EcoPower will help assess your home, prioritize improvements, and identify the rebate pathway that may apply.</p></div><a class="btn btn-primary" href="https://ecopowersol.com/#contact">Schedule Your Energy Audit →</a></div></section>
+          <p>
+            EcoPower can help coordinate qualifying
+            improvements as one integrated scope or as a
+            phased plan timed around equipment
+            replacement.
+          </p>
+        </div>
+
+
+        <div class="cards">
+
+          <article class="card">
+            <div class="icon">↕</div>
+
+            <div>
+              <h3>
+                Heat-pump heating &amp; cooling
+              </h3>
+
+              <p>
+                High-efficiency air-source heat pumps
+                provide heating and cooling in one system.
+                Options may include central, ducted,
+                ductless, or hybrid configurations.
+              </p>
+            </div>
+          </article>
+
+
+          <article class="card">
+            <div class="icon">♨</div>
+
+            <div>
+              <h3>
+                Heat-pump water heating
+              </h3>
+
+              <p>
+                Move heat instead of creating it directly.
+                We assess location, clearances,
+                condensate, airflow, electrical needs,
+                and household demand.
+              </p>
+            </div>
+          </article>
+
+
+          <article class="card">
+            <div class="icon">⚡</div>
+
+            <div>
+              <h3>
+                Electrical readiness
+              </h3>
+
+              <p>
+                Plan panel, circuit, wiring, control, and
+                other supporting improvements connected
+                to qualifying electric equipment.
+              </p>
+            </div>
+          </article>
+
+
+          <article class="card">
+            <div class="icon">⌂</div>
+
+            <div>
+              <h3>
+                Building-envelope improvements
+              </h3>
+
+              <p>
+                Pair equipment with insulation, air
+                sealing, duct sealing, and ventilation
+                measures identified by the audit.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- REBATES -->
+
+    <section class="rebate">
+      <div class="wrap rebate-grid">
+
+        <div>
+          <p class="eyebrow">
+            BGE Home Performance
+          </p>
+
+          <h2>
+            Electrification may unlock additional rebate
+            value.
+          </h2>
+
+          <p>
+            Eligible BGE customers who pair qualifying
+            electrification measures with air sealing
+            and insulation may be able to access enhanced
+            Home Performance incentives.
+          </p>
+
+          <a
+            class="btn btn-dark open-contact"
+            href="#contact"
+          >
+            Check Your Pathway →
+          </a>
+        </div>
+
+
+        <div class="rebate-panel">
+          <span class="amount">
+            Up to<br>$15,000
+          </span>
+
+          <p>
+            or up to 75% of qualifying project cost when
+            eligible electrification measures are
+            included.
+          </p>
+
+          <p class="fine">
+            Rebates depend on modeled energy savings,
+            eligible measures, project cost, utility
+            account status, installation requirements,
+            available funding, and current BGE program
+            rules. Maximums are not guaranteed.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+
+    <section
+      class="section"
+      id="how-it-works"
+    >
+      <div class="wrap">
+
+        <div class="section-head">
+          <p class="eyebrow">
+            One team, start to finish
+          </p>
+
+          <h2>
+            Your path from audit to upgrade.
+          </h2>
+        </div>
+
+
+        <div class="steps">
+
+          <article class="step">
+            <h3>Schedule</h3>
+
+            <p>
+              Tell us about your home, comfort concerns,
+              utility, and existing equipment.
+            </p>
+          </article>
+
+
+          <article class="step">
+            <h3>Diagnose</h3>
+
+            <p>
+              Complete whole-home testing and evaluate
+              the building shell and systems.
+            </p>
+          </article>
+
+
+          <article class="step">
+            <h3>Model</h3>
+
+            <p>
+              Compare measures, modeled savings, project
+              costs, and potential incentives.
+            </p>
+          </article>
+
+
+          <article class="step">
+            <h3>Install</h3>
+
+            <p>
+              Coordinate selected envelope, equipment,
+              controls, and supporting work.
+            </p>
+          </article>
+
+
+          <article class="step">
+            <h3>Verify</h3>
+
+            <p>
+              Complete testing, commissioning, and
+              required rebate documentation.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- FAQ -->
+
+    <section class="section faq">
+      <div class="wrap">
+
+        <div class="section-head">
+          <p class="eyebrow">
+            Common questions
+          </p>
+
+          <h2>
+            Electrification, explained.
+          </h2>
+        </div>
+
+
+        <details>
+          <summary>
+            Do I need to electrify my entire home at once?
+          </summary>
+
+          <p>
+            No. A plan may be full, partial, or phased.
+            Many homeowners begin with an audit, improve
+            the envelope, and time equipment changes
+            around condition, budget, comfort needs, and
+            incentive eligibility.
+          </p>
+        </details>
+
+
+        <details>
+          <summary>
+            Why start with an energy audit?
+          </summary>
+
+          <p>
+            An audit reveals air leakage, insulation gaps,
+            duct conditions, safety concerns, and the
+            home’s energy profile. That information helps
+            create a better scope and supports BGE-approved
+            energy modeling when pursuing Home Performance
+            rebates.
+          </p>
+        </details>
+
+
+        <details>
+          <summary>
+            Will a heat pump keep my home comfortable in
+            winter?
+          </summary>
+
+          <p>
+            Modern heat pumps are designed for year-round
+            heating and cooling. The right answer depends
+            on equipment selection, design temperature,
+            sizing, the building envelope, ductwork, and
+            whether a full-electric or hybrid approach
+            best fits the home.
+          </p>
+        </details>
+
+
+        <details>
+          <summary>
+            Are incentives guaranteed?
+          </summary>
+
+          <p>
+            No. Eligibility and amounts depend on the
+            customer account, property, selected measures,
+            modeled savings, project cost, installation
+            requirements, available funding, and current
+            program rules. EcoPower helps verify the
+            applicable pathway before work proceeds.
+          </p>
+        </details>
+
+
+        <p class="source-note">
+          Program information informed by current BGE
+          Smart Energy Home Performance and
+          electrification guidance. ENERGY STAR equipment
+          benefits are described conservatively;
+          eligibility should always be verified for the
+          specific home and equipment.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+      <div class="wrap cta-grid">
+
+        <div>
+          <p class="eyebrow">
+            Start with the right first step
+          </p>
+
+          <h2>
+            Build an electrification plan around your
+            home.
+          </h2>
+
+          <p>
+            Schedule a qualifying home energy audit.
+            EcoPower will help assess your home,
+            prioritize improvements, and identify the
+            rebate pathway that may apply.
+          </p>
+        </div>
+
+
+        <a
+          class="btn btn-primary open-contact"
+          href="#contact"
+        >
+          Schedule Your Energy Audit →
+        </a>
+
+      </div>
+    </section>
+
   </main>
-  <footer class="footer"><div class="wrap"><div class="footer-grid"><div><img class="logo" src="https://ecopowersol.com/images/EcoPower_Logo_Shiny_Silver_Upscaled_4x_SHARP.png" alt="EcoPower Solutions"><p>Maryland home energy audits, electrification, weatherization, and home-performance improvements.</p></div><div><strong>Contact</strong><p><a href="tel:+14109294254">410-929-4254</a><br><a href="mailto:info@ecopowersol.com">info@ecopowersol.com</a><br>1724 Woodlawn Drive, Suite 12B<br>Baltimore, MD 21207</p></div><div><strong>Credentials</strong><p>BGE Energy Efficiency Participating Service Provider<br>BPI Certified<br>MHIC #129718</p></div></div><small>© 2026 EcoPower Solutions. Participation in a utility program does not imply utility endorsement. Incentives and program rules may change.</small></div></footer>
-  <script>document.querySelectorAll('details').forEach(item=>item.addEventListener('toggle',()=>{if(item.open)document.querySelectorAll('details[open]').forEach(other=>{if(other!==item)other.open=false})}))</script>
+
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+    <div class="wrap">
+
+      <div class="footer-grid">
+
+        <div>
+          <img
+            class="logo"
+            src="/images/EcoPower_Logo_Shiny_Silver_Upscaled_4x_SHARP.png"
+            alt="EcoPower Solutions"
+          >
+
+          <p>
+            Maryland home energy audits,
+            electrification, weatherization, and
+            home-performance improvements.
+          </p>
+        </div>
+
+
+        <div>
+          <strong>Contact</strong>
+
+          <p>
+            <a href="tel:+14109294254">
+              410-929-4254
+            </a>
+            <br>
+
+            <a href="mailto:info@ecopowersol.com">
+              info@ecopowersol.com
+            </a>
+            <br>
+
+            1724 Woodlawn Drive, Suite 12B
+            <br>
+
+            Baltimore, MD 21207
+          </p>
+        </div>
+
+
+        <div>
+          <strong>Credentials</strong>
+
+          <p>
+            BGE Energy Efficiency Participating Service
+            Provider
+            <br>
+
+            BPI Certified
+            <br>
+
+            MHIC #129718
+          </p>
+        </div>
+
+      </div>
+
+
+      <small>
+        © 2026 EcoPower Solutions. Participation in a
+        utility program does not imply utility
+        endorsement. Incentives and program rules may
+        change.
+      </small>
+
+    </div>
+  </footer>
+
+
+  <!-- =======================================================
+       SHARED CONTACT MODAL
+
+       Modal markup:
+       /contact-modal
+
+       Modal behavior:
+       /js/contact-modal.js
+       ======================================================= -->
+
+  <div id="contact-modal-include"></div>
+
+  <script src="/js/contact-modal.js"></script>
+
+
+  <!-- PAGE-SPECIFIC JAVASCRIPT -->
+
+  <script>
+    document
+      .querySelectorAll("details")
+      .forEach(function (item) {
+        item.addEventListener(
+          "toggle",
+          function () {
+            if (item.open) {
+              document
+                .querySelectorAll("details[open]")
+                .forEach(function (other) {
+                  if (other !== item) {
+                    other.open = false;
+                  }
+                });
+            }
+          }
+        );
+      });
+  </script>
+
 </body>
 </html>
