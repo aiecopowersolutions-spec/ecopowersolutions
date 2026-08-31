@@ -166,40 +166,10 @@
     </div>
     <div class="container footer-bottom">© <span id="year">2026</span> EcoPower Solutions. All rights reserved.</div>
   </footer>
-  <div class="modal-overlay" id="contactModal" aria-hidden="true">
-    <section class="contact-modal" id="contact" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
-      <button class="modal-close" id="modalClose" type="button" aria-label="Close contact form">×</button>
-      <span class="eyebrow">Schedule your audit</span>
-      <h2 id="contactTitle">Tell us about your Maryland home.</h2>
-      <p>EcoPower will follow up to confirm the property, utility account, service area, audit availability, and next steps.</p>
-      <form action="https://formsubmit.co/info@ecopowersol.com" method="POST">
-        <input name="_subject" type="hidden" value="New EcoPower Solutions Energy Audit Request">
-        <input name="_captcha" type="hidden" value="false">
-        <input name="_template" type="hidden" value="table">
-        <div class="form-grid">
-          <div class="form-group"><label for="firstName">First name *</label><input autocomplete="given-name" id="firstName" name="firstName" required type="text"></div>
-          <div class="form-group"><label for="lastName">Last name *</label><input autocomplete="family-name" id="lastName" name="lastName" required type="text"></div>
-          <div class="form-group"><label for="email">Email address *</label><input autocomplete="email" id="email" name="email" required type="email"></div>
-          <div class="form-group"><label for="phone">Phone number *</label><input autocomplete="tel" id="phone" name="phone" required type="tel"></div>
-          <div class="form-group form-group-full"><label for="address">Property address *</label><input autocomplete="street-address" id="address" name="address" required type="text"></div>
-          <div class="form-group"><label for="utility">Utility</label><select id="utility" name="utility"><option value="">Select utility</option><option value="BGE">BGE</option><option value="Pepco">Pepco</option><option value="Potomac Edison">Potomac Edison</option><option value="Delmarva Power">Delmarva Power</option><option value="SMECO">SMECO</option><option value="Other / Unsure">Other / Unsure</option></select></div>
-          <div class="form-group"><label for="interest">Primary interest</label><select id="interest" name="interest"><option value="Home energy audit">Home energy audit</option><option value="Rebates and insulation">Rebates and insulation</option><option value="Air sealing">Air sealing</option><option value="Heat pump HVAC">Heat pump HVAC</option><option value="Heat pump water heater">Heat pump water heater</option><option value="Weatherization">Weatherization</option><option value="Commercial HVAC tune-up">Commercial HVAC tune-up</option></select></div>
-          <div class="form-group form-group-full"><label for="message">How can we help? *</label><textarea id="message" name="message" placeholder="Tell us about comfort problems, high bills, planned upgrades, or rebates you want to explore." required></textarea></div>
-        </div>
-        <div class="form-submit"><p class="form-note">Submitting this form does not guarantee program or rebate eligibility. EcoPower will verify the applicable pathway with you.</p><button class="btn btn-primary" type="submit">Request Your Audit</button></div>
-      </form>
-    </section>
-  </div>
+  <!-- Shared contact modal -->
+  <div id="contact-modal-include"></div>
+  <script src="/js/contact-modal.js"></script>
   <script>
-    const contactModal=document.getElementById('contactModal');
-    const modalClose=document.getElementById('modalClose');
-    let lastFocusedElement=null;
-    function openModal(event){event.preventDefault();lastFocusedElement=document.activeElement;contactModal.classList.add('open');contactModal.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');setTimeout(()=>{const firstField=contactModal.querySelector('input,select,textarea,button');if(firstField)firstField.focus();},20);}
-    function closeModal(){contactModal.classList.remove('open');contactModal.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');if(lastFocusedElement)lastFocusedElement.focus();}
-    document.querySelectorAll('.open-contact').forEach(button=>button.addEventListener('click',openModal));
-    modalClose.addEventListener('click',closeModal);
-    contactModal.addEventListener('click',event=>{if(event.target===contactModal)closeModal();});
-    document.addEventListener('keydown',event=>{if(event.key==='Escape'&&contactModal.classList.contains('open'))closeModal();});
     document.getElementById('year').textContent=new Date().getFullYear();
   </script>
 </body>
